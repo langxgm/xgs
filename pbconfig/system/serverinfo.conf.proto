@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// 服务器信息
+message ServerInfo {
+	string from_c_http_gamekey = 1; // 来自客户端HTTP连接的gamekey
+}

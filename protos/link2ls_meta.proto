@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package protos;
+
+// 网关->登陆的元数据
+message Link2LSMeta {
+	int64 userid = 1; // userid
+}
+
+// 登陆->网关的元数据
+message LS2LinkMeta {
+	int64 userid = 1; // userid
+}
+
+// 网关->登陆的RPC元数据
+message Link2LSRpcMeta {
+	Link2LSMeta req = 1; // 请求
+	LS2LinkMeta resp = 2; // 回应
+}

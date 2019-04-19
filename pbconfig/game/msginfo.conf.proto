@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// 消息方向
+message MsgDir {
+	bool c2w = 1; // C->W
+	bool w2c = 2; // W->C
+}
+
+// 消息日志
+message MsgLog {
+	bool on = 1; // 开关
+}
+
+// 消息配置信息
+message MsgInfo {
+	string title = 1; // 标题
+	string name = 2; // 名称
+	bool open = 3; // 开启
+	MsgDir dir = 4; // 方向
+	MsgLog log = 5; // 日志
+}

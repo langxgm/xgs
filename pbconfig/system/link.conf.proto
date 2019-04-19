@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// 登陆网关服务器配置
+message LinkConfig {
+
+	// 资源模块
+	message ResourceModule {
+	}
+
+	// 逻辑模块
+	message LogicModule {
+		uint32 work_thread_num = 1; // 工作线程数量
+	}
+
+	// 数据库模块
+	message DatabaseModule {
+	}
+
+	// 网络模块
+	message NetworkModule {
+		string from_c_listen_addr = 1; // 监听客户端的ip:port
+		uint32 from_c_thread_num = 2; // 线程数
+		uint32 from_c_session_num = 3; // 预计连接数
+
+		string to_ls_remote_addr = 4; // 连接LoginServer的ip:port
+		uint32 to_ls_thread_num = 5; // 线程数
+		uint32 to_ls_session_num = 6; // 预计连接数
+	}
+
+	LogicModule logicModule = 1; // 逻辑模块
+	NetworkModule networkModule = 2; // 网络模块
+}

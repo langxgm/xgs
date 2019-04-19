@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package protos;
+
+// 网关->世界的元数据
+message GWS2WMeta {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 世界->网关的元数据
+message W2GWSMeta {
+	int64 guid = 1; // PlayerGUID
+	repeated int64 guids = 2; // 多个PlayerGUID
+	int64 group_id = 3; // 组ID
+	repeated int64 group_ids = 4; // 多个组ID
+}
+
+// 网关->世界的RPC元数据
+message GWS2WRpcMeta {
+	GWS2WMeta req = 1; // 请求
+	W2GWSMeta resp = 2; // 回应
+}
+
+
+
+// 网关->游戏的元数据
+message GWS2GMeta {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 游戏->网关的元数据
+message G2GWSMeta {
+	int64 guid = 1; // PlayerGUID
+	repeated int64 guids = 2; // 多个PlayerGUID
+	int64 group_id = 3; // 组ID
+	repeated int64 group_ids = 4; // 多个组ID
+}
+
+// 网关->游戏的RPC元数据
+message GWS2GRpcMeta {
+	GWS2GMeta req = 1; // 请求
+	G2GWSMeta resp = 2; // 回应
+}
+
+
+
+// 游戏->世界的元数据
+message GWMeta {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 世界->游戏的元数据
+message WGMeta {
+	int64 guid = 1; // PlayerGUID
+	repeated int64 guids = 2; // 多个PlayerGUID
+}
+
+// 游戏->世界的RPC元数据
+message GWRpcMeta {
+	GWMeta req = 1; // 请求
+	WGMeta resp = 2; // 回应
+}

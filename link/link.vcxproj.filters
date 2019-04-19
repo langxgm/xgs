@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{f0c9e7a3-b3f7-46d7-97ba-c72747fa8af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\modules">
+      <UniqueIdentifier>{9c05dced-5890-4bb6-9021-b3f971b7b763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{0ad046cb-6df8-4f60-9581-b59daed6ee59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{54cb7ee2-f9e1-4e04-9d90-9b9c2f3fec63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pbconfig">
+      <UniqueIdentifier>{5b8a96ab-e02f-463f-87c6-dfa4c5e13991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protos">
+      <UniqueIdentifier>{562e6aa1-86ef-47d7-a33b-dacd5f1c1151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{514d707d-8214-44ef-ba81-796aa8d71131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\user">
+      <UniqueIdentifier>{62d6412e-0831-45b1-9a47-f5bf847e1702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{48d2de17-361f-4d8f-9a8c-9d04a49b361b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\net">
+      <UniqueIdentifier>{7ed55aca-cefc-4cbf-8fc6-7643ef501207}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LinkServer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\DatabaseModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LogicModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\NetworkModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\ResourceModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\LoginHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_client_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="config\SystemConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\link.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_ls_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\core.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\verify.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login2sdk.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserLink.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserLinkManager.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\net\NetHeartbeat.cpp">
+      <Filter>common\net</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\link2ls_meta.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main\LinkServer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\DatabaseModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\LogicModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\NetworkModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\ResourceModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\LoginHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_client_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\HandleMsgMacros.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="config\SystemConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\link.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_ls_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\core.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\verify.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login2sdk.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserLink.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserLinkManager.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\NetHeartbeat.h">
+      <Filter>common\net</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\link2ls_meta.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

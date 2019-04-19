@@ -1,0 +1,31 @@
+{
+	"logicModule": {
+		"work_thread_num": 2
+	},
+
+	"databaseModule": {
+		"host": "mongodb://127.0.0.1:27017/?maxPoolSize=1000",
+		"username": "",
+		"password": "",
+		"dbname": "worlddb",
+
+		"redis_host": "127.0.0.1:6379",
+		"redis_username": "",
+		"redis_password": "",
+		"redis_dbname": ""
+	},
+
+	"networkModule": {
+		"from_gws_listen_addr": "0.0.0.0:21001",
+		"from_gws_thread_num": 1,
+		"from_gws_session_num": 10,
+
+		"from_gs_listen_addr": "0.0.0.0:20001",
+		"from_gs_thread_num": 1,
+		"from_gs_session_num": 10,
+
+		"to_sdk_remote_addr": "127.0.0.1:30001",
+		"to_sdk_thread_num": 1,
+		"to_sdk_session_num": 1
+	}
+}

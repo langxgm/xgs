@@ -1,0 +1,26 @@
+{
+	"logicModule": {
+		"work_thread_num": 0
+	},
+
+	"networkModule": {
+		"from_c_listen_host": "0.0.0.0",
+		"from_c_listen_port": 9001,
+		"from_c_session_num": 5000,
+		"from_c_cert_filename": "",
+		"from_c_key_filename": "",
+		"from_c_key_filepassword": "",
+
+		"from_c_http_listen_ports": "9101",
+		"from_c_http_thread_num": 1,
+
+		"to_ws_remote_addr": "127.0.0.1:21001",
+		"to_ws_thread_num": 1,
+		"to_ws_session_num": 1,
+
+		"to_gs_remote_addr": "127.0.0.1:10001",
+		"to_gs_thread_num": 1,
+		"to_gs_session_num": 1
+	}
+}
+

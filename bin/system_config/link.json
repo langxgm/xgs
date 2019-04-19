@@ -1,0 +1,16 @@
+{
+	"logicModule": {
+		"work_thread_num": 0
+	},
+
+	"networkModule": {
+		"from_c_listen_addr": "0.0.0.0:7001",
+		"from_c_thread_num": 1,
+		"from_c_session_num": 5000,
+
+		"to_ls_remote_addr": "127.0.0.1:17001",
+		"to_ls_thread_num": 1,
+		"to_ls_session_num": 1
+	}
+}
+

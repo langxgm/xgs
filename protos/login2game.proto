@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package protos;
+
+// 登陆参数
+message GameLoginParam {
+	string deviceid = 1; // 设备id
+	string ip = 2; // ip地址
+	int64 userid = 3; // userid
+	string sign = 4; // 登录时获取的sign
+}
+
+// 登陆路线
+message GameLoginRoute {
+	int64 client_sessionid = 1; // 客户端在网关上的SessionID
+	int32 gws_id = 2; // 网关服务器ID
+	int32 gs_id = 3; // 游戏服务器ID
+}
+
+// 登陆请求
+message CGLogin {
+	GameLoginRoute route = 1; // 客户端登陆路线
+	GameLoginParam param = 2; // 登陆参数
+}
+
+// 登陆回应
+message GCLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	GameLoginRoute route = 3; // 客户端登陆路线
+	string login_key = 4; // 登陆密钥
+	int64 guid = 5; // PlayerGUID
+	string name = 6; // PlayerName
+	int32 portraitid = 7; // 头像ID
+	int32 level = 8; // 等级
+}
+
+// 登陆请求
+message GWLogin {
+	GameLoginRoute route = 1; // 客户端登陆路线
+	GameLoginParam param = 2; // 登陆参数
+}
+
+// 登陆回应
+message WGLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	GameLoginRoute route = 3; // 客户端登陆路线
+	GameLoginParam param = 4; // 登陆参数
+	int64 guid = 5; // PlayerGUID
+}
+
+// 断线重连请求
+message CGReconnLogin {
+	GameLoginRoute route = 1; // 客户端登陆路线
+	string login_key = 2; // 登陆密钥
+}
+
+// 断线重连回应
+message GCReconnLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	GameLoginRoute route = 3; // 客户端登陆路线
+	int64 guid = 4; // PlayerGUID
+}
+
+// 断线重连请求
+message GWS2WReconnLogin {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 断线重连回应
+message W2GWSReconnLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 guid = 3; // PlayerGUID
+}
+
+// 断线请求
+message GWS2GDisconnect {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 断线回应
+message G2GWSDisconnect {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 guid = 3; // PlayerGUID
+}
+
+// 断线请求
+message GWS2WDisconnect {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 断线回应
+message W2GWSDisconnect {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 guid = 3; // PlayerGUID
+}
+
+// 踢下线
+message G2GWSKickPlayer {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 guid = 3; // PlayerGUID
+}
+
+// 踢下线
+message W2GWSKickPlayer {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 guid = 3; // PlayerGUID
+}

@@ -1,0 +1,22 @@
+{
+	"logicModule": {
+		"work_thread_num": 1
+	},
+
+	"databaseModule": {
+		"host": "mongodb://127.0.0.1:27017/?maxPoolSize=1000",
+		"username": "",
+		"password": "",
+		"dbname": "worlddb",
+	},
+
+	"networkModule": {
+		"from_link_listen_addr": "0.0.0.0:17001",
+		"from_link_thread_num": 1,
+		"from_link_session_num": 10,
+
+		"to_sdk_remote_addr": "127.0.0.1:31001",
+		"to_sdk_thread_num": 1,
+		"to_sdk_session_num": 1
+	}
+}

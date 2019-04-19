@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// SDK服务器配置
+message SdkConfig {
+
+	// 资源模块
+	message ResourceModule {
+	}
+
+	// 逻辑模块
+	message LogicModule {
+		uint32 work_thread_num = 1; // 工作线程数量
+	}
+
+	// 数据库模块
+	message DatabaseModule {
+		string host = 1; // 数据库地址
+		string username = 2; // 账号
+		string password = 3; // 密码
+		string dbname = 4; // 数据库名称
+	}
+
+	// 网络模块
+	message NetworkModule {
+		string from_ws_listen_addr = 1; // 监听WorldServer的ip:port
+		uint32 from_ws_thread_num = 2; // 线程数
+		uint32 from_ws_session_num = 3; // 预计连接数
+
+		string from_ls_listen_addr = 4; // 监听LoginServer的ip:port
+		uint32 from_ls_thread_num = 5; // 线程数
+		uint32 from_ls_session_num = 6; // 预计连接数
+
+		bool to_plat_http_testmode = 7; // 测试模式
+		string to_plat_http_host = 8; // 连接平台的host
+		uint32 to_plat_http_port = 9; // 连接平台的port
+		uint32 to_plat_http_thread_num = 10; // 线程数
+		uint32 to_plat_http_max_conn_pool = 11; // 最大连接池
+		double to_plat_http_timeout = 12; // 连接超时时间
+		string to_plat_http_cert_filename = 13; // cert文件名
+
+		bool to_tzplat_http_testmode = 14; // 测试模式
+		string to_tzplat_http_host = 15; // 连接平台的host
+		uint32 to_tzplat_http_port = 16; // 连接平台的port
+		uint32 to_tzplat_http_thread_num = 17; // 线程数
+		uint32 to_tzplat_http_max_conn_pool = 18; // 最大连接池
+		double to_tzplat_http_timeout = 19; // 连接超时时间
+		string to_tzplat_http_cert_filename = 20; // cert文件名
+
+		string from_plat_listen_ports = 21; // 监听平台的ports(逗号分割)
+		uint32 from_plat_thread_num = 22; // 线程数
+	}
+
+	LogicModule logicModule = 1; // 逻辑模块
+	DatabaseModule databaseModule = 2; // 数据库模块
+	NetworkModule networkModule = 3; // 网络模块
+}

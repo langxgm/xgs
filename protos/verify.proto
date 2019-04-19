@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package protos;
+
+// 版本号验证请求
+message CSVersion {
+	string version = 1;
+}
+
+// 版本号验证回应
+message SCVersion {
+	string version = 1;
+}
+
+// ping请求
+message CSPing {
+	int32 code = 1;
+}
+
+// ping回应
+message SCPong {
+	int32 code = 1;
+}

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{ca2edaa1-c842-49c5-89f9-604eff5cb6aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{d4a8ca6d-a8fa-49e3-bc0f-c319abc6fd65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protos">
+      <UniqueIdentifier>{d97bcc55-18db-496a-9ea8-c355367f6418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{0d773171-d5f9-4798-81ea-e7fb700f012b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\modules">
+      <UniqueIdentifier>{f3877cba-d799-4942-946d-fa8fe20110d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\database">
+      <UniqueIdentifier>{ddb8a282-9b8b-47b0-8d89-f5c8f23fd014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pbconfig">
+      <UniqueIdentifier>{3a39c706-decd-4c47-9afa-130a57323fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{7ceeb78f-ed2c-4ee7-b729-48e78f810a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\player">
+      <UniqueIdentifier>{ee011bfe-98a4-44fc-b04f-fbeae26eeecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{e97226e9-8e8c-4cd1-8b58-03b2f1e0dc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\net">
+      <UniqueIdentifier>{0feb72fb-48f9-44de-9e54-4d0b0efba12a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\logic">
+      <UniqueIdentifier>{6fef80fe-86a4-4fc2-b635-89f1aedbd70f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_gws_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="main\GameServer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\DatabaseModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LogicModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\NetworkModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\ResourceModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\LoginHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_ws_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\GameDataHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\MailHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="config\SystemConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\FeedbackHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Player.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerManager.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\core.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\feedback.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\gamedata.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\mail.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\net\NetHeartbeat.cpp">
+      <Filter>common\net</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\game.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\ScriptHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_client_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login2game.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\logic\ServerManager.cpp">
+      <Filter>common\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\logic\ServerNodeContainer.cpp">
+      <Filter>common\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\logic\ServerNodeImpl.cpp">
+      <Filter>common\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\meta.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerMapping.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="network\from_gws_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="main\GameServer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\DatabaseModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\LogicModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\NetworkModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\ResourceModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\LoginHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_ws_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\t_player.h">
+      <Filter>logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\GameDataHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\t_player_mail.h">
+      <Filter>logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\MailHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="config\SystemConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\FeedbackHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\t_player_feedback.h">
+      <Filter>logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\t_player_level.h">
+      <Filter>logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Player.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\PlayerManager.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\core.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\feedback.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\gamedata.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\mail.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\PlayerFactory.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\NetHeartbeat.h">
+      <Filter>common\net</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\HandleMsgMacros.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\game.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\ScriptHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_client_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login2game.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerManager.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerNode.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerNodeContainer.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerNodeImpl.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerNodeMacros.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\ServerType.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\meta.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\PlayerMapping.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

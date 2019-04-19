@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// 游戏服务器配置
+message GameConfig {
+
+	// 资源模块
+	message ResourceModule {
+	}
+
+	// 逻辑模块
+	message LogicModule {
+		uint32 work_thread_num = 1; // 工作线程数量
+	}
+
+	// 数据库模块
+	message DatabaseModule {
+		string host = 1; // 数据库地址
+		string username = 2; // 账号
+		string password = 3; // 密码
+		string dbname = 4; // 数据库名称
+	}
+
+	// 网络模块
+	message NetworkModule {
+		string from_c_listen_host = 1; // 监听websocket客户端的ip
+		int32 from_c_listen_port = 2; // 监听websocket客户端的port
+		uint32 from_c_session_num = 3; // 预计连接数
+		string from_c_cert_filename = 4; // cert文件名
+		string from_c_key_filename = 5; // key文件名
+		string from_c_key_filepassword = 6; // key文件密码
+
+		string from_gws_listen_addr = 7; // 监听GatewayServer的ip:port
+		uint32 from_gws_thread_num = 8; // 线程数
+		uint32 from_gws_session_num = 9; // 预计连接数
+
+		string to_ws_remote_addr = 10; // 连接WorldServer的ip:port
+		uint32 to_ws_thread_num = 11; // 线程数
+		uint32 to_ws_session_num = 12; // 预计连接数
+	}
+
+	LogicModule logicModule = 1; // 逻辑模块
+	DatabaseModule databaseModule = 2; // 数据库模块
+	NetworkModule networkModule = 3; // 网络模块
+}

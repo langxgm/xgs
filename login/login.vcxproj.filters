@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{f06b2caa-72a1-4081-9992-e08b33876ece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{33947917-aa1f-4085-ad32-1e4f4c8825d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{d292af28-e732-4ea2-a39f-4965d0285c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\modules">
+      <UniqueIdentifier>{6f4c434f-7ed7-424e-a0b5-ab7600071b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{7ec7c56c-b171-4967-9638-855a4756d46a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pbconfig">
+      <UniqueIdentifier>{dc205bff-c6c7-4dac-ab01-112dda3689a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protos">
+      <UniqueIdentifier>{b0a8862a-8d2b-4a17-9fd4-4db142499c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{a83bcf1b-7080-404b-b760-09b155f2d101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\logic">
+      <UniqueIdentifier>{d96717e1-6228-4661-9293-fb50be30bb65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\logic\database">
+      <UniqueIdentifier>{de4ed148-9e5e-4cfa-900a-63dc6c2d3418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\user">
+      <UniqueIdentifier>{823f4a33-dba1-4311-8771-f2eb7d35f056}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LoginServer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LogicModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\NetworkModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\DatabaseModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\ResourceModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_link_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_sdk_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\login.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="config\SystemConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\core.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login2sdk.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\LoginHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\logic\GenGUID.cpp">
+      <Filter>common\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\link2ls_meta.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\User.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserConcreteFactory.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserManager.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\UserMapping.cpp">
+      <Filter>logic\user</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main\LoginServer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\LogicModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\NetworkModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\DatabaseModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\ResourceModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_link_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_sdk_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\login.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="config\SystemConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\core.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login2sdk.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\HandleMsgMacros.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\LoginHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\t_guid_serial.h">
+      <Filter>common\logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\t_user.h">
+      <Filter>common\logic\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\GenGUID.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\link2ls_meta.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\User.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserConcreteFactory.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserFactory.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserManager.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\UserMapping.h">
+      <Filter>logic\user</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

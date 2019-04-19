@@ -1,0 +1,41 @@
+{
+	"logicModule": {
+		"work_thread_num": 0
+	},
+
+	"databaseModule": {
+		"host": "",
+		"username": "",
+		"password": "",
+		"dbname": "sdkdb"
+	},
+
+	"networkModule": {
+		"from_ws_listen_addr": "0.0.0.0:30001",
+		"from_ws_thread_num": 1,
+		"from_ws_session_num": 1,
+
+		"from_ls_listen_addr": "0.0.0.0:31001",
+		"from_ls_thread_num": 1,
+		"from_ls_session_num": 1,
+
+		"to_plat_http_testmode": false,
+		"to_plat_http_host": "api.weixin.qq.com",
+		"to_plat_http_port": 443,
+		"to_plat_http_thread_num": 2,
+		"to_plat_http_max_conn_pool": 100,
+		"to_plat_http_timeout": 2.0,
+		"to_plat_http_cert_filename": "ssl/cacert.pem",
+
+		"to_tzplat_http_testmode": false,
+		"to_tzplat_http_host": "",
+		"to_tzplat_http_port": 443,
+		"to_tzplat_http_thread_num": 2,
+		"to_tzplat_http_max_conn_pool": 100,
+		"to_tzplat_http_timeout": 2.0,
+		"to_tzplat_http_cert_filename": "ssl/cacert.pem",
+
+		"from_plat_listen_ports": "30080",
+		"from_plat_thread_num": 1
+	}
+}

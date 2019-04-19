@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package protos;
+
+// 修改玩家名称请求
+message CGChangeName {
+	int64 guid = 1; // PlayerGUID
+	string name = 2; // PlayerName
+	int32 portraitID = 3; // 头像ID
+}
+
+// 修改玩家名称回应
+message GCChangeName {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+	string name = 3; // PlayerName
+	int32 portraitID = 4; // 头像ID
+}
+
+// 保存关卡数据请求
+message CGSaveLevelData {
+	int64 guid = 1; // PlayerGUID
+	int32 finishedNum = 2; // 关卡数
+	string finishedLevels = 3; // 关卡数据
+}
+
+// 保存关卡数据回应
+message GCSaveLevelData {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "title": "A分享游戏请求",
+    "name": "protos.CWShareGame",
+    "open": true,
+    "dir": { "c2w": true },
+    "log": { "on": true }
+  },
+  {
+    "title": "A分享游戏回应",
+    "name": "protos.WCShareGame",
+    "open": true,
+    "dir": { "w2c": true },
+    "log": { "on": true }
+  },
+  {
+    "title": "A把分享取消的请求",
+    "name": "protos.CWShareGameCancel",
+    "open": true,
+    "dir": { "c2w": true },
+    "log": { "on": true }
+  },
+  {
+    "title": "A把分享取消的回应",
+    "name": "protos.WCShareGameCancel",
+    "open": true,
+    "dir": { "w2c": true },
+    "log": { "on": true }
+  },
+  {
+    "title": "B接受分享请求",
+    "name": "protos.CWAcceptShareGame",
+    "open": true,
+    "dir": { "c2w": true },
+    "log": { "on": true }
+  },
+  {
+    "title": "B接受分享回应",
+    "name": "protos.WCAcceptShareGame",
+    "open": true,
+    "dir": { "w2c": true },
+    "log": { "on": true }
+  }
+]

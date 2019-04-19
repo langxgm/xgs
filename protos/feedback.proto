@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protos;
+
+// 意见反馈请求
+message CGFeedback {
+	int64 guid = 1; // PlayerGUID
+	string content = 2; // 内容
+}
+
+// 意见反馈回应
+message GCFeedback {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+}

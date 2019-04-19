@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="logic">
+      <UniqueIdentifier>{28c174ca-8e6b-46b6-be64-22419b3666a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{d9308819-fbcc-411a-85d6-622631ab29f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{4218c62b-c201-45ea-9969-286d6f5777a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protos">
+      <UniqueIdentifier>{b87f81da-8c15-49e2-aae9-db1d1f547691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\modules">
+      <UniqueIdentifier>{f7262666-72b1-4a92-9fcb-d7a70c5158df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party">
+      <UniqueIdentifier>{475270ec-99d5-4486-903b-c93adc88dc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\crypto">
+      <UniqueIdentifier>{19e64c3b-5836-4421-9542-6706b690ef2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\crypto\md5">
+      <UniqueIdentifier>{5f72ef22-5728-49f5-b5cb-974bf3d6b130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pbconfig">
+      <UniqueIdentifier>{a7bdecf5-3f61-442d-8a0e-386870842693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{af72d4f8-7ca1-4ccb-ac70-6329e34cabf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main\ResourceModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\LogicModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\NetworkModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\DatabaseModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\SdkServer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_ws_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_plat_httpsession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\LoginHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\crypto\md5\md5.h">
+      <Filter>third_party\crypto\md5</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_plat_httpsession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="config\SystemConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\core.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login2sdk.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\wxappinfo.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\HandleMsgMacros.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_tzplat_httpsession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\sdk.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\serverinfo.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_ls_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\ResourceModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LogicModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\NetworkModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\DatabaseModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\SdkServer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_ws_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_plat_httpsession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\LoginHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\crypto\md5\md5.cpp">
+      <Filter>third_party\crypto\md5</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_plat_httpsession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="config\SystemConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\core.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login2sdk.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\wxappinfo.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_tzplat_httpsession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\sdk.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\serverinfo.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_ls_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

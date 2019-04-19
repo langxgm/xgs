@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package pbconfig;
+
+// 登陆服务器配置
+message LoginConfig {
+
+	// 资源模块
+	message ResourceModule {
+	}
+
+	// 逻辑模块
+	message LogicModule {
+		uint32 work_thread_num = 1; // 工作线程数量
+	}
+
+	// 数据库模块
+	message DatabaseModule {
+		string host = 1; // 数据库地址
+		string username = 2; // 账号
+		string password = 3; // 密码
+		string dbname = 4; // 数据库名称
+	}
+
+	// 网络模块
+	message NetworkModule {
+		string from_link_listen_addr = 1; // 监听LinkServer的ip:port
+		uint32 from_link_thread_num = 2; // 线程数
+		uint32 from_link_session_num = 3; // 预计连接数
+
+		string to_sdk_remote_addr = 4; // 连接SdkServer的ip:port
+		uint32 to_sdk_thread_num = 5; // 线程数
+		uint32 to_sdk_session_num = 6; // 预计连接数
+	}
+
+	LogicModule logicModule = 1; // 逻辑模块
+	DatabaseModule databaseModule = 2; // 数据库模块
+	NetworkModule networkModule = 3; // 网络模块
+}

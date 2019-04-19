@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package protos;
+
+// 登陆参数(微信平台)
+message LoginWeixin {
+	string deviceid = 1; // 设备id
+	string ip = 2; // ip地址
+	string js_code = 3; // 登录时获取的code
+}
+
+// 登陆路线
+message LoginRoute {
+	int64 client_sessionid = 1; // 客户端在网关上的SessionID
+	int32 link_id = 2; // 网关ID
+}
+
+// 登陆请求(微信平台)
+message CLLoginWeixin {
+	LoginRoute route = 1; // 客户端登陆路线
+	LoginWeixin param = 2; // 登陆参数
+}
+
+// 登陆回应(微信平台)
+message LCLoginWeixin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+	LoginRoute route = 4; // 客户端登陆路线
+	string login_key = 5; // 登陆密钥
+	string wx_openid = 6; // 微信用户唯一标识
+	int32 wx_errcode = 7; // 微信错误码
+	string wx_errmsg = 8; // 微信错误信息
+}
+
+// SDK登陆请求(微信平台)
+message L2SDKLoginWeixin {
+	LoginRoute route = 1; // 客户端登陆路线
+	int64 link_sessionid = 2; // 在哪个link
+	LoginWeixin param = 3; // 登陆参数
+}
+
+// SDK登陆回应(微信平台)
+message SDK2LLoginWeixin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	LoginRoute route = 3; // 客户端登陆路线
+	int64 link_sessionid = 4; // 在哪个link
+	LoginWeixin param = 5; // 登陆参数
+	string wx_openid = 6; // 微信用户唯一标识
+	string wx_session_key = 7; // 微信会话密钥
+	int32 wx_errcode = 8; // 微信错误码
+	string wx_errmsg = 9; // 微信错误信息
+}
+
+// 登陆参数(Facebook平台)
+message LoginFacebook {
+	string deviceid = 1; // 设备id
+	string ip = 2; // ip地址
+	string code = 3; // 登录时获取的code
+}
+
+// 登陆请求(Facebook平台)
+message CLLoginFacebook {
+	LoginRoute route = 1; // 客户端登陆路线
+	LoginFacebook param = 2; // 登陆参数
+}
+
+// 登陆回应(Facebook平台)
+message LCLoginFacebook {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+	LoginRoute route = 4; // 客户端登陆路线
+	string login_key = 5; // 登陆密钥
+}
+
+// 断线重连请求
+message CLReconnLogin {
+	LoginRoute route = 1; // 客户端登陆路线
+	string login_key = 2; // 登陆密钥
+}
+
+// 断线重连回应
+message LCReconnLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+	LoginRoute route = 4; // 客户端登陆路线
+}
+
+// 断线请求
+message Link2LDisconnect {
+	int64 userid = 1; // userid
+}
+
+// 断线回应
+message L2LinkDisconnect {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+}
+
+// 踢下线
+message L2LinkKickPlayer {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+}

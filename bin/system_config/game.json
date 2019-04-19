@@ -1,0 +1,29 @@
+{
+  "logicModule": {
+    "work_thread_num": 1
+  },
+
+  "databaseModule": {
+    "host": "mongodb://127.0.0.1:27017/?maxPoolSize=1000",
+    "username": "",
+    "password": "",
+    "dbname": "gamedb"
+  },
+
+  "networkModule": {
+    "from_c_listen_host": "0.0.0.0",
+    "from_c_listen_port": 9501,
+    "from_c_session_num": 5000,
+    "from_c_cert_filename": "",
+    "from_c_key_filename": "",
+    "from_c_key_filepassword": "",
+
+    "from_gws_listen_addr": "0.0.0.0:10001",
+    "from_gws_thread_num": 1,
+    "from_gws_session_num": 5000,
+
+    "to_ws_remote_addr": "127.0.0.1:20001",
+    "to_ws_thread_num": 1,
+    "to_ws_session_num": 1
+  }
+}

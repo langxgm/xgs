@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{795a974b-781e-4b7f-baac-2041b167fdd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\modules">
+      <UniqueIdentifier>{f0b5d3d3-fdd7-46d9-8bae-4e886bef57aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{dc1d9030-da6e-4e29-897b-9a92ab6c78de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protos">
+      <UniqueIdentifier>{2c2bc7d6-ea09-4f15-8d14-080e79eec840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pbconfig">
+      <UniqueIdentifier>{5dc63701-1dfa-47fe-a17f-5e5582e30ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{b8374487-29c4-4da5-aa95-01bf266fdace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{e2b24e0e-f235-4e04-bb43-49c53cb5d803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\player">
+      <UniqueIdentifier>{3bead576-d897-4446-8aa2-bcaba7d4d9a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{e396211c-2006-42cb-be26-0ffe96dec8ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\net">
+      <UniqueIdentifier>{2f443cc4-5235-4ead-8d47-fb87bb64d115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\net\http">
+      <UniqueIdentifier>{f8605e79-1734-4907-8968-bd1979f62027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party">
+      <UniqueIdentifier>{e303d09c-da4a-40c6-ae44-89493c684c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\crypto">
+      <UniqueIdentifier>{227fe4c8-a405-4c55-a12c-12e5ac9d4b6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\crypto\md5">
+      <UniqueIdentifier>{4b7aa939-6d85-4c35-ab21-e2e4c1dc8b0f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\DatabaseModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\LogicModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\NetworkModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\ResourceModule.cpp">
+      <Filter>main\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="main\GateServer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_ws_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network\to_gs_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="config\SystemConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\LoginHandler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerManager.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Player.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\core.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\verify.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\meta.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\msginfo.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="config\GameConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\net\NetHeartbeat.cpp">
+      <Filter>common\net</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_client_httpsession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\net\http\HttpParse.cpp">
+      <Filter>common\net\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\crypto\md5\md5.cpp">
+      <Filter>third_party\crypto\md5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\net\http\HttpHandleQueue.cpp">
+      <Filter>common\net\http</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\gate.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="pbconfig\serverinfo.conf.pb.cc">
+      <Filter>pbconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="network\from_client_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="protos\login2game.pb.cc">
+      <Filter>protos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main\DatabaseModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\LogicModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\NetworkModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\ResourceModule.h">
+      <Filter>main\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="main\GateServer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_ws_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\to_gs_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="config\SystemConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\LoginHandler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Player.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\PlayerManager.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\core.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\verify.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\meta.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\msginfo.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="config\GameConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\NetHeartbeat.h">
+      <Filter>common\net</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\HandleMsgMacros.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_client_httpsession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\http\HttpHandleResult.h">
+      <Filter>common\net\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\http\HttpParse.h">
+      <Filter>common\net\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\crypto\md5\md5.h">
+      <Filter>third_party\crypto\md5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\net\http\HttpHandleQueue.h">
+      <Filter>common\net\http</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\gate.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="pbconfig\serverinfo.conf.pb.h">
+      <Filter>pbconfig</Filter>
+    </ClInclude>
+    <ClInclude Include="network\from_client_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="protos\login2game.pb.h">
+      <Filter>protos</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

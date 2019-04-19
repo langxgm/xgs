@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package protos;
+
+// 邮件数据
+message MailData {
+	string oid = 1; // 邮件唯一ID
+	string title = 2; // 邮件标题
+	string content = 3; // 邮件内容
+	bool isread = 4; // 是否已读
+	bool isfetch = 5; // 是否领取附件
+	repeated MailAttachment attachments = 6; // 附件
+}
+
+// 邮件附件
+message MailAttachment {
+
+	// 附件类型
+	enum Type {
+		TYPE_ITEM = 0; // 道具
+		TYPE_POWER = 1; // 体力
+	}
+
+	Type type = 1; // 附件类型
+	int32 id = 2; // ID
+	int32 num = 3; // 数量
+}
+
+// 邮件列表请求
+message CGMailList {
+	int64 guid = 1; // PlayerGUID
+}
+
+// 邮件列表返回
+message GCMailList {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+	repeated MailData mailDatas = 3; // 邮件数据
+}
+
+// 删除邮件请求
+message CGMailDel {
+	int64 guid = 1; // PlayerGUID
+	string oid = 2; // 邮件唯一ID
+}
+
+// 删除邮件返回
+message GCMailDel {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+	string oid = 3; // 邮件唯一ID
+}
+
+// 修改邮件标记请求
+message CGMailModifyFlag {
+	int64 guid = 1; // PlayerGUID
+	string oid = 2; // 邮件唯一ID
+	bool isread = 3; // 是否已读
+	bool isfetch = 4; // 是否领取附件
+}
+
+// 修改邮件标记返回
+message GCMailModifyFlag {
+	int32 error = 1; // 0:成功,非0时失败
+	int64 guid = 2; // PlayerGUID
+	string oid = 3; // 邮件唯一ID
+	bool isread = 4; // 是否已读
+	bool isfetch = 5; // 是否领取附件
+}
