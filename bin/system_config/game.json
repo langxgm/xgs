@@ -1,6 +1,6 @@
 {
   "logicModule": {
-    "work_thread_num": 1
+    "work_thread_num": 2
   },
 
   "databaseModule": {
@@ -11,16 +11,13 @@
   },
 
   "networkModule": {
-    "from_c_listen_host": "0.0.0.0",
-    "from_c_listen_port": 9501,
-    "from_c_session_num": 5000,
-    "from_c_cert_filename": "",
-    "from_c_key_filename": "",
-    "from_c_key_filepassword": "",
+	"from_c_listen_addr": "0.0.0.0:9501",
+	"from_c_thread_num": 4,
+	"from_c_session_num": 5000,
 
     "from_gws_listen_addr": "0.0.0.0:10001",
     "from_gws_thread_num": 1,
-    "from_gws_session_num": 5000,
+    "from_gws_session_num": 10,
 
     "to_ws_remote_addr": "127.0.0.1:20001",
     "to_ws_thread_num": 1,

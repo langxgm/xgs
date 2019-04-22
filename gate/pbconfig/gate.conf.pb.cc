@@ -146,12 +146,9 @@ const ::google::protobuf::uint32 TableStruct_gate_2econf_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_listen_host_),
-  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_listen_port_),
+  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_listen_addr_),
+  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_thread_num_),
   PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_session_num_),
-  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_cert_filename_),
-  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_key_filename_),
-  PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_key_filepassword_),
   PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_http_listen_ports_),
   PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, from_c_http_thread_num_),
   PROTOBUF_FIELD_OFFSET(::pbconfig::GateConfig_NetworkModule, to_ws_remote_addr_),
@@ -173,7 +170,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 5, -1, sizeof(::pbconfig::GateConfig_LogicModule)},
   { 11, -1, sizeof(::pbconfig::GateConfig_DatabaseModule)},
   { 16, -1, sizeof(::pbconfig::GateConfig_NetworkModule)},
-  { 35, -1, sizeof(::pbconfig::GateConfig)},
+  { 32, -1, sizeof(::pbconfig::GateConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -191,28 +188,26 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_gate_2econf_2eproto[] =
-  "\n\017gate.conf.proto\022\010pbconfig\"\356\004\n\nGateConf"
+  "\n\017gate.conf.proto\022\010pbconfig\"\221\004\n\nGateConf"
   "ig\0225\n\013logicModule\030\001 \001(\0132 .pbconfig.GateC"
   "onfig.LogicModule\0229\n\rnetworkModule\030\002 \001(\013"
   "2\".pbconfig.GateConfig.NetworkModule\032\020\n\016"
   "ResourceModule\032&\n\013LogicModule\022\027\n\017work_th"
-  "read_num\030\001 \001(\r\032\020\n\016DatabaseModule\032\241\003\n\rNet"
-  "workModule\022\032\n\022from_c_listen_host\030\001 \001(\t\022\032"
-  "\n\022from_c_listen_port\030\002 \001(\005\022\032\n\022from_c_ses"
-  "sion_num\030\003 \001(\r\022\034\n\024from_c_cert_filename\030\004"
-  " \001(\t\022\033\n\023from_c_key_filename\030\005 \001(\t\022\037\n\027fro"
-  "m_c_key_filepassword\030\006 \001(\t\022 \n\030from_c_htt"
-  "p_listen_ports\030\007 \001(\t\022\036\n\026from_c_http_thre"
-  "ad_num\030\010 \001(\r\022\031\n\021to_ws_remote_addr\030\t \001(\t\022"
-  "\030\n\020to_ws_thread_num\030\n \001(\r\022\031\n\021to_ws_sessi"
-  "on_num\030\013 \001(\r\022\031\n\021to_gs_remote_addr\030\014 \001(\t\022"
-  "\030\n\020to_gs_thread_num\030\r \001(\r\022\031\n\021to_gs_sessi"
-  "on_num\030\016 \001(\rb\006proto3"
+  "read_num\030\001 \001(\r\032\020\n\016DatabaseModule\032\304\002\n\rNet"
+  "workModule\022\032\n\022from_c_listen_addr\030\001 \001(\t\022\031"
+  "\n\021from_c_thread_num\030\002 \001(\r\022\032\n\022from_c_sess"
+  "ion_num\030\003 \001(\r\022 \n\030from_c_http_listen_port"
+  "s\030\004 \001(\t\022\036\n\026from_c_http_thread_num\030\005 \001(\r\022"
+  "\031\n\021to_ws_remote_addr\030\006 \001(\t\022\030\n\020to_ws_thre"
+  "ad_num\030\007 \001(\r\022\031\n\021to_ws_session_num\030\010 \001(\r\022"
+  "\031\n\021to_gs_remote_addr\030\t \001(\t\022\030\n\020to_gs_thre"
+  "ad_num\030\n \001(\r\022\031\n\021to_gs_session_num\030\013 \001(\rb"
+  "\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_gate_2econf_2eproto = {
   false, InitDefaults_gate_2econf_2eproto, 
   descriptor_table_protodef_gate_2econf_2eproto,
-  "gate.conf.proto", &assign_descriptors_table_gate_2econf_2eproto, 660,
+  "gate.conf.proto", &assign_descriptors_table_gate_2econf_2eproto, 567,
 };
 
 void AddDescriptors_gate_2econf_2eproto() {
@@ -913,12 +908,9 @@ class GateConfig_NetworkModule::HasBitSetters {
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GateConfig_NetworkModule::kFromCListenHostFieldNumber;
-const int GateConfig_NetworkModule::kFromCListenPortFieldNumber;
+const int GateConfig_NetworkModule::kFromCListenAddrFieldNumber;
+const int GateConfig_NetworkModule::kFromCThreadNumFieldNumber;
 const int GateConfig_NetworkModule::kFromCSessionNumFieldNumber;
-const int GateConfig_NetworkModule::kFromCCertFilenameFieldNumber;
-const int GateConfig_NetworkModule::kFromCKeyFilenameFieldNumber;
-const int GateConfig_NetworkModule::kFromCKeyFilepasswordFieldNumber;
 const int GateConfig_NetworkModule::kFromCHttpListenPortsFieldNumber;
 const int GateConfig_NetworkModule::kFromCHttpThreadNumFieldNumber;
 const int GateConfig_NetworkModule::kToWsRemoteAddrFieldNumber;
@@ -938,21 +930,9 @@ GateConfig_NetworkModule::GateConfig_NetworkModule(const GateConfig_NetworkModul
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  from_c_listen_host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.from_c_listen_host().size() > 0) {
-    from_c_listen_host_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_listen_host_);
-  }
-  from_c_cert_filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.from_c_cert_filename().size() > 0) {
-    from_c_cert_filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_cert_filename_);
-  }
-  from_c_key_filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.from_c_key_filename().size() > 0) {
-    from_c_key_filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_key_filename_);
-  }
-  from_c_key_filepassword_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.from_c_key_filepassword().size() > 0) {
-    from_c_key_filepassword_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_key_filepassword_);
+  from_c_listen_addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.from_c_listen_addr().size() > 0) {
+    from_c_listen_addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_listen_addr_);
   }
   from_c_http_listen_ports_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.from_c_http_listen_ports().size() > 0) {
@@ -966,25 +946,22 @@ GateConfig_NetworkModule::GateConfig_NetworkModule(const GateConfig_NetworkModul
   if (from.to_gs_remote_addr().size() > 0) {
     to_gs_remote_addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.to_gs_remote_addr_);
   }
-  ::memcpy(&from_c_listen_port_, &from.from_c_listen_port_,
+  ::memcpy(&from_c_thread_num_, &from.from_c_thread_num_,
     static_cast<size_t>(reinterpret_cast<char*>(&to_gs_session_num_) -
-    reinterpret_cast<char*>(&from_c_listen_port_)) + sizeof(to_gs_session_num_));
+    reinterpret_cast<char*>(&from_c_thread_num_)) + sizeof(to_gs_session_num_));
   // @@protoc_insertion_point(copy_constructor:pbconfig.GateConfig.NetworkModule)
 }
 
 void GateConfig_NetworkModule::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_GateConfig_NetworkModule_gate_2econf_2eproto.base);
-  from_c_listen_host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_cert_filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filepassword_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  from_c_listen_addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   from_c_http_listen_ports_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_ws_remote_addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_gs_remote_addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&from_c_listen_port_, 0, static_cast<size_t>(
+  ::memset(&from_c_thread_num_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&to_gs_session_num_) -
-      reinterpret_cast<char*>(&from_c_listen_port_)) + sizeof(to_gs_session_num_));
+      reinterpret_cast<char*>(&from_c_thread_num_)) + sizeof(to_gs_session_num_));
 }
 
 GateConfig_NetworkModule::~GateConfig_NetworkModule() {
@@ -993,10 +970,7 @@ GateConfig_NetworkModule::~GateConfig_NetworkModule() {
 }
 
 void GateConfig_NetworkModule::SharedDtor() {
-  from_c_listen_host_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_cert_filename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filepassword_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  from_c_listen_addr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   from_c_http_listen_ports_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_ws_remote_addr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_gs_remote_addr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1017,16 +991,13 @@ void GateConfig_NetworkModule::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  from_c_listen_host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_cert_filename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  from_c_key_filepassword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  from_c_listen_addr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   from_c_http_listen_ports_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_ws_remote_addr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   to_gs_remote_addr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&from_c_listen_port_, 0, static_cast<size_t>(
+  ::memset(&from_c_thread_num_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&to_gs_session_num_) -
-      reinterpret_cast<char*>(&from_c_listen_port_)) + sizeof(to_gs_session_num_));
+      reinterpret_cast<char*>(&from_c_thread_num_)) + sizeof(to_gs_session_num_));
   _internal_metadata_.Clear();
 }
 
@@ -1043,13 +1014,13 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // string from_c_listen_host = 1;
+      // string from_c_listen_addr = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_listen_host");
-        object = msg->mutable_from_c_listen_host();
+        ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_listen_addr");
+        object = msg->mutable_from_c_listen_addr();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -1059,10 +1030,10 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
         ptr += size;
         break;
       }
-      // int32 from_c_listen_port = 2;
+      // uint32 from_c_thread_num = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
-        msg->set_from_c_listen_port(::google::protobuf::internal::ReadVarint(&ptr));
+        msg->set_from_c_thread_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
@@ -1073,57 +1044,9 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string from_c_cert_filename = 4;
+      // string from_c_http_listen_ports = 4;
       case 4: {
         if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_cert_filename");
-        object = msg->mutable_from_c_cert_filename();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string from_c_key_filename = 5;
-      case 5: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_key_filename");
-        object = msg->mutable_from_c_key_filename();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string from_c_key_filepassword = 6;
-      case 6: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_key_filepassword");
-        object = msg->mutable_from_c_key_filepassword();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string from_c_http_listen_ports = 7;
-      case 7: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.from_c_http_listen_ports");
@@ -1137,16 +1060,16 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
         ptr += size;
         break;
       }
-      // uint32 from_c_http_thread_num = 8;
-      case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
+      // uint32 from_c_http_thread_num = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
         msg->set_from_c_http_thread_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string to_ws_remote_addr = 9;
-      case 9: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
+      // string to_ws_remote_addr = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.to_ws_remote_addr");
@@ -1160,23 +1083,23 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
         ptr += size;
         break;
       }
-      // uint32 to_ws_thread_num = 10;
-      case 10: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 80) goto handle_unusual;
+      // uint32 to_ws_thread_num = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 56) goto handle_unusual;
         msg->set_to_ws_thread_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // uint32 to_ws_session_num = 11;
-      case 11: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 88) goto handle_unusual;
+      // uint32 to_ws_session_num = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
         msg->set_to_ws_session_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string to_gs_remote_addr = 12;
-      case 12: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 98) goto handle_unusual;
+      // string to_gs_remote_addr = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("pbconfig.GateConfig.NetworkModule.to_gs_remote_addr");
@@ -1190,16 +1113,16 @@ const char* GateConfig_NetworkModule::_InternalParse(const char* begin, const ch
         ptr += size;
         break;
       }
-      // uint32 to_gs_thread_num = 13;
-      case 13: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 104) goto handle_unusual;
+      // uint32 to_gs_thread_num = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 80) goto handle_unusual;
         msg->set_to_gs_thread_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // uint32 to_gs_session_num = 14;
-      case 14: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 112) goto handle_unusual;
+      // uint32 to_gs_session_num = 11;
+      case 11: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 88) goto handle_unusual;
         msg->set_to_gs_session_num(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
@@ -1238,28 +1161,28 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string from_c_listen_host = 1;
+      // string from_c_listen_addr = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_from_c_listen_host()));
+                input, this->mutable_from_c_listen_addr()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->from_c_listen_host().data(), static_cast<int>(this->from_c_listen_host().length()),
+            this->from_c_listen_addr().data(), static_cast<int>(this->from_c_listen_addr().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "pbconfig.GateConfig.NetworkModule.from_c_listen_host"));
+            "pbconfig.GateConfig.NetworkModule.from_c_listen_addr"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // int32 from_c_listen_port = 2;
+      // uint32 from_c_thread_num = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &from_c_listen_port_)));
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &from_c_thread_num_)));
         } else {
           goto handle_unusual;
         }
@@ -1279,54 +1202,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // string from_c_cert_filename = 4;
+      // string from_c_http_listen_ports = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_from_c_cert_filename()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->from_c_cert_filename().data(), static_cast<int>(this->from_c_cert_filename().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "pbconfig.GateConfig.NetworkModule.from_c_cert_filename"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string from_c_key_filename = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_from_c_key_filename()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->from_c_key_filename().data(), static_cast<int>(this->from_c_key_filename().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "pbconfig.GateConfig.NetworkModule.from_c_key_filename"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string from_c_key_filepassword = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_from_c_key_filepassword()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->from_c_key_filepassword().data(), static_cast<int>(this->from_c_key_filepassword().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "pbconfig.GateConfig.NetworkModule.from_c_key_filepassword"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string from_c_http_listen_ports = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_from_c_http_listen_ports()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1339,9 +1217,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 from_c_http_thread_num = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
+      // uint32 from_c_http_thread_num = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1352,9 +1230,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // string to_ws_remote_addr = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
+      // string to_ws_remote_addr = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_to_ws_remote_addr()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1367,9 +1245,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 to_ws_thread_num = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (80 & 0xFF)) {
+      // uint32 to_ws_thread_num = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (56 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1380,9 +1258,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 to_ws_session_num = 11;
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (88 & 0xFF)) {
+      // uint32 to_ws_session_num = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1393,9 +1271,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // string to_gs_remote_addr = 12;
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (98 & 0xFF)) {
+      // string to_gs_remote_addr = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_to_gs_remote_addr()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1408,9 +1286,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 to_gs_thread_num = 13;
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (104 & 0xFF)) {
+      // uint32 to_gs_thread_num = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (80 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1421,9 +1299,9 @@ bool GateConfig_NetworkModule::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 to_gs_session_num = 14;
-      case 14: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (112 & 0xFF)) {
+      // uint32 to_gs_session_num = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (88 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1461,19 +1339,19 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string from_c_listen_host = 1;
-  if (this->from_c_listen_host().size() > 0) {
+  // string from_c_listen_addr = 1;
+  if (this->from_c_listen_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_listen_host().data(), static_cast<int>(this->from_c_listen_host().length()),
+      this->from_c_listen_addr().data(), static_cast<int>(this->from_c_listen_addr().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_listen_host");
+      "pbconfig.GateConfig.NetworkModule.from_c_listen_addr");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->from_c_listen_host(), output);
+      1, this->from_c_listen_addr(), output);
   }
 
-  // int32 from_c_listen_port = 2;
-  if (this->from_c_listen_port() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->from_c_listen_port(), output);
+  // uint32 from_c_thread_num = 2;
+  if (this->from_c_thread_num() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->from_c_thread_num(), output);
   }
 
   // uint32 from_c_session_num = 3;
@@ -1481,89 +1359,59 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->from_c_session_num(), output);
   }
 
-  // string from_c_cert_filename = 4;
-  if (this->from_c_cert_filename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_cert_filename().data(), static_cast<int>(this->from_c_cert_filename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_cert_filename");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->from_c_cert_filename(), output);
-  }
-
-  // string from_c_key_filename = 5;
-  if (this->from_c_key_filename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_key_filename().data(), static_cast<int>(this->from_c_key_filename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_key_filename");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->from_c_key_filename(), output);
-  }
-
-  // string from_c_key_filepassword = 6;
-  if (this->from_c_key_filepassword().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_key_filepassword().data(), static_cast<int>(this->from_c_key_filepassword().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_key_filepassword");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->from_c_key_filepassword(), output);
-  }
-
-  // string from_c_http_listen_ports = 7;
+  // string from_c_http_listen_ports = 4;
   if (this->from_c_http_listen_ports().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->from_c_http_listen_ports().data(), static_cast<int>(this->from_c_http_listen_ports().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "pbconfig.GateConfig.NetworkModule.from_c_http_listen_ports");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->from_c_http_listen_ports(), output);
+      4, this->from_c_http_listen_ports(), output);
   }
 
-  // uint32 from_c_http_thread_num = 8;
+  // uint32 from_c_http_thread_num = 5;
   if (this->from_c_http_thread_num() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->from_c_http_thread_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->from_c_http_thread_num(), output);
   }
 
-  // string to_ws_remote_addr = 9;
+  // string to_ws_remote_addr = 6;
   if (this->to_ws_remote_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->to_ws_remote_addr().data(), static_cast<int>(this->to_ws_remote_addr().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "pbconfig.GateConfig.NetworkModule.to_ws_remote_addr");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      9, this->to_ws_remote_addr(), output);
+      6, this->to_ws_remote_addr(), output);
   }
 
-  // uint32 to_ws_thread_num = 10;
+  // uint32 to_ws_thread_num = 7;
   if (this->to_ws_thread_num() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->to_ws_thread_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->to_ws_thread_num(), output);
   }
 
-  // uint32 to_ws_session_num = 11;
+  // uint32 to_ws_session_num = 8;
   if (this->to_ws_session_num() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->to_ws_session_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->to_ws_session_num(), output);
   }
 
-  // string to_gs_remote_addr = 12;
+  // string to_gs_remote_addr = 9;
   if (this->to_gs_remote_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->to_gs_remote_addr().data(), static_cast<int>(this->to_gs_remote_addr().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "pbconfig.GateConfig.NetworkModule.to_gs_remote_addr");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      12, this->to_gs_remote_addr(), output);
+      9, this->to_gs_remote_addr(), output);
   }
 
-  // uint32 to_gs_thread_num = 13;
+  // uint32 to_gs_thread_num = 10;
   if (this->to_gs_thread_num() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->to_gs_thread_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->to_gs_thread_num(), output);
   }
 
-  // uint32 to_gs_session_num = 14;
+  // uint32 to_gs_session_num = 11;
   if (this->to_gs_session_num() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->to_gs_session_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->to_gs_session_num(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1579,20 +1427,20 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string from_c_listen_host = 1;
-  if (this->from_c_listen_host().size() > 0) {
+  // string from_c_listen_addr = 1;
+  if (this->from_c_listen_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_listen_host().data(), static_cast<int>(this->from_c_listen_host().length()),
+      this->from_c_listen_addr().data(), static_cast<int>(this->from_c_listen_addr().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_listen_host");
+      "pbconfig.GateConfig.NetworkModule.from_c_listen_addr");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->from_c_listen_host(), target);
+        1, this->from_c_listen_addr(), target);
   }
 
-  // int32 from_c_listen_port = 2;
-  if (this->from_c_listen_port() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->from_c_listen_port(), target);
+  // uint32 from_c_thread_num = 2;
+  if (this->from_c_thread_num() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->from_c_thread_num(), target);
   }
 
   // uint32 from_c_session_num = 3;
@@ -1600,40 +1448,7 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->from_c_session_num(), target);
   }
 
-  // string from_c_cert_filename = 4;
-  if (this->from_c_cert_filename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_cert_filename().data(), static_cast<int>(this->from_c_cert_filename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_cert_filename");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->from_c_cert_filename(), target);
-  }
-
-  // string from_c_key_filename = 5;
-  if (this->from_c_key_filename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_key_filename().data(), static_cast<int>(this->from_c_key_filename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_key_filename");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->from_c_key_filename(), target);
-  }
-
-  // string from_c_key_filepassword = 6;
-  if (this->from_c_key_filepassword().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->from_c_key_filepassword().data(), static_cast<int>(this->from_c_key_filepassword().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pbconfig.GateConfig.NetworkModule.from_c_key_filepassword");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->from_c_key_filepassword(), target);
-  }
-
-  // string from_c_http_listen_ports = 7;
+  // string from_c_http_listen_ports = 4;
   if (this->from_c_http_listen_ports().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->from_c_http_listen_ports().data(), static_cast<int>(this->from_c_http_listen_ports().length()),
@@ -1641,15 +1456,15 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
       "pbconfig.GateConfig.NetworkModule.from_c_http_listen_ports");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->from_c_http_listen_ports(), target);
+        4, this->from_c_http_listen_ports(), target);
   }
 
-  // uint32 from_c_http_thread_num = 8;
+  // uint32 from_c_http_thread_num = 5;
   if (this->from_c_http_thread_num() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->from_c_http_thread_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->from_c_http_thread_num(), target);
   }
 
-  // string to_ws_remote_addr = 9;
+  // string to_ws_remote_addr = 6;
   if (this->to_ws_remote_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->to_ws_remote_addr().data(), static_cast<int>(this->to_ws_remote_addr().length()),
@@ -1657,20 +1472,20 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
       "pbconfig.GateConfig.NetworkModule.to_ws_remote_addr");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->to_ws_remote_addr(), target);
+        6, this->to_ws_remote_addr(), target);
   }
 
-  // uint32 to_ws_thread_num = 10;
+  // uint32 to_ws_thread_num = 7;
   if (this->to_ws_thread_num() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->to_ws_thread_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->to_ws_thread_num(), target);
   }
 
-  // uint32 to_ws_session_num = 11;
+  // uint32 to_ws_session_num = 8;
   if (this->to_ws_session_num() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(11, this->to_ws_session_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->to_ws_session_num(), target);
   }
 
-  // string to_gs_remote_addr = 12;
+  // string to_gs_remote_addr = 9;
   if (this->to_gs_remote_addr().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->to_gs_remote_addr().data(), static_cast<int>(this->to_gs_remote_addr().length()),
@@ -1678,17 +1493,17 @@ void GateConfig_NetworkModule::SerializeWithCachedSizes(
       "pbconfig.GateConfig.NetworkModule.to_gs_remote_addr");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        12, this->to_gs_remote_addr(), target);
+        9, this->to_gs_remote_addr(), target);
   }
 
-  // uint32 to_gs_thread_num = 13;
+  // uint32 to_gs_thread_num = 10;
   if (this->to_gs_thread_num() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->to_gs_thread_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->to_gs_thread_num(), target);
   }
 
-  // uint32 to_gs_session_num = 14;
+  // uint32 to_gs_session_num = 11;
   if (this->to_gs_session_num() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->to_gs_session_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(11, this->to_gs_session_num(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1712,60 +1527,39 @@ size_t GateConfig_NetworkModule::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string from_c_listen_host = 1;
-  if (this->from_c_listen_host().size() > 0) {
+  // string from_c_listen_addr = 1;
+  if (this->from_c_listen_addr().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->from_c_listen_host());
+        this->from_c_listen_addr());
   }
 
-  // string from_c_cert_filename = 4;
-  if (this->from_c_cert_filename().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->from_c_cert_filename());
-  }
-
-  // string from_c_key_filename = 5;
-  if (this->from_c_key_filename().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->from_c_key_filename());
-  }
-
-  // string from_c_key_filepassword = 6;
-  if (this->from_c_key_filepassword().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->from_c_key_filepassword());
-  }
-
-  // string from_c_http_listen_ports = 7;
+  // string from_c_http_listen_ports = 4;
   if (this->from_c_http_listen_ports().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->from_c_http_listen_ports());
   }
 
-  // string to_ws_remote_addr = 9;
+  // string to_ws_remote_addr = 6;
   if (this->to_ws_remote_addr().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->to_ws_remote_addr());
   }
 
-  // string to_gs_remote_addr = 12;
+  // string to_gs_remote_addr = 9;
   if (this->to_gs_remote_addr().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->to_gs_remote_addr());
   }
 
-  // int32 from_c_listen_port = 2;
-  if (this->from_c_listen_port() != 0) {
+  // uint32 from_c_thread_num = 2;
+  if (this->from_c_thread_num() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->from_c_listen_port());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->from_c_thread_num());
   }
 
   // uint32 from_c_session_num = 3;
@@ -1775,35 +1569,35 @@ size_t GateConfig_NetworkModule::ByteSizeLong() const {
         this->from_c_session_num());
   }
 
-  // uint32 from_c_http_thread_num = 8;
+  // uint32 from_c_http_thread_num = 5;
   if (this->from_c_http_thread_num() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->from_c_http_thread_num());
   }
 
-  // uint32 to_ws_thread_num = 10;
+  // uint32 to_ws_thread_num = 7;
   if (this->to_ws_thread_num() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->to_ws_thread_num());
   }
 
-  // uint32 to_ws_session_num = 11;
+  // uint32 to_ws_session_num = 8;
   if (this->to_ws_session_num() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->to_ws_session_num());
   }
 
-  // uint32 to_gs_thread_num = 13;
+  // uint32 to_gs_thread_num = 10;
   if (this->to_gs_thread_num() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->to_gs_thread_num());
   }
 
-  // uint32 to_gs_session_num = 14;
+  // uint32 to_gs_session_num = 11;
   if (this->to_gs_session_num() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -1837,21 +1631,9 @@ void GateConfig_NetworkModule::MergeFrom(const GateConfig_NetworkModule& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.from_c_listen_host().size() > 0) {
+  if (from.from_c_listen_addr().size() > 0) {
 
-    from_c_listen_host_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_listen_host_);
-  }
-  if (from.from_c_cert_filename().size() > 0) {
-
-    from_c_cert_filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_cert_filename_);
-  }
-  if (from.from_c_key_filename().size() > 0) {
-
-    from_c_key_filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_key_filename_);
-  }
-  if (from.from_c_key_filepassword().size() > 0) {
-
-    from_c_key_filepassword_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_key_filepassword_);
+    from_c_listen_addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_c_listen_addr_);
   }
   if (from.from_c_http_listen_ports().size() > 0) {
 
@@ -1865,8 +1647,8 @@ void GateConfig_NetworkModule::MergeFrom(const GateConfig_NetworkModule& from) {
 
     to_gs_remote_addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.to_gs_remote_addr_);
   }
-  if (from.from_c_listen_port() != 0) {
-    set_from_c_listen_port(from.from_c_listen_port());
+  if (from.from_c_thread_num() != 0) {
+    set_from_c_thread_num(from.from_c_thread_num());
   }
   if (from.from_c_session_num() != 0) {
     set_from_c_session_num(from.from_c_session_num());
@@ -1913,13 +1695,7 @@ void GateConfig_NetworkModule::Swap(GateConfig_NetworkModule* other) {
 void GateConfig_NetworkModule::InternalSwap(GateConfig_NetworkModule* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  from_c_listen_host_.Swap(&other->from_c_listen_host_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  from_c_cert_filename_.Swap(&other->from_c_cert_filename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  from_c_key_filename_.Swap(&other->from_c_key_filename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  from_c_key_filepassword_.Swap(&other->from_c_key_filepassword_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  from_c_listen_addr_.Swap(&other->from_c_listen_addr_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   from_c_http_listen_ports_.Swap(&other->from_c_http_listen_ports_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -1927,7 +1703,7 @@ void GateConfig_NetworkModule::InternalSwap(GateConfig_NetworkModule* other) {
     GetArenaNoVirtual());
   to_gs_remote_addr_.Swap(&other->to_gs_remote_addr_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(from_c_listen_port_, other->from_c_listen_port_);
+  swap(from_c_thread_num_, other->from_c_thread_num_);
   swap(from_c_session_num_, other->from_c_session_num_);
   swap(from_c_http_thread_num_, other->from_c_http_thread_num_);
   swap(to_ws_thread_num_, other->to_ws_thread_num_);

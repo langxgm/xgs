@@ -25,13 +25,13 @@ bool NetworkModule::Init()
 
 	From_Gws_Session::InitInstance();
 	From_Gws_Session::Me()->Init(WorldServer::Me()->GetLoopDaemonThread()->loop(),
-		netConf.from_gws_listen_addr()/*"0.0.0.0:21001"*/, "(GWS ==> WS(local))", netConf.from_gws_thread_num()/*2*/, netConf.from_gws_session_num()/*10*/);
+		netConf.from_gws_listen_addr()/*"0.0.0.0:21001"*/, "(GWS ==> WS(local))", netConf.from_gws_thread_num()/*1*/, netConf.from_gws_session_num()/*10*/);
 	From_Gws_Session::Me()->MaxDealPerFrame() = 500;
 	From_Gws_Session::Me()->Start();
 
 	From_Gs_Session::InitInstance();
 	From_Gs_Session::Me()->Init(WorldServer::Me()->GetLoopDaemonThread()->loop(),
-		netConf.from_gs_listen_addr()/*"0.0.0.0:20001"*/, "(GS ==> WS(local))", netConf.from_gs_thread_num()/*2*/, netConf.from_gs_session_num()/*10*/);
+		netConf.from_gs_listen_addr()/*"0.0.0.0:20001"*/, "(GS ==> WS(local))", netConf.from_gs_thread_num()/*1*/, netConf.from_gs_session_num()/*10*/);
 	From_Gs_Session::Me()->Start();
 
 	To_Sdk_Session::InitInstance();

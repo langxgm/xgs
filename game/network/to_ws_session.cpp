@@ -73,7 +73,7 @@ void To_Ws_Session::SendAuth()
 	send.set_id(GameServer::Me()->GetID());
 	send.set_group(2);
 	send.set_name("GS");
-	send.set_listen_client_port(SystemConfig::Me()->GetGameConfig()->networkmodule().from_c_listen_port());
+	send.set_listen_client_port(0);
 	Send1(&send, To_Ws_Meta());
 
 	LOG(WARNING) << "network: to world server auth msg: " << send.ShortDebugString();

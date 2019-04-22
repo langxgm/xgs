@@ -4,12 +4,9 @@
 	},
 
 	"networkModule": {
-		"from_c_listen_host": "0.0.0.0",
-		"from_c_listen_port": 9001,
+		"from_c_listen_addr": "0.0.0.0:9001",
+		"from_c_thread_num": 4,
 		"from_c_session_num": 5000,
-		"from_c_cert_filename": "",
-		"from_c_key_filename": "",
-		"from_c_key_filepassword": "",
 
 		"from_c_http_listen_ports": "9101",
 		"from_c_http_thread_num": 1,

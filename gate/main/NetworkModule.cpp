@@ -32,8 +32,7 @@ bool NetworkModule::Init()
 
 	From_Client_Session::InitInstance();
 	From_Client_Session::Me()->Init(GateServer::Me()->GetLoopDaemonThread()->loop(),
-		netConf.from_c_listen_host()/*"0.0.0.0"*/ + ":" + std::to_string(netConf.from_c_listen_port())/*9001*/,
-		"(C ==> GWS(local))", 2, netConf.from_c_session_num()/*5000*/);
+		netConf.from_c_listen_addr()/*"0.0.0.0:9001*/, "(C ==> GWS(local))", netConf.from_c_thread_num()/*4*/, netConf.from_c_session_num()/*5000*/);
 	From_Client_Session::Me()->AuthTimeout() = 10 * 1000; // 连接认证超时时间
 	From_Client_Session::Me()->Start();
 

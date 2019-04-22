@@ -1,13 +1,13 @@
 {
 	"logicModule": {
-		"work_thread_num": 1
+		"work_thread_num": 2
 	},
 
 	"databaseModule": {
 		"host": "mongodb://127.0.0.1:27017/?maxPoolSize=1000",
 		"username": "",
 		"password": "",
-		"dbname": "worlddb",
+		"dbname": "worlddb"
 	},
 
 	"networkModule": {

@@ -32,7 +32,7 @@ bool LogicModule::Init()
 
 	// 初始化工作池
 #if _DEBUG && _WIN32
-	uint32_t work_thread_num = 0;
+	uint32_t work_thread_num = 2;
 #else
 	uint32_t work_thread_num = logicConf.work_thread_num()/*2*/;
 #endif

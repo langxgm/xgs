@@ -1,6 +1,6 @@
 {
 	"logicModule": {
-		"work_thread_num": 0
+		"work_thread_num": 2
 	},
 
 	"databaseModule": {
