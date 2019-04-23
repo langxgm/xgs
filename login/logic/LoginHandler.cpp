@@ -16,6 +16,7 @@
 #include "xbase/TimeUtil.h"
 #include "xdb/mongo/MongoExecutor.h"
 #include "xdb/mongo/MongoElement.h"
+#include "xshare/net/CRC32.h"
 #include "xshare/net/GenSN.h"
 #include "xshare/work/WorkDispatcher.h"
 
@@ -94,13 +95,15 @@ bool LoginHandler::Login(UserInfo& rUserInfo)
 		<< t_user::f_userid << 1
 		<< finalize);
 
+	int64_t nNow = TimeUtil::GetCurrentTimeMillis();
+
 	int64_t nUserID = 0;
 	auto findResult = coll.find_one(filterBuilder.view(), opts);
 	if (!findResult)
 	{
 		nUserID = GenGUID::GenUserID();
 
-		bsoncxx::types::b_date date{ std::chrono::milliseconds(TimeUtil::GetCurrentTimeMillis()) };
+		bsoncxx::types::b_date date{ std::chrono::milliseconds(nNow) };
 
 		// 创建user
 		bsoncxx::builder::stream::document createBuilder;
@@ -132,7 +135,7 @@ bool LoginHandler::Login(UserInfo& rUserInfo)
 	{
 		nUserID = MongoElement<b_int64>::GetValue(findResult->view()[t_user::f_userid]);
 
-		bsoncxx::types::b_date date{ std::chrono::milliseconds(TimeUtil::GetCurrentTimeMillis()) };
+		bsoncxx::types::b_date date{ std::chrono::milliseconds(nNow) };
 
 		// 更新登陆IP,时间,次数+1
 		bsoncxx::builder::stream::document updateBuilder;
@@ -154,6 +157,7 @@ bool LoginHandler::Login(UserInfo& rUserInfo)
 	}
 
 	rUserInfo.nUserID = nUserID;
+	rUserInfo.strToken = std::to_string(Crc32(std::to_string(nUserID ^ nNow).c_str()) * nNow);
 	return true;
 }
 
@@ -330,10 +334,10 @@ void LoginHandler::HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 			std::string strLoginKey = GenSN::T20() + std::to_string(nUserID % 10000);
 
 			protos::LCLogin send;
-			send.set_error(0);
 			send.set_userid(nUserID);
 			send.set_client_sessionid(pHandleMsg->client_sessionid());
 			send.set_login_key(strLoginKey);
+			send.set_user_token(userInfo.strToken);
 			From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
 
 			LOG(INFO) << "HandleCLLogin/ok userid=" << nUserID
@@ -373,8 +377,8 @@ void LoginHandler::HandleSDK2LLoginWeixin(const MessagePtr& pMsg, int64_t nSessi
 		protos::LCLoginWeixin send;
 		send.set_error(pHandleMsg->error());
 		send.set_allocated_errmsg(pHandleMsg->release_errmsg());
-		send.set_userid(0);
 		send.set_allocated_route(pHandleMsg->release_route());
+		send.set_userid(0);
 		send.set_wx_errcode(pHandleMsg->wx_errcode());
 		send.set_allocated_wx_errmsg(pHandleMsg->release_wx_errmsg());
 		From_Link_Session::Me()->Send(pHandleMsg->link_sessionid(), &send, From_Link_Meta());
@@ -400,8 +404,8 @@ void LoginHandler::HandleSDK2LLoginWeixin(const MessagePtr& pMsg, int64_t nSessi
 				protos::LCLoginWeixin send;
 				send.set_error(1); // 重复创建账号
 				send.set_errmsg("repeat create user");
-				send.set_userid(userInfo.nUserID);
 				send.set_allocated_route(pHandleMsg->release_route());
+				send.set_userid(userInfo.nUserID);
 				From_Link_Session::Me()->Send(pHandleMsg->link_sessionid(), &send, From_Link_Meta());
 
 				LOG(WARNING) << "HandleSDK2LLoginWeixin/fail account=" << strAccount << " repeat create user";
@@ -414,11 +418,11 @@ void LoginHandler::HandleSDK2LLoginWeixin(const MessagePtr& pMsg, int64_t nSessi
 			std::string strLoginKey = GenSN::T20() + std::to_string(nUserID % 10000);
 
 			protos::LCLoginWeixin send;
-			send.set_error(0);
-			send.set_userid(nUserID);
 			send.set_allocated_route(pHandleMsg->release_route());
+			send.set_userid(nUserID);
 			send.set_login_key(strLoginKey);
 			send.set_wx_openid(pHandleMsg->wx_openid());
+			send.set_user_token(userInfo.strToken);
 			From_Link_Session::Me()->Send(pHandleMsg->link_sessionid(), &send, From_Link_Meta());
 
 			LOG(INFO) << "HandleSDK2LLoginWeixin/ok userid=" << nUserID
@@ -460,8 +464,8 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 				protos::LCLoginFacebook send;
 				send.set_error(1); // 重复创建账号
 				send.set_errmsg("repeat create user");
-				send.set_userid(userInfo.nUserID);
 				send.set_allocated_route(pHandleMsg->release_route());
+				send.set_userid(userInfo.nUserID);
 				From_Link_Session::Me()->Send(nSessionID, &send, From_Link_Meta());
 
 				LOG(WARNING) << "HandleCLLoginFacebook/fail account=" << strAccount << " repeat create user";
@@ -474,10 +478,10 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 			std::string strLoginKey = GenSN::T20() + std::to_string(nUserID % 10000);
 
 			protos::LCLoginFacebook send;
-			send.set_error(0);
-			send.set_userid(nUserID);
 			send.set_allocated_route(pHandleMsg->release_route());
+			send.set_userid(nUserID);
 			send.set_login_key(strLoginKey);
+			send.set_user_token(userInfo.strToken);
 			From_Link_Session::Me()->Send(nSessionID, &send, From_Link_Meta());
 
 			LOG(INFO) << "HandleCLLoginFacebook/ok userid=" << nUserID
@@ -518,9 +522,8 @@ void LoginHandler::HandleCLReconnLogin(const MessagePtr& pMsg, int64_t nSessionI
 	pUser->Online();
 
 	protos::LCReconnLogin send;
-	send.set_error(0);
-	send.set_userid(pUser->GetUserID());
 	send.set_allocated_route(pHandleMsg->release_route());
+	send.set_userid(pUser->GetUserID());
 	From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
 
 	LOG(INFO) << "HandleCLReconnLogin/ok userid=" << pUser->GetUserID();

@@ -7,7 +7,7 @@ message GameLoginParam {
 	string deviceid = 1; // 设备id
 	string ip = 2; // ip地址
 	int64 userid = 3; // userid
-	string sign = 4; // 登录时获取的sign
+	string user_token = 4; // 登录时获取的token
 }
 
 // 登陆路线

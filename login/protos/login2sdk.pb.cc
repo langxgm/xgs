@@ -336,9 +336,10 @@ const ::google::protobuf::uint32 TableStruct_login2sdk_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, error_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, errmsg_),
-  PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, route_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, login_key_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, user_token_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, wx_openid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, wx_errcode_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginWeixin, wx_errmsg_),
@@ -386,9 +387,10 @@ const ::google::protobuf::uint32 TableStruct_login2sdk_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, error_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, errmsg_),
-  PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, route_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, login_key_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCLoginFacebook, user_token_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protos::CLReconnLogin, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -403,8 +405,8 @@ const ::google::protobuf::uint32 TableStruct_login2sdk_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protos::LCReconnLogin, error_),
   PROTOBUF_FIELD_OFFSET(::protos::LCReconnLogin, errmsg_),
-  PROTOBUF_FIELD_OFFSET(::protos::LCReconnLogin, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCReconnLogin, route_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCReconnLogin, userid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protos::Link2LDisconnect, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -433,16 +435,16 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 8, -1, sizeof(::protos::LoginRoute)},
   { 15, -1, sizeof(::protos::CLLoginWeixin)},
   { 22, -1, sizeof(::protos::LCLoginWeixin)},
-  { 35, -1, sizeof(::protos::L2SDKLoginWeixin)},
-  { 43, -1, sizeof(::protos::SDK2LLoginWeixin)},
-  { 57, -1, sizeof(::protos::LoginFacebook)},
-  { 65, -1, sizeof(::protos::CLLoginFacebook)},
-  { 72, -1, sizeof(::protos::LCLoginFacebook)},
-  { 82, -1, sizeof(::protos::CLReconnLogin)},
-  { 89, -1, sizeof(::protos::LCReconnLogin)},
-  { 98, -1, sizeof(::protos::Link2LDisconnect)},
-  { 104, -1, sizeof(::protos::L2LinkDisconnect)},
-  { 112, -1, sizeof(::protos::L2LinkKickPlayer)},
+  { 36, -1, sizeof(::protos::L2SDKLoginWeixin)},
+  { 44, -1, sizeof(::protos::SDK2LLoginWeixin)},
+  { 58, -1, sizeof(::protos::LoginFacebook)},
+  { 66, -1, sizeof(::protos::CLLoginFacebook)},
+  { 73, -1, sizeof(::protos::LCLoginFacebook)},
+  { 84, -1, sizeof(::protos::CLReconnLogin)},
+  { 91, -1, sizeof(::protos::LCReconnLogin)},
+  { 100, -1, sizeof(::protos::Link2LDisconnect)},
+  { 106, -1, sizeof(::protos::L2LinkDisconnect)},
+  { 114, -1, sizeof(::protos::L2LinkKickPlayer)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -474,41 +476,42 @@ const char descriptor_table_protodef_login2sdk_2eproto[] =
   "e\030\003 \001(\t\"7\n\nLoginRoute\022\030\n\020client_sessioni"
   "d\030\001 \001(\003\022\017\n\007link_id\030\002 \001(\005\"V\n\rCLLoginWeixi"
   "n\022!\n\005route\030\001 \001(\0132\022.protos.LoginRoute\022\"\n\005"
-  "param\030\002 \001(\0132\023.protos.LoginWeixin\"\256\001\n\rLCL"
+  "param\030\002 \001(\0132\023.protos.LoginWeixin\"\302\001\n\rLCL"
   "oginWeixin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001("
-  "\t\022\016\n\006userid\030\003 \001(\003\022!\n\005route\030\004 \001(\0132\022.proto"
-  "s.LoginRoute\022\021\n\tlogin_key\030\005 \001(\t\022\021\n\twx_op"
-  "enid\030\006 \001(\t\022\022\n\nwx_errcode\030\007 \001(\005\022\021\n\twx_err"
-  "msg\030\010 \001(\t\"q\n\020L2SDKLoginWeixin\022!\n\005route\030\001"
-  " \001(\0132\022.protos.LoginRoute\022\026\n\016link_session"
-  "id\030\002 \001(\003\022\"\n\005param\030\003 \001(\0132\023.protos.LoginWe"
-  "ixin\"\342\001\n\020SDK2LLoginWeixin\022\r\n\005error\030\001 \001(\005"
-  "\022\016\n\006errmsg\030\002 \001(\t\022!\n\005route\030\003 \001(\0132\022.protos"
-  ".LoginRoute\022\026\n\016link_sessionid\030\004 \001(\003\022\"\n\005p"
-  "aram\030\005 \001(\0132\023.protos.LoginWeixin\022\021\n\twx_op"
-  "enid\030\006 \001(\t\022\026\n\016wx_session_key\030\007 \001(\t\022\022\n\nwx"
-  "_errcode\030\010 \001(\005\022\021\n\twx_errmsg\030\t \001(\t\";\n\rLog"
-  "inFacebook\022\020\n\010deviceid\030\001 \001(\t\022\n\n\002ip\030\002 \001(\t"
-  "\022\014\n\004code\030\003 \001(\t\"Z\n\017CLLoginFacebook\022!\n\005rou"
-  "te\030\001 \001(\0132\022.protos.LoginRoute\022$\n\005param\030\002 "
-  "\001(\0132\025.protos.LoginFacebook\"v\n\017LCLoginFac"
-  "ebook\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\016\n\006"
-  "userid\030\003 \001(\003\022!\n\005route\030\004 \001(\0132\022.protos.Log"
-  "inRoute\022\021\n\tlogin_key\030\005 \001(\t\"E\n\rCLReconnLo"
-  "gin\022!\n\005route\030\001 \001(\0132\022.protos.LoginRoute\022\021"
-  "\n\tlogin_key\030\002 \001(\t\"a\n\rLCReconnLogin\022\r\n\005er"
-  "ror\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\016\n\006userid\030\003 \001("
-  "\003\022!\n\005route\030\004 \001(\0132\022.protos.LoginRoute\"\"\n\020"
-  "Link2LDisconnect\022\016\n\006userid\030\001 \001(\003\"A\n\020L2Li"
-  "nkDisconnect\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 "
-  "\001(\t\022\016\n\006userid\030\003 \001(\003\"A\n\020L2LinkKickPlayer\022"
-  "\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\016\n\006userid"
-  "\030\003 \001(\003b\006proto3"
+  "\t\022!\n\005route\030\003 \001(\0132\022.protos.LoginRoute\022\016\n\006"
+  "userid\030\004 \001(\003\022\021\n\tlogin_key\030\005 \001(\t\022\022\n\nuser_"
+  "token\030\006 \001(\t\022\021\n\twx_openid\030\007 \001(\t\022\022\n\nwx_err"
+  "code\030\010 \001(\005\022\021\n\twx_errmsg\030\t \001(\t\"q\n\020L2SDKLo"
+  "ginWeixin\022!\n\005route\030\001 \001(\0132\022.protos.LoginR"
+  "oute\022\026\n\016link_sessionid\030\002 \001(\003\022\"\n\005param\030\003 "
+  "\001(\0132\023.protos.LoginWeixin\"\342\001\n\020SDK2LLoginW"
+  "eixin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022!\n\005"
+  "route\030\003 \001(\0132\022.protos.LoginRoute\022\026\n\016link_"
+  "sessionid\030\004 \001(\003\022\"\n\005param\030\005 \001(\0132\023.protos."
+  "LoginWeixin\022\021\n\twx_openid\030\006 \001(\t\022\026\n\016wx_ses"
+  "sion_key\030\007 \001(\t\022\022\n\nwx_errcode\030\010 \001(\005\022\021\n\twx"
+  "_errmsg\030\t \001(\t\";\n\rLoginFacebook\022\020\n\010device"
+  "id\030\001 \001(\t\022\n\n\002ip\030\002 \001(\t\022\014\n\004code\030\003 \001(\t\"Z\n\017CL"
+  "LoginFacebook\022!\n\005route\030\001 \001(\0132\022.protos.Lo"
+  "ginRoute\022$\n\005param\030\002 \001(\0132\025.protos.LoginFa"
+  "cebook\"\212\001\n\017LCLoginFacebook\022\r\n\005error\030\001 \001("
+  "\005\022\016\n\006errmsg\030\002 \001(\t\022!\n\005route\030\003 \001(\0132\022.proto"
+  "s.LoginRoute\022\016\n\006userid\030\004 \001(\003\022\021\n\tlogin_ke"
+  "y\030\005 \001(\t\022\022\n\nuser_token\030\006 \001(\t\"E\n\rCLReconnL"
+  "ogin\022!\n\005route\030\001 \001(\0132\022.protos.LoginRoute\022"
+  "\021\n\tlogin_key\030\002 \001(\t\"a\n\rLCReconnLogin\022\r\n\005e"
+  "rror\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022!\n\005route\030\003 \001("
+  "\0132\022.protos.LoginRoute\022\016\n\006userid\030\004 \001(\003\"\"\n"
+  "\020Link2LDisconnect\022\016\n\006userid\030\001 \001(\003\"A\n\020L2L"
+  "inkDisconnect\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002"
+  " \001(\t\022\016\n\006userid\030\003 \001(\003\"A\n\020L2LinkKickPlayer"
+  "\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\016\n\006useri"
+  "d\030\003 \001(\003b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_login2sdk_2eproto = {
   false, InitDefaults_login2sdk_2eproto, 
   descriptor_table_protodef_login2sdk_2eproto,
-  "login2sdk.proto", &assign_descriptors_table_login2sdk_2eproto, 1374,
+  "login2sdk.proto", &assign_descriptors_table_login2sdk_2eproto, 1415,
 };
 
 void AddDescriptors_login2sdk_2eproto() {
@@ -1646,9 +1649,10 @@ LCLoginWeixin::HasBitSetters::route(const LCLoginWeixin* msg) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int LCLoginWeixin::kErrorFieldNumber;
 const int LCLoginWeixin::kErrmsgFieldNumber;
-const int LCLoginWeixin::kUseridFieldNumber;
 const int LCLoginWeixin::kRouteFieldNumber;
+const int LCLoginWeixin::kUseridFieldNumber;
 const int LCLoginWeixin::kLoginKeyFieldNumber;
+const int LCLoginWeixin::kUserTokenFieldNumber;
 const int LCLoginWeixin::kWxOpenidFieldNumber;
 const int LCLoginWeixin::kWxErrcodeFieldNumber;
 const int LCLoginWeixin::kWxErrmsgFieldNumber;
@@ -1670,6 +1674,10 @@ LCLoginWeixin::LCLoginWeixin(const LCLoginWeixin& from)
   login_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.login_key().size() > 0) {
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
+  }
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.user_token().size() > 0) {
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
   }
   wx_openid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.wx_openid().size() > 0) {
@@ -1695,6 +1703,7 @@ void LCLoginWeixin::SharedCtor() {
       &scc_info_LCLoginWeixin_login2sdk_2eproto.base);
   errmsg_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_openid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_errmsg_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&route_, 0, static_cast<size_t>(
@@ -1710,6 +1719,7 @@ LCLoginWeixin::~LCLoginWeixin() {
 void LCLoginWeixin::SharedDtor() {
   errmsg_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_openid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_errmsg_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete route_;
@@ -1732,6 +1742,7 @@ void LCLoginWeixin::Clear() {
 
   errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_openid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   wx_errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && route_ != nullptr) {
@@ -1780,16 +1791,9 @@ const char* LCLoginWeixin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         break;
       }
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
-        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      // .protos.LoginRoute route = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::protos::LoginRoute::_InternalParse;
@@ -1798,6 +1802,13 @@ const char* LCLoginWeixin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
             {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // int64 userid = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       // string login_key = 5;
@@ -1816,9 +1827,25 @@ const char* LCLoginWeixin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         break;
       }
-      // string wx_openid = 6;
+      // string user_token = 6;
       case 6: {
         if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("protos.LCLoginWeixin.user_token");
+        object = msg->mutable_user_token();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string wx_openid = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("protos.LCLoginWeixin.wx_openid");
@@ -1832,16 +1859,16 @@ const char* LCLoginWeixin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         break;
       }
-      // int32 wx_errcode = 7;
-      case 7: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 56) goto handle_unusual;
+      // int32 wx_errcode = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
         msg->set_wx_errcode(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string wx_errmsg = 8;
-      case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
+      // string wx_errmsg = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("protos.LCLoginWeixin.wx_errmsg");
@@ -1917,24 +1944,24 @@ bool LCLoginWeixin::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &userid_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_route()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .protos.LoginRoute route = 4;
+      // int64 userid = 4;
       case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_route()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &userid_)));
         } else {
           goto handle_unusual;
         }
@@ -1956,9 +1983,24 @@ bool LCLoginWeixin::MergePartialFromCodedStream(
         break;
       }
 
-      // string wx_openid = 6;
+      // string user_token = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_token()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_token().data(), static_cast<int>(this->user_token().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protos.LCLoginWeixin.user_token"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string wx_openid = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_wx_openid()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1971,9 +2013,9 @@ bool LCLoginWeixin::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 wx_errcode = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (56 & 0xFF)) {
+      // int32 wx_errcode = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -1984,9 +2026,9 @@ bool LCLoginWeixin::MergePartialFromCodedStream(
         break;
       }
 
-      // string wx_errmsg = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
+      // string wx_errmsg = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_wx_errmsg()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -2041,15 +2083,15 @@ void LCLoginWeixin::SerializeWithCachedSizes(
       2, this->errmsg(), output);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->userid(), output);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, HasBitSetters::route(this), output);
+      3, HasBitSetters::route(this), output);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->userid(), output);
   }
 
   // string login_key = 5;
@@ -2062,29 +2104,39 @@ void LCLoginWeixin::SerializeWithCachedSizes(
       5, this->login_key(), output);
   }
 
-  // string wx_openid = 6;
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLoginWeixin.user_token");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->user_token(), output);
+  }
+
+  // string wx_openid = 7;
   if (this->wx_openid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->wx_openid().data(), static_cast<int>(this->wx_openid().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protos.LCLoginWeixin.wx_openid");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->wx_openid(), output);
+      7, this->wx_openid(), output);
   }
 
-  // int32 wx_errcode = 7;
+  // int32 wx_errcode = 8;
   if (this->wx_errcode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->wx_errcode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->wx_errcode(), output);
   }
 
-  // string wx_errmsg = 8;
+  // string wx_errmsg = 9;
   if (this->wx_errmsg().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->wx_errmsg().data(), static_cast<int>(this->wx_errmsg().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protos.LCLoginWeixin.wx_errmsg");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      8, this->wx_errmsg(), output);
+      9, this->wx_errmsg(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2116,16 +2168,16 @@ void LCLoginWeixin::SerializeWithCachedSizes(
         2, this->errmsg(), target);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->userid(), target);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, HasBitSetters::route(this), target);
+        3, HasBitSetters::route(this), target);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->userid(), target);
   }
 
   // string login_key = 5;
@@ -2139,7 +2191,18 @@ void LCLoginWeixin::SerializeWithCachedSizes(
         5, this->login_key(), target);
   }
 
-  // string wx_openid = 6;
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLoginWeixin.user_token");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->user_token(), target);
+  }
+
+  // string wx_openid = 7;
   if (this->wx_openid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->wx_openid().data(), static_cast<int>(this->wx_openid().length()),
@@ -2147,15 +2210,15 @@ void LCLoginWeixin::SerializeWithCachedSizes(
       "protos.LCLoginWeixin.wx_openid");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->wx_openid(), target);
+        7, this->wx_openid(), target);
   }
 
-  // int32 wx_errcode = 7;
+  // int32 wx_errcode = 8;
   if (this->wx_errcode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->wx_errcode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->wx_errcode(), target);
   }
 
-  // string wx_errmsg = 8;
+  // string wx_errmsg = 9;
   if (this->wx_errmsg().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->wx_errmsg().data(), static_cast<int>(this->wx_errmsg().length()),
@@ -2163,7 +2226,7 @@ void LCLoginWeixin::SerializeWithCachedSizes(
       "protos.LCLoginWeixin.wx_errmsg");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        8, this->wx_errmsg(), target);
+        9, this->wx_errmsg(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2201,28 +2264,35 @@ size_t LCLoginWeixin::ByteSizeLong() const {
         this->login_key());
   }
 
-  // string wx_openid = 6;
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_token());
+  }
+
+  // string wx_openid = 7;
   if (this->wx_openid().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->wx_openid());
   }
 
-  // string wx_errmsg = 8;
+  // string wx_errmsg = 9;
   if (this->wx_errmsg().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->wx_errmsg());
   }
 
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *route_);
   }
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -2236,7 +2306,7 @@ size_t LCLoginWeixin::ByteSizeLong() const {
         this->error());
   }
 
-  // int32 wx_errcode = 7;
+  // int32 wx_errcode = 8;
   if (this->wx_errcode() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2277,6 +2347,10 @@ void LCLoginWeixin::MergeFrom(const LCLoginWeixin& from) {
   if (from.login_key().size() > 0) {
 
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
+  }
+  if (from.user_token().size() > 0) {
+
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
   }
   if (from.wx_openid().size() > 0) {
 
@@ -2328,6 +2402,8 @@ void LCLoginWeixin::InternalSwap(LCLoginWeixin* other) {
   errmsg_.Swap(&other->errmsg_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   login_key_.Swap(&other->login_key_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  user_token_.Swap(&other->user_token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   wx_openid_.Swap(&other->wx_openid_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -4343,9 +4419,10 @@ LCLoginFacebook::HasBitSetters::route(const LCLoginFacebook* msg) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int LCLoginFacebook::kErrorFieldNumber;
 const int LCLoginFacebook::kErrmsgFieldNumber;
-const int LCLoginFacebook::kUseridFieldNumber;
 const int LCLoginFacebook::kRouteFieldNumber;
+const int LCLoginFacebook::kUseridFieldNumber;
 const int LCLoginFacebook::kLoginKeyFieldNumber;
+const int LCLoginFacebook::kUserTokenFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LCLoginFacebook::LCLoginFacebook()
@@ -4365,6 +4442,10 @@ LCLoginFacebook::LCLoginFacebook(const LCLoginFacebook& from)
   if (from.login_key().size() > 0) {
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
   }
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.user_token().size() > 0) {
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
+  }
   if (from.has_route()) {
     route_ = new ::protos::LoginRoute(*from.route_);
   } else {
@@ -4381,6 +4462,7 @@ void LCLoginFacebook::SharedCtor() {
       &scc_info_LCLoginFacebook_login2sdk_2eproto.base);
   errmsg_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&route_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&error_) -
       reinterpret_cast<char*>(&route_)) + sizeof(error_));
@@ -4394,6 +4476,7 @@ LCLoginFacebook::~LCLoginFacebook() {
 void LCLoginFacebook::SharedDtor() {
   errmsg_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete route_;
 }
 
@@ -4414,6 +4497,7 @@ void LCLoginFacebook::Clear() {
 
   errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && route_ != nullptr) {
     delete route_;
   }
@@ -4460,16 +4544,9 @@ const char* LCLoginFacebook::_InternalParse(const char* begin, const char* end, 
         ptr += size;
         break;
       }
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
-        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      // .protos.LoginRoute route = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::protos::LoginRoute::_InternalParse;
@@ -4480,6 +4557,13 @@ const char* LCLoginFacebook::_InternalParse(const char* begin, const char* end, 
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
+      // int64 userid = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
       // string login_key = 5;
       case 5: {
         if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
@@ -4487,6 +4571,22 @@ const char* LCLoginFacebook::_InternalParse(const char* begin, const char* end, 
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("protos.LCLoginFacebook.login_key");
         object = msg->mutable_login_key();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string user_token = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("protos.LCLoginFacebook.user_token");
+        object = msg->mutable_user_token();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -4558,24 +4658,24 @@ bool LCLoginFacebook::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &userid_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_route()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .protos.LoginRoute route = 4;
+      // int64 userid = 4;
       case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_route()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &userid_)));
         } else {
           goto handle_unusual;
         }
@@ -4591,6 +4691,21 @@ bool LCLoginFacebook::MergePartialFromCodedStream(
             this->login_key().data(), static_cast<int>(this->login_key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "protos.LCLoginFacebook.login_key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string user_token = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_token()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_token().data(), static_cast<int>(this->user_token().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protos.LCLoginFacebook.user_token"));
         } else {
           goto handle_unusual;
         }
@@ -4639,15 +4754,15 @@ void LCLoginFacebook::SerializeWithCachedSizes(
       2, this->errmsg(), output);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->userid(), output);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, HasBitSetters::route(this), output);
+      3, HasBitSetters::route(this), output);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->userid(), output);
   }
 
   // string login_key = 5;
@@ -4658,6 +4773,16 @@ void LCLoginFacebook::SerializeWithCachedSizes(
       "protos.LCLoginFacebook.login_key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->login_key(), output);
+  }
+
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLoginFacebook.user_token");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->user_token(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4689,16 +4814,16 @@ void LCLoginFacebook::SerializeWithCachedSizes(
         2, this->errmsg(), target);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->userid(), target);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, HasBitSetters::route(this), target);
+        3, HasBitSetters::route(this), target);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->userid(), target);
   }
 
   // string login_key = 5;
@@ -4710,6 +4835,17 @@ void LCLoginFacebook::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->login_key(), target);
+  }
+
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLoginFacebook.user_token");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->user_token(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4747,14 +4883,21 @@ size_t LCLoginFacebook::ByteSizeLong() const {
         this->login_key());
   }
 
-  // .protos.LoginRoute route = 4;
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_token());
+  }
+
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *route_);
   }
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4803,6 +4946,10 @@ void LCLoginFacebook::MergeFrom(const LCLoginFacebook& from) {
 
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
   }
+  if (from.user_token().size() > 0) {
+
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
+  }
   if (from.has_route()) {
     mutable_route()->::protos::LoginRoute::MergeFrom(from.route());
   }
@@ -4842,6 +4989,8 @@ void LCLoginFacebook::InternalSwap(LCLoginFacebook* other) {
   errmsg_.Swap(&other->errmsg_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   login_key_.Swap(&other->login_key_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  user_token_.Swap(&other->user_token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(route_, other->route_);
   swap(userid_, other->userid_);
@@ -5236,8 +5385,8 @@ LCReconnLogin::HasBitSetters::route(const LCReconnLogin* msg) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int LCReconnLogin::kErrorFieldNumber;
 const int LCReconnLogin::kErrmsgFieldNumber;
-const int LCReconnLogin::kUseridFieldNumber;
 const int LCReconnLogin::kRouteFieldNumber;
+const int LCReconnLogin::kUseridFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LCReconnLogin::LCReconnLogin()
@@ -5345,16 +5494,9 @@ const char* LCReconnLogin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         break;
       }
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
-        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      // .protos.LoginRoute route = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::protos::LoginRoute::_InternalParse;
@@ -5363,6 +5505,13 @@ const char* LCReconnLogin::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
             {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // int64 userid = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_userid(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -5427,24 +5576,24 @@ bool LCReconnLogin::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 userid = 3;
+      // .protos.LoginRoute route = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &userid_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_route()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .protos.LoginRoute route = 4;
+      // int64 userid = 4;
       case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_route()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &userid_)));
         } else {
           goto handle_unusual;
         }
@@ -5493,15 +5642,15 @@ void LCReconnLogin::SerializeWithCachedSizes(
       2, this->errmsg(), output);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->userid(), output);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, HasBitSetters::route(this), output);
+      3, HasBitSetters::route(this), output);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->userid(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5533,16 +5682,16 @@ void LCReconnLogin::SerializeWithCachedSizes(
         2, this->errmsg(), target);
   }
 
-  // int64 userid = 3;
-  if (this->userid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->userid(), target);
-  }
-
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, HasBitSetters::route(this), target);
+        3, HasBitSetters::route(this), target);
+  }
+
+  // int64 userid = 4;
+  if (this->userid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->userid(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5573,14 +5722,14 @@ size_t LCReconnLogin::ByteSizeLong() const {
         this->errmsg());
   }
 
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   if (this->has_route()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *route_);
   }
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(

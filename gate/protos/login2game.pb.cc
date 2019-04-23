@@ -349,7 +349,7 @@ const ::google::protobuf::uint32 TableStruct_login2game_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::protos::GameLoginParam, deviceid_),
   PROTOBUF_FIELD_OFFSET(::protos::GameLoginParam, ip_),
   PROTOBUF_FIELD_OFFSET(::protos::GameLoginParam, userid_),
-  PROTOBUF_FIELD_OFFSET(::protos::GameLoginParam, sign_),
+  PROTOBUF_FIELD_OFFSET(::protos::GameLoginParam, user_token_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protos::GameLoginRoute, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -515,43 +515,43 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_login2game_2eproto[] =
-  "\n\020login2game.proto\022\006protos\"L\n\016GameLoginP"
+  "\n\020login2game.proto\022\006protos\"R\n\016GameLoginP"
   "aram\022\020\n\010deviceid\030\001 \001(\t\022\n\n\002ip\030\002 \001(\t\022\016\n\006us"
-  "erid\030\003 \001(\003\022\014\n\004sign\030\004 \001(\t\"I\n\016GameLoginRou"
-  "te\022\030\n\020client_sessionid\030\001 \001(\003\022\016\n\006gws_id\030\002"
-  " \001(\005\022\r\n\005gs_id\030\003 \001(\005\"W\n\007CGLogin\022%\n\005route\030"
-  "\001 \001(\0132\026.protos.GameLoginRoute\022%\n\005param\030\002"
-  " \001(\0132\026.protos.GameLoginParam\"\241\001\n\007GCLogin"
-  "\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022%\n\005route"
-  "\030\003 \001(\0132\026.protos.GameLoginRoute\022\021\n\tlogin_"
-  "key\030\004 \001(\t\022\014\n\004guid\030\005 \001(\003\022\014\n\004name\030\006 \001(\t\022\022\n"
-  "\nportraitid\030\007 \001(\005\022\r\n\005level\030\010 \001(\005\"W\n\007GWLo"
-  "gin\022%\n\005route\030\001 \001(\0132\026.protos.GameLoginRou"
-  "te\022%\n\005param\030\002 \001(\0132\026.protos.GameLoginPara"
-  "m\"\204\001\n\007WGLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002"
-  " \001(\t\022%\n\005route\030\003 \001(\0132\026.protos.GameLoginRo"
-  "ute\022%\n\005param\030\004 \001(\0132\026.protos.GameLoginPar"
-  "am\022\014\n\004guid\030\005 \001(\003\"I\n\rCGReconnLogin\022%\n\005rou"
-  "te\030\001 \001(\0132\026.protos.GameLoginRoute\022\021\n\tlogi"
-  "n_key\030\002 \001(\t\"c\n\rGCReconnLogin\022\r\n\005error\030\001 "
-  "\001(\005\022\016\n\006errmsg\030\002 \001(\t\022%\n\005route\030\003 \001(\0132\026.pro"
-  "tos.GameLoginRoute\022\014\n\004guid\030\004 \001(\003\" \n\020GWS2"
-  "WReconnLogin\022\014\n\004guid\030\001 \001(\003\"\?\n\020W2GWSRecon"
-  "nLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\014\n"
-  "\004guid\030\003 \001(\003\"\037\n\017GWS2GDisconnect\022\014\n\004guid\030\001"
-  " \001(\003\">\n\017G2GWSDisconnect\022\r\n\005error\030\001 \001(\005\022\016"
-  "\n\006errmsg\030\002 \001(\t\022\014\n\004guid\030\003 \001(\003\"\037\n\017GWS2WDis"
-  "connect\022\014\n\004guid\030\001 \001(\003\">\n\017W2GWSDisconnect"
-  "\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\014\n\004guid\030"
-  "\003 \001(\003\">\n\017G2GWSKickPlayer\022\r\n\005error\030\001 \001(\005\022"
-  "\016\n\006errmsg\030\002 \001(\t\022\014\n\004guid\030\003 \001(\003\">\n\017W2GWSKi"
-  "ckPlayer\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022"
-  "\014\n\004guid\030\003 \001(\003b\006proto3"
+  "erid\030\003 \001(\003\022\022\n\nuser_token\030\004 \001(\t\"I\n\016GameLo"
+  "ginRoute\022\030\n\020client_sessionid\030\001 \001(\003\022\016\n\006gw"
+  "s_id\030\002 \001(\005\022\r\n\005gs_id\030\003 \001(\005\"W\n\007CGLogin\022%\n\005"
+  "route\030\001 \001(\0132\026.protos.GameLoginRoute\022%\n\005p"
+  "aram\030\002 \001(\0132\026.protos.GameLoginParam\"\241\001\n\007G"
+  "CLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022%\n"
+  "\005route\030\003 \001(\0132\026.protos.GameLoginRoute\022\021\n\t"
+  "login_key\030\004 \001(\t\022\014\n\004guid\030\005 \001(\003\022\014\n\004name\030\006 "
+  "\001(\t\022\022\n\nportraitid\030\007 \001(\005\022\r\n\005level\030\010 \001(\005\"W"
+  "\n\007GWLogin\022%\n\005route\030\001 \001(\0132\026.protos.GameLo"
+  "ginRoute\022%\n\005param\030\002 \001(\0132\026.protos.GameLog"
+  "inParam\"\204\001\n\007WGLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006er"
+  "rmsg\030\002 \001(\t\022%\n\005route\030\003 \001(\0132\026.protos.GameL"
+  "oginRoute\022%\n\005param\030\004 \001(\0132\026.protos.GameLo"
+  "ginParam\022\014\n\004guid\030\005 \001(\003\"I\n\rCGReconnLogin\022"
+  "%\n\005route\030\001 \001(\0132\026.protos.GameLoginRoute\022\021"
+  "\n\tlogin_key\030\002 \001(\t\"c\n\rGCReconnLogin\022\r\n\005er"
+  "ror\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022%\n\005route\030\003 \001(\013"
+  "2\026.protos.GameLoginRoute\022\014\n\004guid\030\004 \001(\003\" "
+  "\n\020GWS2WReconnLogin\022\014\n\004guid\030\001 \001(\003\"\?\n\020W2GW"
+  "SReconnLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 "
+  "\001(\t\022\014\n\004guid\030\003 \001(\003\"\037\n\017GWS2GDisconnect\022\014\n\004"
+  "guid\030\001 \001(\003\">\n\017G2GWSDisconnect\022\r\n\005error\030\001"
+  " \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\014\n\004guid\030\003 \001(\003\"\037\n\017GW"
+  "S2WDisconnect\022\014\n\004guid\030\001 \001(\003\">\n\017W2GWSDisc"
+  "onnect\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\014\n"
+  "\004guid\030\003 \001(\003\">\n\017G2GWSKickPlayer\022\r\n\005error\030"
+  "\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\022\014\n\004guid\030\003 \001(\003\">\n\017W"
+  "2GWSKickPlayer\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030"
+  "\002 \001(\t\022\014\n\004guid\030\003 \001(\003b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_login2game_2eproto = {
   false, InitDefaults_login2game_2eproto, 
   descriptor_table_protodef_login2game_2eproto,
-  "login2game.proto", &assign_descriptors_table_login2game_2eproto, 1261,
+  "login2game.proto", &assign_descriptors_table_login2game_2eproto, 1267,
 };
 
 void AddDescriptors_login2game_2eproto() {
@@ -577,7 +577,7 @@ class GameLoginParam::HasBitSetters {
 const int GameLoginParam::kDeviceidFieldNumber;
 const int GameLoginParam::kIpFieldNumber;
 const int GameLoginParam::kUseridFieldNumber;
-const int GameLoginParam::kSignFieldNumber;
+const int GameLoginParam::kUserTokenFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GameLoginParam::GameLoginParam()
@@ -597,9 +597,9 @@ GameLoginParam::GameLoginParam(const GameLoginParam& from)
   if (from.ip().size() > 0) {
     ip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_);
   }
-  sign_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.sign().size() > 0) {
-    sign_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sign_);
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.user_token().size() > 0) {
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
   }
   userid_ = from.userid_;
   // @@protoc_insertion_point(copy_constructor:protos.GameLoginParam)
@@ -610,7 +610,7 @@ void GameLoginParam::SharedCtor() {
       &scc_info_GameLoginParam_login2game_2eproto.base);
   deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  sign_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   userid_ = PROTOBUF_LONGLONG(0);
 }
 
@@ -622,7 +622,7 @@ GameLoginParam::~GameLoginParam() {
 void GameLoginParam::SharedDtor() {
   deviceid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  sign_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GameLoginParam::SetCachedSize(int size) const {
@@ -642,7 +642,7 @@ void GameLoginParam::Clear() {
 
   deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  sign_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   userid_ = PROTOBUF_LONGLONG(0);
   _internal_metadata_.Clear();
 }
@@ -699,13 +699,13 @@ const char* GameLoginParam::_InternalParse(const char* begin, const char* end, v
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string sign = 4;
+      // string user_token = 4;
       case 4: {
         if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("protos.GameLoginParam.sign");
-        object = msg->mutable_sign();
+        ctx->extra_parse_data().SetFieldName("protos.GameLoginParam.user_token");
+        object = msg->mutable_user_token();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -792,15 +792,15 @@ bool GameLoginParam::MergePartialFromCodedStream(
         break;
       }
 
-      // string sign = 4;
+      // string user_token = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_sign()));
+                input, this->mutable_user_token()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->sign().data(), static_cast<int>(this->sign().length()),
+            this->user_token().data(), static_cast<int>(this->user_token().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "protos.GameLoginParam.sign"));
+            "protos.GameLoginParam.user_token"));
         } else {
           goto handle_unusual;
         }
@@ -859,14 +859,14 @@ void GameLoginParam::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->userid(), output);
   }
 
-  // string sign = 4;
-  if (this->sign().size() > 0) {
+  // string user_token = 4;
+  if (this->user_token().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->sign().data(), static_cast<int>(this->sign().length()),
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "protos.GameLoginParam.sign");
+      "protos.GameLoginParam.user_token");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->sign(), output);
+      4, this->user_token(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -909,15 +909,15 @@ void GameLoginParam::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->userid(), target);
   }
 
-  // string sign = 4;
-  if (this->sign().size() > 0) {
+  // string user_token = 4;
+  if (this->user_token().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->sign().data(), static_cast<int>(this->sign().length()),
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "protos.GameLoginParam.sign");
+      "protos.GameLoginParam.user_token");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->sign(), target);
+        4, this->user_token(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -955,11 +955,11 @@ size_t GameLoginParam::ByteSizeLong() const {
         this->ip());
   }
 
-  // string sign = 4;
-  if (this->sign().size() > 0) {
+  // string user_token = 4;
+  if (this->user_token().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->sign());
+        this->user_token());
   }
 
   // int64 userid = 3;
@@ -1004,9 +1004,9 @@ void GameLoginParam::MergeFrom(const GameLoginParam& from) {
 
     ip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_);
   }
-  if (from.sign().size() > 0) {
+  if (from.user_token().size() > 0) {
 
-    sign_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sign_);
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
   }
   if (from.userid() != 0) {
     set_userid(from.userid());
@@ -1042,7 +1042,7 @@ void GameLoginParam::InternalSwap(GameLoginParam* other) {
     GetArenaNoVirtual());
   ip_.Swap(&other->ip_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  sign_.Swap(&other->sign_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  user_token_.Swap(&other->user_token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(userid_, other->userid_);
 }

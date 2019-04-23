@@ -54,7 +54,6 @@ void LoginHandler::HandleL2SDKLoginWeixin(const MessagePtr& pMsg, int64_t nSessi
 			auto SendLoginSuccess = [pHandleMsg, nSessionID, pMeta](std::string strOpenID, std::string strSessionKey)
 			{
 				protos::SDK2LLoginWeixin send;
-				send.set_error(0);
 				send.set_allocated_route(pHandleMsg->release_route());
 				send.set_link_sessionid(pHandleMsg->link_sessionid());
 				send.set_allocated_param(pHandleMsg->release_param());

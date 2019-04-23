@@ -31,6 +31,13 @@ struct PlayerOfUserInfo
 	std::string strIP;
 };
 
+struct LittleUserInfo
+{
+	int64_t nUserID = 0;
+	int64_t nLoginTime = 0;
+	std::string strToken;
+};
+
 class LoginHandler : public LogicHandler, public DBHandler, public Singleton<LoginHandler>
 {
 protected:
@@ -74,6 +81,11 @@ public:
 	// 查询PlayerGUID
 	//------------------------------------------------------------------------
 	static bool QueryPlayerGUID(int64_t nUserID, int32_t nServerID, int64_t& rPlayerGUID);
+
+	//------------------------------------------------------------------------
+	// 查询用户信息
+	//------------------------------------------------------------------------
+	static bool QueryUserInfo(int64_t nUserID, LittleUserInfo& rInfo);
 
 	//------------------------------------------------------------------------
 	// 玩家进入

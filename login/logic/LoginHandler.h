@@ -26,6 +26,7 @@ struct UserInfo
 	std::string strDeviceID;
 	std::string strIP;
 	std::string strOpenID;
+	std::string strToken;
 };
 
 class LoginHandler : public LogicHandler, public DBHandler, public Singleton<LoginHandler>

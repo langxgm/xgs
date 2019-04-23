@@ -339,7 +339,6 @@ void LoginHandler::HandleCGReconnLogin(const MessagePtr& pMsg, int64_t nSessionI
 	pPlayer->Online();
 
 	protos::GCReconnLogin send;
-	send.set_error(0);
 	send.set_guid(pPlayer->GetPlayerGUID());
 	send.set_allocated_route(pHandleMsg->release_route());
 	From_Gws_Session::Me()->Send(nSessionID, &send, *pMeta);
@@ -404,7 +403,6 @@ void LoginHandler::HandleCGChangeName(const MessagePtr& pMsg, int64_t nSessionID
 				<< " modified_count=" << result->modified_count();
 
 			protos::GCChangeName send;
-			send.set_error(0);
 			send.set_guid(pHandleMsg->guid());
 			send.set_allocated_name(pHandleMsg->release_name());
 			send.set_portraitid(pHandleMsg->portraitid());

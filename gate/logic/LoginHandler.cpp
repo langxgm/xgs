@@ -127,9 +127,9 @@ void LoginHandler::HandleCGLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	}
 	pHandleMsg->mutable_param()->set_ip(std::move(strIP));
 
-	if (pHandleMsg->param().sign().length() > 256)
+	if (pHandleMsg->param().user_token().length() > 64)
 	{
-		pHandleMsg->mutable_param()->mutable_sign()->resize(256);
+		pHandleMsg->mutable_param()->mutable_user_token()->resize(64);
 	}
 
 	To_Gs_Session::Me()->Send1(pHandleMsg.get(), To_Gs_Meta());

@@ -631,9 +631,23 @@ class LCLoginWeixin :
   ::std::string* release_login_key();
   void set_allocated_login_key(::std::string* login_key);
 
-  // string wx_openid = 6;
+  // string user_token = 6;
+  void clear_user_token();
+  static const int kUserTokenFieldNumber = 6;
+  const ::std::string& user_token() const;
+  void set_user_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_token(::std::string&& value);
+  #endif
+  void set_user_token(const char* value);
+  void set_user_token(const char* value, size_t size);
+  ::std::string* mutable_user_token();
+  ::std::string* release_user_token();
+  void set_allocated_user_token(::std::string* user_token);
+
+  // string wx_openid = 7;
   void clear_wx_openid();
-  static const int kWxOpenidFieldNumber = 6;
+  static const int kWxOpenidFieldNumber = 7;
   const ::std::string& wx_openid() const;
   void set_wx_openid(const ::std::string& value);
   #if LANG_CXX11
@@ -645,9 +659,9 @@ class LCLoginWeixin :
   ::std::string* release_wx_openid();
   void set_allocated_wx_openid(::std::string* wx_openid);
 
-  // string wx_errmsg = 8;
+  // string wx_errmsg = 9;
   void clear_wx_errmsg();
-  static const int kWxErrmsgFieldNumber = 8;
+  static const int kWxErrmsgFieldNumber = 9;
   const ::std::string& wx_errmsg() const;
   void set_wx_errmsg(const ::std::string& value);
   #if LANG_CXX11
@@ -659,18 +673,18 @@ class LCLoginWeixin :
   ::std::string* release_wx_errmsg();
   void set_allocated_wx_errmsg(::std::string* wx_errmsg);
 
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   bool has_route() const;
   void clear_route();
-  static const int kRouteFieldNumber = 4;
+  static const int kRouteFieldNumber = 3;
   const ::protos::LoginRoute& route() const;
   ::protos::LoginRoute* release_route();
   ::protos::LoginRoute* mutable_route();
   void set_allocated_route(::protos::LoginRoute* route);
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   void clear_userid();
-  static const int kUseridFieldNumber = 3;
+  static const int kUseridFieldNumber = 4;
   ::google::protobuf::int64 userid() const;
   void set_userid(::google::protobuf::int64 value);
 
@@ -680,9 +694,9 @@ class LCLoginWeixin :
   ::google::protobuf::int32 error() const;
   void set_error(::google::protobuf::int32 value);
 
-  // int32 wx_errcode = 7;
+  // int32 wx_errcode = 8;
   void clear_wx_errcode();
-  static const int kWxErrcodeFieldNumber = 7;
+  static const int kWxErrcodeFieldNumber = 8;
   ::google::protobuf::int32 wx_errcode() const;
   void set_wx_errcode(::google::protobuf::int32 value);
 
@@ -693,6 +707,7 @@ class LCLoginWeixin :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr errmsg_;
   ::google::protobuf::internal::ArenaStringPtr login_key_;
+  ::google::protobuf::internal::ArenaStringPtr user_token_;
   ::google::protobuf::internal::ArenaStringPtr wx_openid_;
   ::google::protobuf::internal::ArenaStringPtr wx_errmsg_;
   ::protos::LoginRoute* route_;
@@ -1440,18 +1455,32 @@ class LCLoginFacebook :
   ::std::string* release_login_key();
   void set_allocated_login_key(::std::string* login_key);
 
-  // .protos.LoginRoute route = 4;
+  // string user_token = 6;
+  void clear_user_token();
+  static const int kUserTokenFieldNumber = 6;
+  const ::std::string& user_token() const;
+  void set_user_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_token(::std::string&& value);
+  #endif
+  void set_user_token(const char* value);
+  void set_user_token(const char* value, size_t size);
+  ::std::string* mutable_user_token();
+  ::std::string* release_user_token();
+  void set_allocated_user_token(::std::string* user_token);
+
+  // .protos.LoginRoute route = 3;
   bool has_route() const;
   void clear_route();
-  static const int kRouteFieldNumber = 4;
+  static const int kRouteFieldNumber = 3;
   const ::protos::LoginRoute& route() const;
   ::protos::LoginRoute* release_route();
   ::protos::LoginRoute* mutable_route();
   void set_allocated_route(::protos::LoginRoute* route);
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   void clear_userid();
-  static const int kUseridFieldNumber = 3;
+  static const int kUseridFieldNumber = 4;
   ::google::protobuf::int64 userid() const;
   void set_userid(::google::protobuf::int64 value);
 
@@ -1468,6 +1497,7 @@ class LCLoginFacebook :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr errmsg_;
   ::google::protobuf::internal::ArenaStringPtr login_key_;
+  ::google::protobuf::internal::ArenaStringPtr user_token_;
   ::protos::LoginRoute* route_;
   ::google::protobuf::int64 userid_;
   ::google::protobuf::int32 error_;
@@ -1715,18 +1745,18 @@ class LCReconnLogin :
   ::std::string* release_errmsg();
   void set_allocated_errmsg(::std::string* errmsg);
 
-  // .protos.LoginRoute route = 4;
+  // .protos.LoginRoute route = 3;
   bool has_route() const;
   void clear_route();
-  static const int kRouteFieldNumber = 4;
+  static const int kRouteFieldNumber = 3;
   const ::protos::LoginRoute& route() const;
   ::protos::LoginRoute* release_route();
   ::protos::LoginRoute* mutable_route();
   void set_allocated_route(::protos::LoginRoute* route);
 
-  // int64 userid = 3;
+  // int64 userid = 4;
   void clear_userid();
-  static const int kUseridFieldNumber = 3;
+  static const int kUseridFieldNumber = 4;
   ::google::protobuf::int64 userid() const;
   void set_userid(::google::protobuf::int64 value);
 
@@ -2507,21 +2537,7 @@ inline void LCLoginWeixin::set_allocated_errmsg(::std::string* errmsg) {
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginWeixin.errmsg)
 }
 
-// int64 userid = 3;
-inline void LCLoginWeixin::clear_userid() {
-  userid_ = PROTOBUF_LONGLONG(0);
-}
-inline ::google::protobuf::int64 LCLoginWeixin::userid() const {
-  // @@protoc_insertion_point(field_get:protos.LCLoginWeixin.userid)
-  return userid_;
-}
-inline void LCLoginWeixin::set_userid(::google::protobuf::int64 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:protos.LCLoginWeixin.userid)
-}
-
-// .protos.LoginRoute route = 4;
+// .protos.LoginRoute route = 3;
 inline bool LCLoginWeixin::has_route() const {
   return this != internal_default_instance() && route_ != nullptr;
 }
@@ -2570,6 +2586,20 @@ inline void LCLoginWeixin::set_allocated_route(::protos::LoginRoute* route) {
   }
   route_ = route;
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginWeixin.route)
+}
+
+// int64 userid = 4;
+inline void LCLoginWeixin::clear_userid() {
+  userid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LCLoginWeixin::userid() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginWeixin.userid)
+  return userid_;
+}
+inline void LCLoginWeixin::set_userid(::google::protobuf::int64 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCLoginWeixin.userid)
 }
 
 // string login_key = 5;
@@ -2625,7 +2655,60 @@ inline void LCLoginWeixin::set_allocated_login_key(::std::string* login_key) {
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginWeixin.login_key)
 }
 
-// string wx_openid = 6;
+// string user_token = 6;
+inline void LCLoginWeixin::clear_user_token() {
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLoginWeixin::user_token() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginWeixin.user_token)
+  return user_token_.GetNoArena();
+}
+inline void LCLoginWeixin::set_user_token(const ::std::string& value) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLoginWeixin.user_token)
+}
+#if LANG_CXX11
+inline void LCLoginWeixin::set_user_token(::std::string&& value) {
+  
+  user_token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLoginWeixin.user_token)
+}
+#endif
+inline void LCLoginWeixin::set_user_token(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLoginWeixin.user_token)
+}
+inline void LCLoginWeixin::set_user_token(const char* value, size_t size) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLoginWeixin.user_token)
+}
+inline ::std::string* LCLoginWeixin::mutable_user_token() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLoginWeixin.user_token)
+  return user_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLoginWeixin::release_user_token() {
+  // @@protoc_insertion_point(field_release:protos.LCLoginWeixin.user_token)
+  
+  return user_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLoginWeixin::set_allocated_user_token(::std::string* user_token) {
+  if (user_token != nullptr) {
+    
+  } else {
+    
+  }
+  user_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_token);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLoginWeixin.user_token)
+}
+
+// string wx_openid = 7;
 inline void LCLoginWeixin::clear_wx_openid() {
   wx_openid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2678,7 +2761,7 @@ inline void LCLoginWeixin::set_allocated_wx_openid(::std::string* wx_openid) {
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginWeixin.wx_openid)
 }
 
-// int32 wx_errcode = 7;
+// int32 wx_errcode = 8;
 inline void LCLoginWeixin::clear_wx_errcode() {
   wx_errcode_ = 0;
 }
@@ -2692,7 +2775,7 @@ inline void LCLoginWeixin::set_wx_errcode(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:protos.LCLoginWeixin.wx_errcode)
 }
 
-// string wx_errmsg = 8;
+// string wx_errmsg = 9;
 inline void LCLoginWeixin::clear_wx_errmsg() {
   wx_errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3565,21 +3648,7 @@ inline void LCLoginFacebook::set_allocated_errmsg(::std::string* errmsg) {
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginFacebook.errmsg)
 }
 
-// int64 userid = 3;
-inline void LCLoginFacebook::clear_userid() {
-  userid_ = PROTOBUF_LONGLONG(0);
-}
-inline ::google::protobuf::int64 LCLoginFacebook::userid() const {
-  // @@protoc_insertion_point(field_get:protos.LCLoginFacebook.userid)
-  return userid_;
-}
-inline void LCLoginFacebook::set_userid(::google::protobuf::int64 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:protos.LCLoginFacebook.userid)
-}
-
-// .protos.LoginRoute route = 4;
+// .protos.LoginRoute route = 3;
 inline bool LCLoginFacebook::has_route() const {
   return this != internal_default_instance() && route_ != nullptr;
 }
@@ -3628,6 +3697,20 @@ inline void LCLoginFacebook::set_allocated_route(::protos::LoginRoute* route) {
   }
   route_ = route;
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginFacebook.route)
+}
+
+// int64 userid = 4;
+inline void LCLoginFacebook::clear_userid() {
+  userid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LCLoginFacebook::userid() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginFacebook.userid)
+  return userid_;
+}
+inline void LCLoginFacebook::set_userid(::google::protobuf::int64 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCLoginFacebook.userid)
 }
 
 // string login_key = 5;
@@ -3681,6 +3764,59 @@ inline void LCLoginFacebook::set_allocated_login_key(::std::string* login_key) {
   }
   login_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_key);
   // @@protoc_insertion_point(field_set_allocated:protos.LCLoginFacebook.login_key)
+}
+
+// string user_token = 6;
+inline void LCLoginFacebook::clear_user_token() {
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLoginFacebook::user_token() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginFacebook.user_token)
+  return user_token_.GetNoArena();
+}
+inline void LCLoginFacebook::set_user_token(const ::std::string& value) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLoginFacebook.user_token)
+}
+#if LANG_CXX11
+inline void LCLoginFacebook::set_user_token(::std::string&& value) {
+  
+  user_token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLoginFacebook.user_token)
+}
+#endif
+inline void LCLoginFacebook::set_user_token(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLoginFacebook.user_token)
+}
+inline void LCLoginFacebook::set_user_token(const char* value, size_t size) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLoginFacebook.user_token)
+}
+inline ::std::string* LCLoginFacebook::mutable_user_token() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLoginFacebook.user_token)
+  return user_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLoginFacebook::release_user_token() {
+  // @@protoc_insertion_point(field_release:protos.LCLoginFacebook.user_token)
+  
+  return user_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLoginFacebook::set_allocated_user_token(::std::string* user_token) {
+  if (user_token != nullptr) {
+    
+  } else {
+    
+  }
+  user_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_token);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLoginFacebook.user_token)
 }
 
 // -------------------------------------------------------------------
@@ -3862,21 +3998,7 @@ inline void LCReconnLogin::set_allocated_errmsg(::std::string* errmsg) {
   // @@protoc_insertion_point(field_set_allocated:protos.LCReconnLogin.errmsg)
 }
 
-// int64 userid = 3;
-inline void LCReconnLogin::clear_userid() {
-  userid_ = PROTOBUF_LONGLONG(0);
-}
-inline ::google::protobuf::int64 LCReconnLogin::userid() const {
-  // @@protoc_insertion_point(field_get:protos.LCReconnLogin.userid)
-  return userid_;
-}
-inline void LCReconnLogin::set_userid(::google::protobuf::int64 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:protos.LCReconnLogin.userid)
-}
-
-// .protos.LoginRoute route = 4;
+// .protos.LoginRoute route = 3;
 inline bool LCReconnLogin::has_route() const {
   return this != internal_default_instance() && route_ != nullptr;
 }
@@ -3925,6 +4047,20 @@ inline void LCReconnLogin::set_allocated_route(::protos::LoginRoute* route) {
   }
   route_ = route;
   // @@protoc_insertion_point(field_set_allocated:protos.LCReconnLogin.route)
+}
+
+// int64 userid = 4;
+inline void LCReconnLogin::clear_userid() {
+  userid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LCReconnLogin::userid() const {
+  // @@protoc_insertion_point(field_get:protos.LCReconnLogin.userid)
+  return userid_;
+}
+inline void LCReconnLogin::set_userid(::google::protobuf::int64 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCReconnLogin.userid)
 }
 
 // -------------------------------------------------------------------

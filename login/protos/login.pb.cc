@@ -162,6 +162,7 @@ const ::google::protobuf::uint32 TableStruct_login_2eproto::offsets[] PROTOBUF_S
   PROTOBUF_FIELD_OFFSET(::protos::LCLogin, userid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLogin, client_sessionid_),
   PROTOBUF_FIELD_OFFSET(::protos::LCLogin, login_key_),
+  PROTOBUF_FIELD_OFFSET(::protos::LCLogin, user_token_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protos::CLServerList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -198,10 +199,10 @@ const ::google::protobuf::uint32 TableStruct_login_2eproto::offsets[] PROTOBUF_S
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::protos::CLLogin)},
   { 8, -1, sizeof(::protos::LCLogin)},
-  { 18, -1, sizeof(::protos::CLServerList)},
-  { 23, -1, sizeof(::protos::LCServerList_PlayerInfo)},
-  { 32, -1, sizeof(::protos::LCServerList_ServerInfo)},
-  { 42, -1, sizeof(::protos::LCServerList)},
+  { 19, -1, sizeof(::protos::CLServerList)},
+  { 24, -1, sizeof(::protos::LCServerList_PlayerInfo)},
+  { 33, -1, sizeof(::protos::LCServerList_ServerInfo)},
+  { 43, -1, sizeof(::protos::LCServerList)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -222,24 +223,25 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_login_2eproto[] =
   "\n\013login.proto\022\006protos\"A\n\007CLLogin\022\020\n\010devi"
   "ceid\030\001 \001(\t\022\n\n\002ip\030\002 \001(\t\022\030\n\020client_session"
-  "id\030\003 \001(\003\"e\n\007LCLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006er"
+  "id\030\003 \001(\003\"y\n\007LCLogin\022\r\n\005error\030\001 \001(\005\022\016\n\006er"
   "rmsg\030\002 \001(\t\022\016\n\006userid\030\003 \001(\003\022\030\n\020client_ses"
-  "sionid\030\004 \001(\003\022\021\n\tlogin_key\030\005 \001(\t\"\016\n\014CLSer"
-  "verList\"\362\002\n\014LCServerList\022\r\n\005error\030\001 \001(\005\022"
-  "\016\n\006errmsg\030\002 \001(\t\0224\n\013server_list\030\003 \003(\0132\037.p"
-  "rotos.LCServerList.ServerInfo\032K\n\nPlayerI"
-  "nfo\022\014\n\004guid\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\022\n\nportr"
-  "aitid\030\003 \001(\005\022\r\n\005level\030\004 \001(\005\032\233\001\n\nServerInf"
-  "o\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022/\n\005state\030\003 \001"
-  "(\0162 .protos.LCServerList.ServerState\022\014\n\004"
-  "addr\030\004 \001(\t\0224\n\013player_info\030\005 \001(\0132\037.protos"
-  ".LCServerList.PlayerInfo\"\"\n\013ServerState\022"
-  "\t\n\005CLOSE\020\000\022\010\n\004OPEN\020\001b\006proto3"
+  "sionid\030\004 \001(\003\022\021\n\tlogin_key\030\005 \001(\t\022\022\n\nuser_"
+  "token\030\006 \001(\t\"\016\n\014CLServerList\"\362\002\n\014LCServer"
+  "List\022\r\n\005error\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\0224\n\013s"
+  "erver_list\030\003 \003(\0132\037.protos.LCServerList.S"
+  "erverInfo\032K\n\nPlayerInfo\022\014\n\004guid\030\001 \001(\003\022\014\n"
+  "\004name\030\002 \001(\t\022\022\n\nportraitid\030\003 \001(\005\022\r\n\005level"
+  "\030\004 \001(\005\032\233\001\n\nServerInfo\022\n\n\002id\030\001 \001(\005\022\014\n\004nam"
+  "e\030\002 \001(\t\022/\n\005state\030\003 \001(\0162 .protos.LCServer"
+  "List.ServerState\022\014\n\004addr\030\004 \001(\t\0224\n\013player"
+  "_info\030\005 \001(\0132\037.protos.LCServerList.Player"
+  "Info\"\"\n\013ServerState\022\t\n\005CLOSE\020\000\022\010\n\004OPEN\020\001"
+  "b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_login_2eproto = {
   false, InitDefaults_login_2eproto, 
   descriptor_table_protodef_login_2eproto,
-  "login.proto", &assign_descriptors_table_login_2eproto, 588,
+  "login.proto", &assign_descriptors_table_login_2eproto, 608,
 };
 
 void AddDescriptors_login_2eproto() {
@@ -703,6 +705,7 @@ const int LCLogin::kErrmsgFieldNumber;
 const int LCLogin::kUseridFieldNumber;
 const int LCLogin::kClientSessionidFieldNumber;
 const int LCLogin::kLoginKeyFieldNumber;
+const int LCLogin::kUserTokenFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LCLogin::LCLogin()
@@ -722,6 +725,10 @@ LCLogin::LCLogin(const LCLogin& from)
   if (from.login_key().size() > 0) {
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
   }
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.user_token().size() > 0) {
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
+  }
   ::memcpy(&userid_, &from.userid_,
     static_cast<size_t>(reinterpret_cast<char*>(&error_) -
     reinterpret_cast<char*>(&userid_)) + sizeof(error_));
@@ -733,6 +740,7 @@ void LCLogin::SharedCtor() {
       &scc_info_LCLogin_login_2eproto.base);
   errmsg_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&userid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&error_) -
       reinterpret_cast<char*>(&userid_)) + sizeof(error_));
@@ -746,6 +754,7 @@ LCLogin::~LCLogin() {
 void LCLogin::SharedDtor() {
   errmsg_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void LCLogin::SetCachedSize(int size) const {
@@ -765,6 +774,7 @@ void LCLogin::Clear() {
 
   errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&userid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&error_) -
       reinterpret_cast<char*>(&userid_)) + sizeof(error_));
@@ -828,6 +838,22 @@ const char* LCLogin::_InternalParse(const char* begin, const char* end, void* ob
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("protos.LCLogin.login_key");
         object = msg->mutable_login_key();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string user_token = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("protos.LCLogin.user_token");
+        object = msg->mutable_user_token();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -940,6 +966,21 @@ bool LCLogin::MergePartialFromCodedStream(
         break;
       }
 
+      // string user_token = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_token()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_token().data(), static_cast<int>(this->user_token().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protos.LCLogin.user_token"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1002,6 +1043,16 @@ void LCLogin::SerializeWithCachedSizes(
       5, this->login_key(), output);
   }
 
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLogin.user_token");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->user_token(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1052,6 +1103,17 @@ void LCLogin::SerializeWithCachedSizes(
         5, this->login_key(), target);
   }
 
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_token().data(), static_cast<int>(this->user_token().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protos.LCLogin.user_token");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->user_token(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1085,6 +1147,13 @@ size_t LCLogin::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->login_key());
+  }
+
+  // string user_token = 6;
+  if (this->user_token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_token());
   }
 
   // int64 userid = 3;
@@ -1143,6 +1212,10 @@ void LCLogin::MergeFrom(const LCLogin& from) {
 
     login_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_key_);
   }
+  if (from.user_token().size() > 0) {
+
+    user_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_token_);
+  }
   if (from.userid() != 0) {
     set_userid(from.userid());
   }
@@ -1182,6 +1255,8 @@ void LCLogin::InternalSwap(LCLogin* other) {
   errmsg_.Swap(&other->errmsg_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   login_key_.Swap(&other->login_key_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  user_token_.Swap(&other->user_token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(userid_, other->userid_);
   swap(client_sessionid_, other->client_sessionid_);

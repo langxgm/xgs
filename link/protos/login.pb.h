@@ -369,6 +369,20 @@ class LCLogin :
   ::std::string* release_login_key();
   void set_allocated_login_key(::std::string* login_key);
 
+  // string user_token = 6;
+  void clear_user_token();
+  static const int kUserTokenFieldNumber = 6;
+  const ::std::string& user_token() const;
+  void set_user_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_token(::std::string&& value);
+  #endif
+  void set_user_token(const char* value);
+  void set_user_token(const char* value, size_t size);
+  ::std::string* mutable_user_token();
+  ::std::string* release_user_token();
+  void set_allocated_user_token(::std::string* user_token);
+
   // int64 userid = 3;
   void clear_userid();
   static const int kUseridFieldNumber = 3;
@@ -394,6 +408,7 @@ class LCLogin :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr errmsg_;
   ::google::protobuf::internal::ArenaStringPtr login_key_;
+  ::google::protobuf::internal::ArenaStringPtr user_token_;
   ::google::protobuf::int64 userid_;
   ::google::protobuf::int64 client_sessionid_;
   ::google::protobuf::int32 error_;
@@ -1255,6 +1270,59 @@ inline void LCLogin::set_allocated_login_key(::std::string* login_key) {
   }
   login_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_key);
   // @@protoc_insertion_point(field_set_allocated:protos.LCLogin.login_key)
+}
+
+// string user_token = 6;
+inline void LCLogin::clear_user_token() {
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLogin::user_token() const {
+  // @@protoc_insertion_point(field_get:protos.LCLogin.user_token)
+  return user_token_.GetNoArena();
+}
+inline void LCLogin::set_user_token(const ::std::string& value) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLogin.user_token)
+}
+#if LANG_CXX11
+inline void LCLogin::set_user_token(::std::string&& value) {
+  
+  user_token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLogin.user_token)
+}
+#endif
+inline void LCLogin::set_user_token(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLogin.user_token)
+}
+inline void LCLogin::set_user_token(const char* value, size_t size) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLogin.user_token)
+}
+inline ::std::string* LCLogin::mutable_user_token() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLogin.user_token)
+  return user_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLogin::release_user_token() {
+  // @@protoc_insertion_point(field_release:protos.LCLogin.user_token)
+  
+  return user_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLogin::set_allocated_user_token(::std::string* user_token) {
+  if (user_token != nullptr) {
+    
+  } else {
+    
+  }
+  user_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_token);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLogin.user_token)
 }
 
 // -------------------------------------------------------------------

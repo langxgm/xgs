@@ -16,6 +16,7 @@ message LCLogin {
 	int64 userid = 3; // userid
 	int64 client_sessionid = 4; // 客户端在网关上的SessionID
 	string login_key = 5; // 登陆密钥
+	string user_token = 6; // 登陆游戏token
 }
 
 // 服务器列表请求

@@ -10,6 +10,7 @@
 #include "world/protos/login2game.pb.h"
 
 #include "common/logic/t_player_of_user.h"
+#include "common/logic/t_user.h"
 #include "common/logic/GenGUID.h"
 #include "common/logic/ServerManager.h"
 #include "common/logic/ServerNode.h"
@@ -17,6 +18,7 @@
 #include "xbase/TimeUtil.h"
 #include "xdb/mongo/MongoExecutor.h"
 #include "xdb/mongo/MongoElement.h"
+#include "xshare/net/CRC32.h"
 #include "xshare/net/GenSN.h"
 #include "xshare/work/WorkDispatcher.h"
 
@@ -186,6 +188,30 @@ bool LoginHandler::QueryPlayerGUID(int64_t nUserID, int32_t nServerID, int64_t& 
 	return false;
 }
 
+bool LoginHandler::QueryUserInfo(int64_t nUserID, LittleUserInfo& rInfo)
+{
+	bsoncxx::builder::stream::document filterBuilder;
+	filterBuilder << t_user::f_userid << nUserID;
+
+	mongocxx::options::find opts;
+	opts.projection(bsoncxx::builder::stream::document{}
+		<< t_user::f_login_time << 1
+		<< finalize);
+
+	MongoExecutor dbExecutor;
+	auto findResult = dbExecutor.FindOne(t_user::t_name, filterBuilder.view(), opts);
+	if (findResult)
+	{
+		rInfo.nLoginTime = MongoElement<b_int64>::GetValue(findResult->view()[t_user::f_login_time]);
+
+		rInfo.nUserID = nUserID;
+		rInfo.strToken = std::to_string(Crc32(std::to_string(nUserID ^ rInfo.nLoginTime).c_str()) * rInfo.nLoginTime);
+		return true;
+	}
+
+	return false;
+}
+
 void LoginHandler::LinkPlayer(int64_t nPlayerGUID, int64_t nSessionID, const std::string& strOpenID,
 	const std::string& strSessionKey, const std::string& strLoginKey)
 {
@@ -244,6 +270,55 @@ void LoginHandler::HandleGWLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	WorkDispatcherAsync(pHandleMsg->param().userid()).RunInLoop([=]() {
 		go[=]() {
 
+			LittleUserInfo userInfo;
+			if (QueryUserInfo(pHandleMsg->param().userid(), userInfo) == false)
+			{
+				protos::WGLogin send;
+				send.set_error(1); // user信息没查到
+				send.set_errmsg("not found user");
+				send.set_allocated_route(pHandleMsg->release_route());
+				send.set_allocated_param(pHandleMsg->release_param());
+				From_Gs_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+				LOG(WARNING) << "HandleGWLogin/fail userid=" << pHandleMsg->param().userid()
+					<< " serverid=" << send.route().gs_id()
+					<< " not found user";
+				return;
+			}
+
+			const int64_t nEffectiveTime = 15 * 60 * 1000; // 有效时间15分钟
+			if (userInfo.nLoginTime + nEffectiveTime > TimeUtil::GetCurrentTimeMillis())
+			{
+				protos::WGLogin send;
+				send.set_error(2); // token过期了
+				send.set_errmsg("token expired");
+				send.set_allocated_route(pHandleMsg->release_route());
+				send.set_allocated_param(pHandleMsg->release_param());
+				From_Gs_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+				LOG(WARNING) << "HandleGWLogin/fail userid=" << pHandleMsg->param().userid()
+					<< " serverid=" << send.route().gs_id()
+					<< " token expired";
+				return;
+			}
+
+			if (pHandleMsg->param().user_token() != userInfo.strToken)
+			{
+				protos::WGLogin send;
+				send.set_error(3); // token对不上
+				send.set_errmsg("token invalid");
+				send.set_allocated_route(pHandleMsg->release_route());
+				send.set_allocated_param(pHandleMsg->release_param());
+				From_Gs_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+				LOG(WARNING) << "HandleGWLogin/fail userid=" << pHandleMsg->param().userid()
+					<< " serverid=" << send.route().gs_id()
+					<< " client.user_token=" << send.param().user_token()
+					<< " server.user_token=" << userInfo.strToken
+					<< " token invalid";
+				return;
+			}
+
 			PlayerOfUserInfo info;
 			info.nUserID = pHandleMsg->param().userid();
 			info.nServerID = pHandleMsg->route().gs_id();
@@ -257,7 +332,7 @@ void LoginHandler::HandleGWLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 			if (LoginWorld(info) == false)
 			{
 				protos::WGLogin send;
-				send.set_error(1); // 重复创建,同时收到多个登陆消息
+				send.set_error(10); // 重复创建,同时收到多个登陆消息
 				send.set_errmsg("repeat create player_of_user");
 				send.set_allocated_route(pHandleMsg->release_route());
 				send.set_allocated_param(pHandleMsg->release_param());
@@ -326,7 +401,6 @@ void LoginHandler::HandleCWReconnLogin(const MessagePtr& pMsg, int64_t nSessionI
 	pPlayer->Online();
 
 	protos::WCReconnLogin send;
-	send.set_error(0);
 	send.set_guid(pPlayer->GetPlayerGUID());
 	send.set_allocated_route(pHandleMsg->release_route());
 	From_Gws_Session::Me()->Send(nSessionID, &send, *pMeta);
@@ -356,7 +430,6 @@ void LoginHandler::HandleGWS2WReconnLogin(const MessagePtr& pMsg, int64_t nSessi
 	pPlayer->Online();
 
 	protos::W2GWSReconnLogin send;
-	send.set_error(0);
 	send.set_guid(pPlayer->GetPlayerGUID());
 	From_Gws_Session::Me()->Send(nSessionID, &send, *pMeta);
 

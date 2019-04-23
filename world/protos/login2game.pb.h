@@ -245,19 +245,19 @@ class GameLoginParam :
   ::std::string* release_ip();
   void set_allocated_ip(::std::string* ip);
 
-  // string sign = 4;
-  void clear_sign();
-  static const int kSignFieldNumber = 4;
-  const ::std::string& sign() const;
-  void set_sign(const ::std::string& value);
+  // string user_token = 4;
+  void clear_user_token();
+  static const int kUserTokenFieldNumber = 4;
+  const ::std::string& user_token() const;
+  void set_user_token(const ::std::string& value);
   #if LANG_CXX11
-  void set_sign(::std::string&& value);
+  void set_user_token(::std::string&& value);
   #endif
-  void set_sign(const char* value);
-  void set_sign(const char* value, size_t size);
-  ::std::string* mutable_sign();
-  ::std::string* release_sign();
-  void set_allocated_sign(::std::string* sign);
+  void set_user_token(const char* value);
+  void set_user_token(const char* value, size_t size);
+  ::std::string* mutable_user_token();
+  ::std::string* release_user_token();
+  void set_allocated_user_token(::std::string* user_token);
 
   // int64 userid = 3;
   void clear_userid();
@@ -272,7 +272,7 @@ class GameLoginParam :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr deviceid_;
   ::google::protobuf::internal::ArenaStringPtr ip_;
-  ::google::protobuf::internal::ArenaStringPtr sign_;
+  ::google::protobuf::internal::ArenaStringPtr user_token_;
   ::google::protobuf::int64 userid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_login2game_2eproto;
@@ -2406,57 +2406,57 @@ inline void GameLoginParam::set_userid(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:protos.GameLoginParam.userid)
 }
 
-// string sign = 4;
-inline void GameLoginParam::clear_sign() {
-  sign_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string user_token = 4;
+inline void GameLoginParam::clear_user_token() {
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& GameLoginParam::sign() const {
-  // @@protoc_insertion_point(field_get:protos.GameLoginParam.sign)
-  return sign_.GetNoArena();
+inline const ::std::string& GameLoginParam::user_token() const {
+  // @@protoc_insertion_point(field_get:protos.GameLoginParam.user_token)
+  return user_token_.GetNoArena();
 }
-inline void GameLoginParam::set_sign(const ::std::string& value) {
+inline void GameLoginParam::set_user_token(const ::std::string& value) {
   
-  sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:protos.GameLoginParam.sign)
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.GameLoginParam.user_token)
 }
 #if LANG_CXX11
-inline void GameLoginParam::set_sign(::std::string&& value) {
+inline void GameLoginParam::set_user_token(::std::string&& value) {
   
-  sign_.SetNoArena(
+  user_token_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:protos.GameLoginParam.sign)
+  // @@protoc_insertion_point(field_set_rvalue:protos.GameLoginParam.user_token)
 }
 #endif
-inline void GameLoginParam::set_sign(const char* value) {
+inline void GameLoginParam::set_user_token(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:protos.GameLoginParam.sign)
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.GameLoginParam.user_token)
 }
-inline void GameLoginParam::set_sign(const char* value, size_t size) {
+inline void GameLoginParam::set_user_token(const char* value, size_t size) {
   
-  sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:protos.GameLoginParam.sign)
+  // @@protoc_insertion_point(field_set_pointer:protos.GameLoginParam.user_token)
 }
-inline ::std::string* GameLoginParam::mutable_sign() {
+inline ::std::string* GameLoginParam::mutable_user_token() {
   
-  // @@protoc_insertion_point(field_mutable:protos.GameLoginParam.sign)
-  return sign_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:protos.GameLoginParam.user_token)
+  return user_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GameLoginParam::release_sign() {
-  // @@protoc_insertion_point(field_release:protos.GameLoginParam.sign)
+inline ::std::string* GameLoginParam::release_user_token() {
+  // @@protoc_insertion_point(field_release:protos.GameLoginParam.user_token)
   
-  return sign_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return user_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GameLoginParam::set_allocated_sign(::std::string* sign) {
-  if (sign != nullptr) {
+inline void GameLoginParam::set_allocated_user_token(::std::string* user_token) {
+  if (user_token != nullptr) {
     
   } else {
     
   }
-  sign_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sign);
-  // @@protoc_insertion_point(field_set_allocated:protos.GameLoginParam.sign)
+  user_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_token);
+  // @@protoc_insertion_point(field_set_allocated:protos.GameLoginParam.user_token)
 }
 
 // -------------------------------------------------------------------

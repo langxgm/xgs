@@ -25,12 +25,13 @@ message CLLoginWeixin {
 message LCLoginWeixin {
 	int32 error = 1; // 0:成功,非0时失败
 	string errmsg = 2; // 错误信息
-	int64 userid = 3; // userid
-	LoginRoute route = 4; // 客户端登陆路线
+	LoginRoute route = 3; // 客户端登陆路线
+	int64 userid = 4; // userid
 	string login_key = 5; // 登陆密钥
-	string wx_openid = 6; // 微信用户唯一标识
-	int32 wx_errcode = 7; // 微信错误码
-	string wx_errmsg = 8; // 微信错误信息
+	string user_token = 6; // 登陆游戏token
+	string wx_openid = 7; // 微信用户唯一标识
+	int32 wx_errcode = 8; // 微信错误码
+	string wx_errmsg = 9; // 微信错误信息
 }
 
 // SDK登陆请求(微信平台)
@@ -70,9 +71,10 @@ message CLLoginFacebook {
 message LCLoginFacebook {
 	int32 error = 1; // 0:成功,非0时失败
 	string errmsg = 2; // 错误信息
-	int64 userid = 3; // userid
-	LoginRoute route = 4; // 客户端登陆路线
+	LoginRoute route = 3; // 客户端登陆路线
+	int64 userid = 4; // userid
 	string login_key = 5; // 登陆密钥
+	string user_token = 6; // 登陆游戏token
 }
 
 // 断线重连请求
@@ -85,8 +87,8 @@ message CLReconnLogin {
 message LCReconnLogin {
 	int32 error = 1; // 0:成功,非0时失败
 	string errmsg = 2; // 错误信息
-	int64 userid = 3; // userid
-	LoginRoute route = 4; // 客户端登陆路线
+	LoginRoute route = 3; // 客户端登陆路线
+	int64 userid = 4; // userid
 }
 
 // 断线请求
