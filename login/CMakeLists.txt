@@ -16,7 +16,8 @@ message("------------ Options -------------")
 message("  CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 # src list
-file(GLOB COMMON_SRC ${PROJECT_SOURCE_DIR}/../common/logic/GenGUID.cpp)
+file(GLOB COMMON_SRC ${PROJECT_SOURCE_DIR}/../common/logic/t_server_cache.cpp
+                     ${PROJECT_SOURCE_DIR}/../common/logic/GenGUID.cpp)
 aux_source_directory(${PROJECT_SOURCE_DIR} SRC_LIST)
 aux_source_directory(${PROJECT_SOURCE_DIR}/main SRC_LIST)
 aux_source_directory(${PROJECT_SOURCE_DIR}/network SRC_LIST)

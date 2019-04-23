@@ -99,6 +99,9 @@
     <ClCompile Include="logic\UserMapping.cpp">
       <Filter>logic\user</Filter>
     </ClCompile>
+    <ClCompile Include="..\common\logic\t_server_cache.cpp">
+      <Filter>common\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main\LoginServer.h">
@@ -172,6 +175,15 @@
     </ClInclude>
     <ClInclude Include="logic\UserMapping.h">
       <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\t_server.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\t_server_cache.h">
+      <Filter>common\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\logic\t_player_of_user.h">
+      <Filter>common\logic\database</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

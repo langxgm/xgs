@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\common\logic\GenGUID.cpp" />
+    <ClCompile Include="..\common\logic\t_server_cache.cpp" />
     <ClCompile Include="config\SystemConfig.cpp" />
     <ClCompile Include="logic\LoginHandler.cpp" />
     <ClCompile Include="logic\User.cpp" />
@@ -156,6 +157,9 @@
   <ItemGroup>
     <ClInclude Include="..\common\logic\GenGUID.h" />
     <ClInclude Include="..\common\logic\t_guid_serial.h" />
+    <ClInclude Include="..\common\logic\t_player_of_user.h" />
+    <ClInclude Include="..\common\logic\t_server.h" />
+    <ClInclude Include="..\common\logic\t_server_cache.h" />
     <ClInclude Include="..\common\logic\t_user.h" />
     <ClInclude Include="config\SystemConfig.h" />
     <ClInclude Include="logic\HandleMsgMacros.h" />

@@ -8,6 +8,8 @@
 #include "xdb/DBHandler.h"
 #include "xdb/mongo/MongoClient.h"
 
+#include "common/logic/t_server_cache.h"
+
 #include <glog/logging.h>
 
 std::string DatabaseModule::GetName()
@@ -34,6 +36,9 @@ bool DatabaseModule::Init()
 	}
 	// mongodb end
 
+	dbcache::t_server_cache::InitInstance();
+	dbcache::t_server_cache::InitDatabase("homedb");
+
 	// 初始化数据库
 	for (auto handler : *LogicManager::Me())
 	{
@@ -48,6 +53,8 @@ bool DatabaseModule::Init()
 
 void DatabaseModule::Exit()
 {
+	dbcache::t_server_cache::DestroyInstance();
+
 	// mongodb begin
 	MongoClient::Me()->Stop();
 	MongoClient::DestroyInstance();
