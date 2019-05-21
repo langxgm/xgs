@@ -13,6 +13,7 @@
 
 #include "gate/protos/login2game.pb.h"
 
+#include <evpp/utility.h>
 #include <evpp/tcp_conn.h>
 
 #include <glog/logging.h>
@@ -111,7 +112,12 @@ void LoginHandler::HandleCGLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	auto conn = From_Client_Session::Me()->GetConnPtr(nSessionID);
 	if (conn)
 	{
-		strIP = conn->remote_addr();
+		std::vector<std::string> vecString;
+		evpp::StringSplit(conn->remote_addr(), ":", 0, vecString);
+		if (vecString.size() > 0)
+		{
+			strIP = vecString[0];
+		}
 	}
 
 	pHandleMsg->clear_route();

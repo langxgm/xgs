@@ -106,7 +106,7 @@ bool LoginHandler::LoginWorld(PlayerOfUserInfo& rInfo)
 		bsoncxx::builder::stream::document createBuilder;
 		createBuilder << t_player_of_user::f_userid << rInfo.nUserID
 			<< t_player_of_user::f_server_id << rInfo.nServerID
-			<< t_player_of_user::f_guid << rInfo.nPlayerGUID
+			<< t_player_of_user::f_guid << nGUID
 			<< t_player_of_user::f_name << rInfo.strPlayerName
 			<< t_player_of_user::f_portrait << rInfo.nPortrait
 			<< t_player_of_user::f_level << rInfo.nPlayerLevel
@@ -202,7 +202,7 @@ bool LoginHandler::QueryUserInfo(int64_t nUserID, LittleUserInfo& rInfo)
 	auto findResult = dbExecutor.FindOne(t_user::t_name, filterBuilder.view(), opts);
 	if (findResult)
 	{
-		rInfo.nLoginTime = MongoElement<b_int64>::GetValue(findResult->view()[t_user::f_login_time]);
+		rInfo.nLoginTime = MongoElement<b_date>::GetValue(findResult->view()[t_user::f_login_time]);
 
 		rInfo.nUserID = nUserID;
 		rInfo.strToken = std::to_string(Crc32(std::to_string(nUserID ^ rInfo.nLoginTime).c_str()) * rInfo.nLoginTime);
@@ -287,7 +287,8 @@ void LoginHandler::HandleGWLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 			}
 
 			const int64_t nEffectiveTime = 15 * 60 * 1000; // 有效时间15分钟
-			if (userInfo.nLoginTime + nEffectiveTime > TimeUtil::GetCurrentTimeMillis())
+			int64_t nElapsedTime = std::abs(TimeUtil::GetCurrentTimeMillis() - userInfo.nLoginTime);
+			if (nElapsedTime > nEffectiveTime)
 			{
 				protos::WGLogin send;
 				send.set_error(2); // token过期了

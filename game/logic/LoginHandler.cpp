@@ -256,6 +256,10 @@ void LoginHandler::HandleWGLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	if (auto pServer = ServerManager::Me()->GetServerByID(ServerType::Gateway, pHandleMsg->route().gws_id()))
 	{
 		nGwsSessionID = pServer->GetSessionID();
+	}
+	if (nGwsSessionID == -1)
+	{
+		LOG(ERROR) << "HandleWGLogin/fail not found gws_id=" << pHandleMsg->route().gws_id();
 		return;
 	}
 

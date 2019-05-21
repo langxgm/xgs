@@ -13,6 +13,7 @@
 #include "link/protos/login.pb.h"
 #include "link/protos/login2sdk.pb.h"
 
+#include <evpp/utility.h>
 #include <evpp/tcp_conn.h>
 
 #include <glog/logging.h>
@@ -107,7 +108,12 @@ void LoginHandler::HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	std::string strIP;
 	if (auto conn = From_Client_Session::Me()->GetConnPtr(nSessionID))
 	{
-		strIP = conn->remote_addr();
+		std::vector<std::string> vecString;
+		evpp::StringSplit(conn->remote_addr(), ":", 0, vecString);
+		if (vecString.size() > 0)
+		{
+			strIP = vecString[0];
+		}
 	}
 
 	// 限制长度
@@ -152,7 +158,12 @@ void LoginHandler::HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionI
 	std::string strIP;
 	if (auto conn = From_Client_Session::Me()->GetConnPtr(nSessionID))
 	{
-		strIP = conn->remote_addr();
+		std::vector<std::string> vecString;
+		evpp::StringSplit(conn->remote_addr(), ":", 0, vecString);
+		if (vecString.size() > 0)
+		{
+			strIP = vecString[0];
+		}
 	}
 
 	pHandleMsg->clear_route();
@@ -203,7 +214,12 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 	std::string strIP;
 	if (auto conn = From_Client_Session::Me()->GetConnPtr(nSessionID))
 	{
-		strIP = conn->remote_addr();
+		std::vector<std::string> vecString;
+		evpp::StringSplit(conn->remote_addr(), ":", 0, vecString);
+		if (vecString.size() > 0)
+		{
+			strIP = vecString[0];
+		}
 	}
 
 	pHandleMsg->clear_route();
