@@ -177,6 +177,18 @@ class MsgDir :
   bool w2c() const;
   void set_w2c(bool value);
 
+  // bool c2g = 3;
+  void clear_c2g();
+  static const int kC2GFieldNumber = 3;
+  bool c2g() const;
+  void set_c2g(bool value);
+
+  // bool g2c = 4;
+  void clear_g2c();
+  static const int kG2CFieldNumber = 4;
+  bool g2c() const;
+  void set_g2c(bool value);
+
   // @@protoc_insertion_point(class_scope:pbconfig.MsgDir)
  private:
   class HasBitSetters;
@@ -184,6 +196,8 @@ class MsgDir :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool c2w_;
   bool w2c_;
+  bool c2g_;
+  bool g2c_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_msginfo_2econf_2eproto;
 };
@@ -498,6 +512,34 @@ inline void MsgDir::set_w2c(bool value) {
   
   w2c_ = value;
   // @@protoc_insertion_point(field_set:pbconfig.MsgDir.w2c)
+}
+
+// bool c2g = 3;
+inline void MsgDir::clear_c2g() {
+  c2g_ = false;
+}
+inline bool MsgDir::c2g() const {
+  // @@protoc_insertion_point(field_get:pbconfig.MsgDir.c2g)
+  return c2g_;
+}
+inline void MsgDir::set_c2g(bool value) {
+  
+  c2g_ = value;
+  // @@protoc_insertion_point(field_set:pbconfig.MsgDir.c2g)
+}
+
+// bool g2c = 4;
+inline void MsgDir::clear_g2c() {
+  g2c_ = false;
+}
+inline bool MsgDir::g2c() const {
+  // @@protoc_insertion_point(field_get:pbconfig.MsgDir.g2c)
+  return g2c_;
+}
+inline void MsgDir::set_g2c(bool value) {
+  
+  g2c_ = value;
+  // @@protoc_insertion_point(field_set:pbconfig.MsgDir.g2c)
 }
 
 // -------------------------------------------------------------------

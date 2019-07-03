@@ -6,6 +6,8 @@ package pbconfig;
 message MsgDir {
 	bool c2w = 1; // C->W
 	bool w2c = 2; // W->C
+	bool c2g = 3; // C->G
+	bool g2c = 4; // G->C
 }
 
 // 消息日志

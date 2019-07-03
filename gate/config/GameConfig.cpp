@@ -23,6 +23,8 @@ void GameConfig::InitMsgTable()
 			<< " { open=" << it.second->open()
 			<< ", c2w=" << it.second->dir().c2w()
 			<< ", w2c=" << it.second->dir().w2c()
+			<< ", c2g=" << it.second->dir().c2g()
+			<< ", g2c=" << it.second->dir().g2c()
 			<< ", log.on=" << it.second->log().on()
 			<< " }, " << strMsgName
 			<< std::endl;

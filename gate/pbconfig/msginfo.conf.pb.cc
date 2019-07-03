@@ -94,6 +94,8 @@ const ::google::protobuf::uint32 TableStruct_msginfo_2econf_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::pbconfig::MsgDir, c2w_),
   PROTOBUF_FIELD_OFFSET(::pbconfig::MsgDir, w2c_),
+  PROTOBUF_FIELD_OFFSET(::pbconfig::MsgDir, c2g_),
+  PROTOBUF_FIELD_OFFSET(::pbconfig::MsgDir, g2c_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pbconfig::MsgLog, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -113,8 +115,8 @@ const ::google::protobuf::uint32 TableStruct_msginfo_2econf_2eproto::offsets[] P
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::pbconfig::MsgDir)},
-  { 7, -1, sizeof(::pbconfig::MsgLog)},
-  { 13, -1, sizeof(::pbconfig::MsgInfo)},
+  { 9, -1, sizeof(::pbconfig::MsgLog)},
+  { 15, -1, sizeof(::pbconfig::MsgInfo)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -130,17 +132,17 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_msginfo_2econf_2eproto[] =
-  "\n\022msginfo.conf.proto\022\010pbconfig\"\"\n\006MsgDir"
-  "\022\013\n\003c2w\030\001 \001(\010\022\013\n\003w2c\030\002 \001(\010\"\024\n\006MsgLog\022\n\n\002"
-  "on\030\001 \001(\010\"r\n\007MsgInfo\022\r\n\005title\030\001 \001(\t\022\014\n\004na"
-  "me\030\002 \001(\t\022\014\n\004open\030\003 \001(\010\022\035\n\003dir\030\004 \001(\0132\020.pb"
-  "config.MsgDir\022\035\n\003log\030\005 \001(\0132\020.pbconfig.Ms"
-  "gLogb\006proto3"
+  "\n\022msginfo.conf.proto\022\010pbconfig\"<\n\006MsgDir"
+  "\022\013\n\003c2w\030\001 \001(\010\022\013\n\003w2c\030\002 \001(\010\022\013\n\003c2g\030\003 \001(\010\022"
+  "\013\n\003g2c\030\004 \001(\010\"\024\n\006MsgLog\022\n\n\002on\030\001 \001(\010\"r\n\007Ms"
+  "gInfo\022\r\n\005title\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004op"
+  "en\030\003 \001(\010\022\035\n\003dir\030\004 \001(\0132\020.pbconfig.MsgDir\022"
+  "\035\n\003log\030\005 \001(\0132\020.pbconfig.MsgLogb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_msginfo_2econf_2eproto = {
   false, InitDefaults_msginfo_2econf_2eproto, 
   descriptor_table_protodef_msginfo_2econf_2eproto,
-  "msginfo.conf.proto", &assign_descriptors_table_msginfo_2econf_2eproto, 212,
+  "msginfo.conf.proto", &assign_descriptors_table_msginfo_2econf_2eproto, 238,
 };
 
 void AddDescriptors_msginfo_2econf_2eproto() {
@@ -165,6 +167,8 @@ class MsgDir::HasBitSetters {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MsgDir::kC2WFieldNumber;
 const int MsgDir::kW2CFieldNumber;
+const int MsgDir::kC2GFieldNumber;
+const int MsgDir::kG2CFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MsgDir::MsgDir()
@@ -177,15 +181,15 @@ MsgDir::MsgDir(const MsgDir& from)
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&c2w_, &from.c2w_,
-    static_cast<size_t>(reinterpret_cast<char*>(&w2c_) -
-    reinterpret_cast<char*>(&c2w_)) + sizeof(w2c_));
+    static_cast<size_t>(reinterpret_cast<char*>(&g2c_) -
+    reinterpret_cast<char*>(&c2w_)) + sizeof(g2c_));
   // @@protoc_insertion_point(copy_constructor:pbconfig.MsgDir)
 }
 
 void MsgDir::SharedCtor() {
   ::memset(&c2w_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&w2c_) -
-      reinterpret_cast<char*>(&c2w_)) + sizeof(w2c_));
+      reinterpret_cast<char*>(&g2c_) -
+      reinterpret_cast<char*>(&c2w_)) + sizeof(g2c_));
 }
 
 MsgDir::~MsgDir() {
@@ -212,8 +216,8 @@ void MsgDir::Clear() {
   (void) cached_has_bits;
 
   ::memset(&c2w_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&w2c_) -
-      reinterpret_cast<char*>(&c2w_)) + sizeof(w2c_));
+      reinterpret_cast<char*>(&g2c_) -
+      reinterpret_cast<char*>(&c2w_)) + sizeof(g2c_));
   _internal_metadata_.Clear();
 }
 
@@ -241,6 +245,20 @@ const char* MsgDir::_InternalParse(const char* begin, const char* end, void* obj
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
         msg->set_w2c(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // bool c2g = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_c2g(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // bool g2c = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_g2c(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
@@ -297,6 +315,32 @@ bool MsgDir::MergePartialFromCodedStream(
         break;
       }
 
+      // bool c2g = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &c2g_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool g2c = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &g2c_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -334,6 +378,16 @@ void MsgDir::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->w2c(), output);
   }
 
+  // bool c2g = 3;
+  if (this->c2g() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->c2g(), output);
+  }
+
+  // bool g2c = 4;
+  if (this->g2c() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->g2c(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -355,6 +409,16 @@ void MsgDir::SerializeWithCachedSizes(
   // bool w2c = 2;
   if (this->w2c() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->w2c(), target);
+  }
+
+  // bool c2g = 3;
+  if (this->c2g() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->c2g(), target);
+  }
+
+  // bool g2c = 4;
+  if (this->g2c() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->g2c(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -385,6 +449,16 @@ size_t MsgDir::ByteSizeLong() const {
 
   // bool w2c = 2;
   if (this->w2c() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool c2g = 3;
+  if (this->c2g() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool g2c = 4;
+  if (this->g2c() != 0) {
     total_size += 1 + 1;
   }
 
@@ -421,6 +495,12 @@ void MsgDir::MergeFrom(const MsgDir& from) {
   if (from.w2c() != 0) {
     set_w2c(from.w2c());
   }
+  if (from.c2g() != 0) {
+    set_c2g(from.c2g());
+  }
+  if (from.g2c() != 0) {
+    set_g2c(from.g2c());
+  }
 }
 
 void MsgDir::CopyFrom(const ::google::protobuf::Message& from) {
@@ -450,6 +530,8 @@ void MsgDir::InternalSwap(MsgDir* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(c2w_, other->c2w_);
   swap(w2c_, other->w2c_);
+  swap(c2g_, other->c2g_);
+  swap(g2c_, other->g2c_);
 }
 
 ::google::protobuf::Metadata MsgDir::GetMetadata() const {
