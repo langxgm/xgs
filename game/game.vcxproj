@@ -177,6 +177,7 @@
     <ClCompile Include="protos\meta.pb.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\common\database\DataStore.h" />
     <ClInclude Include="..\common\logic\ServerManager.h" />
     <ClInclude Include="..\common\logic\ServerNode.h" />
     <ClInclude Include="..\common\logic\ServerNodeContainer.h" />

@@ -37,6 +37,9 @@
     <Filter Include="common\logic">
       <UniqueIdentifier>{6fef80fe-86a4-4fc2-b635-89f1aedbd70f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common\database">
+      <UniqueIdentifier>{bb3342e3-42c6-49d1-9887-038a3b4cd9f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main\main.cpp">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="logic\PlayerMapping.h">
       <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\database\DataStore.h">
+      <Filter>common\database</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
