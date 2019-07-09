@@ -242,7 +242,7 @@
     <ClInclude Include="logic\PlayerMapping.h">
       <Filter>logic\player</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\database\DataStore.h">
+    <ClInclude Include="..\common\database\DataStorage.h">
       <Filter>common\database</Filter>
     </ClInclude>
   </ItemGroup>

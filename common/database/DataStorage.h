@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------
-// * @filename: DataStore.h
+// * @filename: DataStorage.h
 // *
 // * @brief: 数据存储模板
 // *
@@ -22,7 +22,7 @@ namespace google {
 }
 
 template<typename table_type>
-class DataStore
+class DataStorage
 {
 public:
 	//------------------------------------------------------------------------
@@ -122,7 +122,7 @@ public:
 				<< close_document;
 
 			auto result = coll.update_one(filterBuilder.view(), updateBuilder.view());
-			LOG_IF(INFO, result) << "update " << table_type::t_name << " guid=" << nPlayerGUID
+			DLOG_IF(INFO, result) << "update " << table_type::t_name << " guid=" << nPlayerGUID
 				<< ",result matched_count=" << result->matched_count()
 				<< " modified_count=" << result->modified_count();
 		}
