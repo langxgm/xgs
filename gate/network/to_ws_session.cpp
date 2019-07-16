@@ -15,7 +15,8 @@
 #include "xbase/TimeUtil.h"
 #include "xshare/work/WorkDispatcher.h"
 
-#include <evpp/event_loop.h>
+#include <glog/logging.h>
+#include <evpp/buffer.h>
 
 To_Ws_Session::To_Ws_Session()
 {
@@ -95,6 +96,60 @@ void To_Ws_Session::OnMissMessage(uint32_t nMsgID, const void* pMsg, size_t nLen
 			<< " resp.guid==0 && resp.guids_size==0";
 		return;
 	}
+
+	auto pWriteBuffer = From_Client_Session::Me()->GetBufferAllocator().Alloc();
+	if (!pWriteBuffer)
+	{
+		LOG(WARNING) << "OnMissMessage/fail msgid=" << nMsgID << " msgLen=" << nLen << " name=" << pMsgInfo->name()
+			<< " alloc write buffer is nullptr";
+		return;
+	}
+
+	// 先打包数据
+	MessageMeta meta;
+	meta.SetMsgID(nMsgID);
+	From_Client_Session::Me()->WriteBuffer(pWriteBuffer.get(), pMsg, nLen, &meta);
+
+	std::shared_ptr<BufferAllocator::BufferPtr::element_type> sharedBuffer = std::move(pWriteBuffer);
+
+	// 转到主线程
+	WorkDispatcherSync().RunInLoop([=]() {
+
+		if (pRealMeta->Response().guid() != 0)
+		{
+			auto pPlayer = PlayerManager::Me()->GetPlayer(pRealMeta->Response().guid());
+			if (pPlayer)
+			{
+				From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+
+				if (pMsgInfo->log().on())
+				{
+					LOG(INFO) << /*"OnMissMessage/ok "*/"{W => C} " << pMsgInfo->name() << "[" << nLen << "]"
+						<< " guid=" << pPlayer->GetPlayerGUID() << " sid=" << pPlayer->GetSessionID();
+				}
+			}
+		}
+
+		if (pRealMeta->Response().guids_size() > 0)
+		{
+			for (auto& nPlayerGUID : pRealMeta->Response().guids())
+			{
+				auto pPlayer = PlayerManager::Me()->GetPlayer(nPlayerGUID);
+				if (pPlayer)
+				{
+					From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+				}
+			}
+
+			if (pMsgInfo->log().on())
+			{
+				LOG(INFO) << /*"OnMissMessage/ok "*/"{W => C} " << pMsgInfo->name() << "[" << nLen << "]"
+					<< " guids_size=" << pRealMeta->Response().guids_size();
+			}
+		}
+
+		From_Client_Session::Me()->ResetBuffer(sharedBuffer.get());
+	});
 }
 
 void To_Ws_Session::OnConnected(int64_t nSessionID)

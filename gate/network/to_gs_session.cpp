@@ -1,14 +1,22 @@
 ﻿
 #include "to_gs_session.h"
+#include "from_client_session.h"
 #include "gate/main/GateServer.h"
 #include "gate/logic/HandleMsgMacros.h"
+#include "gate/logic/PlayerManager.h"
+#include "gate/logic/Player.h"
 #include "gate/logic/LoginHandler.h"
+
+#include "gate/config/GameConfig.h"
+#include "gate/pbconfig/msginfo.conf.pb.h"
 
 #include "gate/protos/core.pb.h"
 
 #include "xbase/TimeUtil.h"
+#include "xshare/work/WorkDispatcher.h"
 
 #include <glog/logging.h>
+#include <evpp/buffer.h>
 
 To_Gs_Session::To_Gs_Session()
 {
@@ -46,6 +54,102 @@ void To_Gs_Session::Update()
 
 		SendPing();
 	}
+}
+
+void To_Gs_Session::OnMissMessage(uint32_t nMsgID, const void* pMsg, size_t nLen, int64_t nSessionID, const MessageMetaPtr& pMeta)
+{
+	// 注意:这里是异步调用
+
+	auto pRealMeta = std::static_pointer_cast<To_Gs_Meta>(pMeta);
+	if (!pRealMeta)
+	{
+		return;
+	}
+
+	// 消息配置
+	auto pMsgInfo = GameConfig::Me()->GetMsgInfo(nMsgID);
+	if (!pMsgInfo)
+	{
+		LOG(WARNING) << "OnMissMessage/fail msgid=" << nMsgID << " msgLen=" << nLen
+			<< " not found pbconfig::MsgInfo";
+		return;
+	}
+	// 消息是否开放
+	if (pMsgInfo->open() == false)
+	{
+		LOG(INFO) << "OnMissMessage/ok msgid=" << nMsgID << " name=" << pMsgInfo->name()
+			<< " pbconfig::MsgInfo is closed";
+		return;
+	}
+	// 是否发往Client
+	if (pMsgInfo->dir().g2c() == false)
+	{
+		LOG(INFO) << "OnMissMessage/ok msgid=" << nMsgID << " name=" << pMsgInfo->name()
+			<< " pbconfig::MsgInfo.dir().g2c() == false";
+		return;
+	}
+
+	if (pRealMeta->Response().guid() == 0
+		&& pRealMeta->Response().guids_size() == 0)
+	{
+		LOG(WARNING) << "OnMissMessage/fail msgid=" << nMsgID << " msgLen=" << nLen << " name=" << pMsgInfo->name()
+			<< " resp.guid==0 && resp.guids_size==0";
+		return;
+	}
+
+	auto pWriteBuffer = From_Client_Session::Me()->GetBufferAllocator().Alloc();
+	if (!pWriteBuffer)
+	{
+		LOG(WARNING) << "OnMissMessage/fail msgid=" << nMsgID << " msgLen=" << nLen << " name=" << pMsgInfo->name()
+			<< " alloc write buffer is nullptr";
+		return;
+	}
+
+	// 先打包数据
+	MessageMeta meta;
+	meta.SetMsgID(nMsgID);
+	From_Client_Session::Me()->WriteBuffer(pWriteBuffer.get(), pMsg, nLen, &meta);
+
+	std::shared_ptr<BufferAllocator::BufferPtr::element_type> sharedBuffer = std::move(pWriteBuffer);
+
+	// 转到主线程
+	WorkDispatcherSync().RunInLoop([=]() {
+
+		if (pRealMeta->Response().guid() != 0)
+		{
+			auto pPlayer = PlayerManager::Me()->GetPlayer(pRealMeta->Response().guid());
+			if (pPlayer)
+			{
+				From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+
+				if (pMsgInfo->log().on())
+				{
+					LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C} " << pMsgInfo->name() << "[" << nLen << "]"
+						<< " guid=" << pPlayer->GetPlayerGUID() << " sid=" << pPlayer->GetSessionID();
+				}
+			}
+		}
+
+		if (pRealMeta->Response().guids_size() > 0)
+		{
+			for (auto& nPlayerGUID : pRealMeta->Response().guids())
+			{
+				auto pPlayer = PlayerManager::Me()->GetPlayer(nPlayerGUID);
+				if (pPlayer)
+				{
+					From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+				}
+			}
+
+			if (pMsgInfo->log().on())
+			{
+				LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C} " << pMsgInfo->name() << "[" << nLen << "]"
+					<< " guids_size=" << pRealMeta->Response().guids_size();
+			}
+		}
+
+		From_Client_Session::Me()->ResetBuffer(sharedBuffer.get());
+	});
 }
 
 void To_Gs_Session::OnConnected(int64_t nSessionID)

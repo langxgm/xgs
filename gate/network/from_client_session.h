@@ -28,6 +28,11 @@ public:
 	//------------------------------------------------------------------------
 	virtual void OnDisconnect(int64_t nSessionID) override;
 
+	//------------------------------------------------------------------------
+	// 处理未注册的消息(异步的)
+	//------------------------------------------------------------------------
+	virtual void OnMissMessage(uint32_t nMsgID, const void* pMsg, size_t nLen, int64_t nSessionID, const MessageMetaPtr& pMeta) override;
+
 public:
 	void HandlePing(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 };

@@ -36,6 +36,11 @@ public:
 	virtual void Update() override;
 
 	//------------------------------------------------------------------------
+	// 处理未注册的消息(异步的)
+	//------------------------------------------------------------------------
+	virtual void OnMissMessage(uint32_t nMsgID, const void* pMsg, size_t nLen, int64_t nSessionID, const MessageMetaPtr& pMeta) override;
+
+	//------------------------------------------------------------------------
 	// 连接成功(异步的)
 	//------------------------------------------------------------------------
 	virtual void OnConnected(int64_t nSessionID) override;
