@@ -69,9 +69,9 @@ public:
 	}
 
 	template<typename T>
-	std::shared_ptr<T> GetPlayerByLoginKey_cast(int64_t nSessionID)
+	std::shared_ptr<T> GetPlayerByLoginKey_cast(const std::string& strLoginKey)
 	{
-		return std::static_pointer_cast<T>(GetPlayerByLoginKey(nSessionID));
+		return std::static_pointer_cast<T>(GetPlayerByLoginKey(strLoginKey));
 	}
 
 	//------------------------------------------------------------------------
