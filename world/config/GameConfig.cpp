@@ -5,5 +5,5 @@
 
 GameConfig::~GameConfig()
 {
-	delete m_pGameMatchSystem;
+
 }

@@ -18,10 +18,6 @@ namespace google {
 	}
 }
 
-namespace pbconfig {
-	class GameMatchSystem;
-}
-
 class GameConfig : public Singleton<GameConfig>
 {
 public:
@@ -33,5 +29,4 @@ protected:
 public:
 
 private:
-	const pbconfig::GameMatchSystem* m_pGameMatchSystem = nullptr;
 };
