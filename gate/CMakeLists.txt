@@ -57,4 +57,4 @@ link_directories(${LIBRARY_OUTPUT_PATH})
 link_directories(${PROJECT_SOURCE_DIR}/../third_party/x64-linux/lib)
 
 add_executable(gate ${SRC_LIST} ${COMMON_SRC} ${THIRD_PARTY_SRC})
-target_link_libraries(gate libgo dl xdb xshare xbase protobuf mongocxx bsoncxx evpp_static event glog gflags)
+target_link_libraries(gate libgo dl xdb xshare xbase protobuf mongocxx bsoncxx evpp_https_static ssl crypto event_openssl event glog gflags)
