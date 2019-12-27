@@ -115,36 +115,72 @@ void To_Gs_Session::OnMissMessage(uint32_t nMsgID, const void* pMsg, size_t nLen
 	// 转到主线程
 	WorkDispatcherSync().RunInLoop([=]() {
 
-		if (pRealMeta->Response().guid() != 0)
+		if (pRealMeta->Response().group_id() != 0)
 		{
-			auto pPlayer = PlayerManager::Me()->GetPlayer(pRealMeta->Response().guid());
-			if (pPlayer)
+			int64_t nGroupID = pRealMeta->Response().group_id();
+			int64_t nExcludeGUID = pRealMeta->Response().guid();
+
+			if (nGroupID == -1) // 全服广播
 			{
-				From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+				int32_t nCount = 0;
+				for (auto& it : PlayerManager::Me()->GetPlayers())
+				{
+					auto& pPlayer = it.second;
+
+					if (nExcludeGUID != 0 && nExcludeGUID == pPlayer->GetPlayerGUID())
+					{
+						continue;
+					}
+
+					From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+
+					++nCount;
+				}
+
+				if (pMsgInfo->log().on())
+				{
+					LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C*} " << pMsgInfo->name() << "[" << nLen << "]"
+						<< " guids_size=" << nCount;
+				}
+			}
+			else
+			{
+
+			}
+		}
+		else
+		{
+			if (pRealMeta->Response().guid() != 0)
+			{
+				auto pPlayer = PlayerManager::Me()->GetPlayer(pRealMeta->Response().guid());
+				if (pPlayer)
+				{
+					From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+
+					if (pMsgInfo->log().on())
+					{
+						LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C} " << pMsgInfo->name() << "[" << nLen << "]"
+							<< " guid=" << pPlayer->GetPlayerGUID() << " sid=" << pPlayer->GetSessionID();
+					}
+				}
+			}
+
+			if (pRealMeta->Response().guids_size() > 0)
+			{
+				for (auto& nPlayerGUID : pRealMeta->Response().guids())
+				{
+					auto pPlayer = PlayerManager::Me()->GetPlayer(nPlayerGUID);
+					if (pPlayer)
+					{
+						From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
+					}
+				}
 
 				if (pMsgInfo->log().on())
 				{
 					LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C} " << pMsgInfo->name() << "[" << nLen << "]"
-						<< " guid=" << pPlayer->GetPlayerGUID() << " sid=" << pPlayer->GetSessionID();
+						<< " guids_size=" << pRealMeta->Response().guids_size();
 				}
-			}
-		}
-
-		if (pRealMeta->Response().guids_size() > 0)
-		{
-			for (auto& nPlayerGUID : pRealMeta->Response().guids())
-			{
-				auto pPlayer = PlayerManager::Me()->GetPlayer(nPlayerGUID);
-				if (pPlayer)
-				{
-					From_Client_Session::Me()->Send(pPlayer->GetSessionID(), sharedBuffer->data(), sharedBuffer->length());
-				}
-			}
-
-			if (pMsgInfo->log().on())
-			{
-				LOG(INFO) << /*"OnMissMessage/ok "*/"{G => C} " << pMsgInfo->name() << "[" << nLen << "]"
-					<< " guids_size=" << pRealMeta->Response().guids_size();
 			}
 		}
 

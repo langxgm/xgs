@@ -104,8 +104,11 @@ void From_Gws_MessagePacker::PackBefore(uint32_t nMsgID, const ::google::protobu
 	{
 		auto pRealMeta = static_cast<const From_Gws_Meta*>(pMeta);
 
-		// 自动填充来时的GUID
-		if (pRealMeta->Response().guid() == 0)
+		if (pRealMeta->Response().group_id() != 0)
+		{
+
+		}
+		else if (pRealMeta->Response().guid() == 0) // 自动填充来时的GUID
 		{
 			const_cast<From_Gws_Meta*>(pRealMeta)->MutableResponse()->set_guid(pRealMeta->Request().guid());
 		}

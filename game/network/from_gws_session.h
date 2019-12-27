@@ -72,6 +72,12 @@ public:
 		}
 	}
 
+	explicit From_Gws_Meta(int64_t nGroupID, int64_t nExcludeGUID)
+	{
+		m_RpcMeta.mutable_resp()->set_group_id(nGroupID);
+		m_RpcMeta.mutable_resp()->set_guid(nExcludeGUID);
+	}
+
 	virtual uint32_t GetByteSize() const override
 	{
 		return MessageMeta::GetByteSize() + m_RpcMeta.ByteSizeLong();

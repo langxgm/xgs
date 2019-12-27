@@ -124,6 +124,11 @@ PlayerPtr PlayerManager::GetPlayerBySessionID(int64_t nSessionID)
 	return nullptr;
 }
 
+std::map<int64_t, PlayerPtr>& PlayerManager::GetPlayers()
+{
+	return m_mapPlayers;
+}
+
 void PlayerManager::ModifySessionID(int64_t nOldSessionID, const PlayerPtr& pPlayer)
 {
 	m_mapSessionIDPlayers.erase(nOldSessionID);
