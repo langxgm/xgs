@@ -94,6 +94,8 @@ public:
 public:
 	void HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 
+	void HandleCLLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
+
 	void HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 	void HandleSDK2LLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 

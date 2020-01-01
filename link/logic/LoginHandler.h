@@ -53,6 +53,9 @@ public:
 	void HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 	void HandleLCLogin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 
+	void HandleCLLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
+	void HandleLCLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
+
 	void HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 	void HandleLCLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta);
 

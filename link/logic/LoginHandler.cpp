@@ -36,7 +36,8 @@ void LoginHandler::UpdateLogic()
 
 void LoginHandler::ListenFromClient(ServerWorker* pServer)
 {
-	REG_MSG_TO(pServer, &LoginHandler::HandleCLLogin, this, protos::CLLogin, "登陆请求");
+	REG_MSG_TO(pServer, &LoginHandler::HandleCLLogin, this, protos::CLLogin, "游客登陆请求");
+	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginAccount, this, protos::CLLoginAccount, "账号登陆请求");
 	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginWeixin, this, protos::CLLoginWeixin, "登陆请求(微信平台)");
 	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginFacebook, this, protos::CLLoginFacebook, "登陆请求(Facebook平台)");
 
@@ -45,7 +46,8 @@ void LoginHandler::ListenFromClient(ServerWorker* pServer)
 
 void LoginHandler::ListenFromLs(ClientWorker* pServer)
 {
-	REG_MSG_TO(pServer, &LoginHandler::HandleLCLogin, this, protos::LCLogin, "登陆回应");
+	REG_MSG_TO(pServer, &LoginHandler::HandleLCLogin, this, protos::LCLogin, "游客登陆回应");
+	REG_MSG_TO(pServer, &LoginHandler::HandleLCLoginAccount, this, protos::LCLoginAccount, "账号登陆回应");
 	REG_MSG_TO(pServer, &LoginHandler::HandleLCLoginWeixin, this, protos::LCLoginWeixin, "登陆回应(微信平台)");
 	REG_MSG_TO(pServer, &LoginHandler::HandleLCLoginFacebook, this, protos::LCLoginFacebook, "登陆回应(Facebook平台)");
 
@@ -151,6 +153,64 @@ void LoginHandler::HandleLCLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 		<< " userid=" << pHandleMsg->userid() << " sid=" << nClientSessionID;
 }
 
+void LoginHandler::HandleCLLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta)
+{
+	MSG_CHECK_OF(protos::CLLoginAccount);
+
+	std::string strIP;
+	if (auto conn = From_Client_Session::Me()->GetConnPtr(nSessionID))
+	{
+		std::vector<std::string> vecString;
+		evpp::StringSplit(conn->remote_addr(), ":", 0, vecString);
+		if (vecString.size() > 0)
+		{
+			strIP = vecString[0];
+		}
+	}
+
+	// 限制长度
+	if (pHandleMsg->username().length() > 128)
+	{
+		pHandleMsg->mutable_username()->resize(128);
+	}
+	if (pHandleMsg->password().length() > 128)
+	{
+		pHandleMsg->mutable_password()->resize(128);
+	}
+	if (pHandleMsg->deviceid().length() > 128)
+	{
+		pHandleMsg->mutable_deviceid()->resize(128);
+	}
+	pHandleMsg->set_ip(std::move(strIP));
+	pHandleMsg->set_client_sessionid(nSessionID);
+
+	To_Ls_Session::Me()->Send1(pHandleMsg.get(), To_Ls_Meta());
+
+	LOG(INFO) << "HandleCLLoginAccount/ok sid=" << nSessionID
+		<< " ip=" << pHandleMsg->ip();
+}
+
+void LoginHandler::HandleLCLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta)
+{
+	MSG_CHECK_OF(protos::LCLoginAccount);
+
+	if (pHandleMsg->error() == 0)
+	{
+		if (pHandleMsg->userid() != 0)
+		{
+			LoginLink(pHandleMsg->userid(), pHandleMsg->client_sessionid());
+		}
+	}
+
+	int64_t nClientSessionID = pHandleMsg->client_sessionid();
+	pHandleMsg->set_client_sessionid(0);
+
+	From_Client_Session::Me()->Send(nClientSessionID, pHandleMsg.get());
+
+	LOG(INFO) << "HandleLCLoginAccount/ok error=" << pHandleMsg->error() << " errmsg=" << pHandleMsg->errmsg()
+		<< " userid=" << pHandleMsg->userid() << " sid=" << nClientSessionID;
+}
+
 void LoginHandler::HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta)
 {
 	MSG_CHECK_OF(protos::CLLoginWeixin);
@@ -169,6 +229,7 @@ void LoginHandler::HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionI
 	pHandleMsg->clear_route();
 	pHandleMsg->mutable_route()->set_client_sessionid(nSessionID);
 	pHandleMsg->mutable_route()->set_link_id(LinkServer::Me()->GetID());
+
 	if (pHandleMsg->param().deviceid().empty())
 	{
 		pHandleMsg->mutable_param()->set_deviceid("sessionid:" + std::to_string(nSessionID));
@@ -177,7 +238,13 @@ void LoginHandler::HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionI
 	{
 		pHandleMsg->mutable_param()->mutable_deviceid()->resize(128);
 	}
+
 	pHandleMsg->mutable_param()->set_ip(std::move(strIP));
+
+	if (pHandleMsg->param().js_code().length() > 128)
+	{
+		pHandleMsg->mutable_param()->mutable_js_code()->resize(128);
+	}
 
 	To_Ls_Session::Me()->Send1(pHandleMsg.get(), To_Ls_Meta());
 
@@ -225,6 +292,7 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 	pHandleMsg->clear_route();
 	pHandleMsg->mutable_route()->set_client_sessionid(nSessionID);
 	pHandleMsg->mutable_route()->set_link_id(LinkServer::Me()->GetID());
+
 	if (pHandleMsg->param().deviceid().empty())
 	{
 		pHandleMsg->mutable_param()->set_deviceid("sessionid:" + std::to_string(nSessionID));
@@ -233,7 +301,13 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 	{
 		pHandleMsg->mutable_param()->mutable_deviceid()->resize(128);
 	}
+
 	pHandleMsg->mutable_param()->set_ip(std::move(strIP));
+
+	if (pHandleMsg->param().code().length() > 128)
+	{
+		pHandleMsg->mutable_param()->mutable_code()->resize(128);
+	}
 
 	To_Ls_Session::Me()->Send1(pHandleMsg.get(), To_Ls_Meta());
 

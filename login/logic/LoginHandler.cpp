@@ -69,7 +69,8 @@ void LoginHandler::UpdateLogic()
 
 void LoginHandler::ListenFromLink(ServerWorker* pServer)
 {
-	REG_MSG_TO(pServer, &LoginHandler::HandleCLLogin, this, protos::CLLogin, "登陆请求");
+	REG_MSG_TO(pServer, &LoginHandler::HandleCLLogin, this, protos::CLLogin, "游客登陆请求");
+	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginAccount, this, protos::CLLoginAccount, "账号登陆请求");
 	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginWeixin, this, protos::CLLoginWeixin, "登陆请求(微信平台)");
 	REG_MSG_TO(pServer, &LoginHandler::HandleCLLoginFacebook, this, protos::CLLoginFacebook, "登陆请求(Facebook平台)");
 
@@ -301,6 +302,30 @@ void LoginHandler::HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 {
 	MSG_CHECK_OF(protos::CLLogin);
 
+	if (pHandleMsg->deviceid().empty() == true)
+	{
+		protos::LCLogin send;
+		send.set_error(1); // 设备ID是空的
+		send.set_errmsg("deviceid is empty");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLogin/fail deviceid is empty";
+		return;
+	}
+
+	if (pHandleMsg->deviceid().length() < 16 || pHandleMsg->deviceid().length() > 128)
+	{
+		protos::LCLogin send;
+		send.set_error(2); // 设备ID长度非法
+		send.set_errmsg("deviceid length is illegal");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLogin/fail deviceid length is illegal length=" << pHandleMsg->deviceid().length();
+		return;
+	}
+
 	size_t nHash = std::hash<std::string>()(pHandleMsg->deviceid());
 	WorkDispatcherAsync(nHash).RunInLoop([=]() {
 		go[=]() {
@@ -318,9 +343,8 @@ void LoginHandler::HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 			if (Login(userInfo) == false)
 			{
 				protos::LCLogin send;
-				send.set_error(1); // 重复创建账号,同时收到多个登陆消息
+				send.set_error(11); // 重复创建账号,同时收到多个登陆消息
 				send.set_errmsg("repeat create user");
-				send.set_userid(userInfo.nUserID);
 				send.set_client_sessionid(pHandleMsg->client_sessionid());
 				From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
 
@@ -353,9 +377,148 @@ void LoginHandler::HandleCLLogin(const MessagePtr& pMsg, int64_t nSessionID, con
 	});
 }
 
+void LoginHandler::HandleCLLoginAccount(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta)
+{
+	MSG_CHECK_OF(protos::CLLoginAccount);
+
+	if (pHandleMsg->username().empty() == true)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(1); // 用户名是空的
+		send.set_errmsg("username is empty");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail username is empty";
+		return;
+	}
+
+	if (pHandleMsg->username().length() < 6 || pHandleMsg->username().length() > 64)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(2); // 用户名长度非法
+		send.set_errmsg("username length is illegal");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail username length is illegal length=" << pHandleMsg->username().length();
+		return;
+	}
+
+	if (pHandleMsg->password().empty() == true)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(3); // 密码是空的
+		send.set_errmsg("password is empty");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail password is empty";
+		return;
+	}
+
+	if (pHandleMsg->password().length() < 6 || pHandleMsg->password().length() > 64)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(4); // 密码长度非法
+		send.set_errmsg("password length is illegal");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail password length is illegal length=" << pHandleMsg->password().length();
+		return;
+	}
+
+	if (pHandleMsg->deviceid().empty() == true)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(5); // 设备ID是空的
+		send.set_errmsg("deviceid is empty");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail deviceid is empty";
+		return;
+	}
+
+	if (pHandleMsg->deviceid().length() < 16 || pHandleMsg->deviceid().length() > 128)
+	{
+		protos::LCLoginAccount send;
+		send.set_error(6); // 设备ID长度非法
+		send.set_errmsg("deviceid length is illegal");
+		send.set_client_sessionid(pHandleMsg->client_sessionid());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginAccount/fail deviceid length is illegal length=" << pHandleMsg->deviceid().length();
+		return;
+	}
+
+	size_t nHash = std::hash<std::string>()(pHandleMsg->username());
+	WorkDispatcherAsync(nHash).RunInLoop([=]() {
+		go[=]() {
+
+			// 账号登陆
+			std::string strAccount = pHandleMsg->username() + "@" + "username";
+
+			UserInfo userInfo;
+			userInfo.nUserID = 0;
+			userInfo.strAccount = strAccount;
+			userInfo.strDeviceID = pHandleMsg->deviceid();
+			userInfo.strIP = pHandleMsg->ip();
+			userInfo.strOpenID = "username-" + pHandleMsg->username();
+
+			if (Login(userInfo) == false)
+			{
+				protos::LCLoginAccount send;
+				send.set_error(11); // 重复创建账号,同时收到多个登陆消息
+				send.set_errmsg("repeat create user");
+				send.set_client_sessionid(pHandleMsg->client_sessionid());
+				From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+				LOG(WARNING) << "HandleCLLoginAccount/fail account=" << strAccount << " repeat create user";
+				return;
+			}
+
+			int64_t nUserID = userInfo.nUserID;
+
+			// 生成登陆Key
+			std::string strLoginKey = GenSN::T20() + std::to_string(nUserID % 10000);
+
+			protos::LCLoginAccount send;
+			send.set_userid(nUserID);
+			send.set_client_sessionid(pHandleMsg->client_sessionid());
+			send.set_login_key(strLoginKey);
+			send.set_user_token(userInfo.strToken);
+			From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+			LOG(INFO) << "HandleCLLoginAccount/ok userid=" << nUserID
+				<< " ip=" << pHandleMsg->ip();
+
+			// 转到主线程
+			WorkDispatcherSync().RunInLoop([=]() {
+
+				std::string strOpenID = std::to_string(nUserID) + "@" + "username";
+				LinkUser(nUserID, nSessionID, strOpenID, strLoginKey, strLoginKey);
+			});
+		};
+	});
+}
+
 void LoginHandler::HandleCLLoginWeixin(const MessagePtr& pMsg, int64_t nSessionID, const MessageMetaPtr& pMeta)
 {
 	MSG_CHECK_OF(protos::CLLoginWeixin);
+
+	if (pHandleMsg->param().js_code().empty() == true)
+	{
+		protos::LCLoginWeixin send;
+		send.set_error(1); // js_code是空的
+		send.set_errmsg("js_code is empty");
+		send.set_allocated_route(pHandleMsg->release_route());
+		From_Link_Session::Me()->Send(nSessionID, &send, *pMeta);
+
+		LOG(WARNING) << "HandleCLLoginWeixin/fail js_code is empty";
+		return;
+	}
 
 	protos::L2SDKLoginWeixin send;
 	send.set_allocated_route(pHandleMsg->release_route());
@@ -402,10 +565,9 @@ void LoginHandler::HandleSDK2LLoginWeixin(const MessagePtr& pMsg, int64_t nSessi
 			if (Login(userInfo) == false)
 			{
 				protos::LCLoginWeixin send;
-				send.set_error(1); // 重复创建账号
+				send.set_error(11); // 重复创建账号
 				send.set_errmsg("repeat create user");
 				send.set_allocated_route(pHandleMsg->release_route());
-				send.set_userid(userInfo.nUserID);
 				From_Link_Session::Me()->Send(pHandleMsg->link_sessionid(), &send, From_Link_Meta());
 
 				LOG(WARNING) << "HandleSDK2LLoginWeixin/fail account=" << strAccount << " repeat create user";
@@ -445,7 +607,19 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 {
 	MSG_CHECK_OF(protos::CLLoginFacebook);
 
-	size_t nHash = std::hash<std::string>()(pHandleMsg->param().deviceid());
+	if (pHandleMsg->param().code().empty() == true)
+	{
+		protos::LCLoginFacebook send;
+		send.set_error(1); // code是空的
+		send.set_errmsg("code is empty");
+		send.set_allocated_route(pHandleMsg->release_route());
+		From_Link_Session::Me()->Send(nSessionID, &send, From_Link_Meta());
+
+		LOG(WARNING) << "HandleCLLoginFacebook/fail code is empty";
+		return;
+	}
+
+	size_t nHash = std::hash<std::string>()(pHandleMsg->param().code());
 	WorkDispatcherAsync(nHash).RunInLoop([=]() {
 		go[=]() {
 
@@ -462,10 +636,9 @@ void LoginHandler::HandleCLLoginFacebook(const MessagePtr& pMsg, int64_t nSessio
 			if (Login(userInfo) == false)
 			{
 				protos::LCLoginFacebook send;
-				send.set_error(1); // 重复创建账号
+				send.set_error(11); // 重复创建账号
 				send.set_errmsg("repeat create user");
 				send.set_allocated_route(pHandleMsg->release_route());
-				send.set_userid(userInfo.nUserID);
 				From_Link_Session::Me()->Send(nSessionID, &send, From_Link_Meta());
 
 				LOG(WARNING) << "HandleCLLoginFacebook/fail account=" << strAccount << " repeat create user";

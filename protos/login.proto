@@ -2,15 +2,34 @@ syntax = "proto3";
 
 package protos;
 
-// 登陆请求
+// 游客登陆请求
 message CLLogin {
 	string deviceid = 1; // 设备id
 	string ip = 2; // ip地址
 	int64 client_sessionid = 3; // 客户端在网关上的SessionID
 }
 
-// 登陆回应
+// 游客登陆回应
 message LCLogin {
+	int32 error = 1; // 0:成功,非0时失败
+	string errmsg = 2; // 错误信息
+	int64 userid = 3; // userid
+	int64 client_sessionid = 4; // 客户端在网关上的SessionID
+	string login_key = 5; // 登陆密钥
+	string user_token = 6; // 登陆游戏token
+}
+
+// 账号登陆请求
+message CLLoginAccount {
+	string username = 1; // 用户名
+	string password = 2; // 密码
+	string deviceid = 3; // 设备id
+	string ip = 4; // ip地址
+	int64 client_sessionid = 5; // 客户端在网关上的SessionID
+}
+
+// 账号登陆回应
+message LCLoginAccount {
 	int32 error = 1; // 0:成功,非0时失败
 	string errmsg = 2; // 错误信息
 	int64 userid = 3; // userid

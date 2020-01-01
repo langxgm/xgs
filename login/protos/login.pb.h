@@ -42,7 +42,7 @@ struct TableStruct_login_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[6]
+  static const ::google::protobuf::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -53,12 +53,18 @@ namespace protos {
 class CLLogin;
 class CLLoginDefaultTypeInternal;
 extern CLLoginDefaultTypeInternal _CLLogin_default_instance_;
+class CLLoginAccount;
+class CLLoginAccountDefaultTypeInternal;
+extern CLLoginAccountDefaultTypeInternal _CLLoginAccount_default_instance_;
 class CLServerList;
 class CLServerListDefaultTypeInternal;
 extern CLServerListDefaultTypeInternal _CLServerList_default_instance_;
 class LCLogin;
 class LCLoginDefaultTypeInternal;
 extern LCLoginDefaultTypeInternal _LCLogin_default_instance_;
+class LCLoginAccount;
+class LCLoginAccountDefaultTypeInternal;
+extern LCLoginAccountDefaultTypeInternal _LCLoginAccount_default_instance_;
 class LCServerList;
 class LCServerListDefaultTypeInternal;
 extern LCServerListDefaultTypeInternal _LCServerList_default_instance_;
@@ -72,8 +78,10 @@ extern LCServerList_ServerInfoDefaultTypeInternal _LCServerList_ServerInfo_defau
 namespace google {
 namespace protobuf {
 template<> ::protos::CLLogin* Arena::CreateMaybeMessage<::protos::CLLogin>(Arena*);
+template<> ::protos::CLLoginAccount* Arena::CreateMaybeMessage<::protos::CLLoginAccount>(Arena*);
 template<> ::protos::CLServerList* Arena::CreateMaybeMessage<::protos::CLServerList>(Arena*);
 template<> ::protos::LCLogin* Arena::CreateMaybeMessage<::protos::LCLogin>(Arena*);
+template<> ::protos::LCLoginAccount* Arena::CreateMaybeMessage<::protos::LCLoginAccount>(Arena*);
 template<> ::protos::LCServerList* Arena::CreateMaybeMessage<::protos::LCServerList>(Arena*);
 template<> ::protos::LCServerList_PlayerInfo* Arena::CreateMaybeMessage<::protos::LCServerList_PlayerInfo>(Arena*);
 template<> ::protos::LCServerList_ServerInfo* Arena::CreateMaybeMessage<::protos::LCServerList_ServerInfo>(Arena*);
@@ -417,6 +425,349 @@ class LCLogin :
 };
 // -------------------------------------------------------------------
 
+class CLLoginAccount :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protos.CLLoginAccount) */ {
+ public:
+  CLLoginAccount();
+  virtual ~CLLoginAccount();
+
+  CLLoginAccount(const CLLoginAccount& from);
+
+  inline CLLoginAccount& operator=(const CLLoginAccount& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  CLLoginAccount(CLLoginAccount&& from) noexcept
+    : CLLoginAccount() {
+    *this = ::std::move(from);
+  }
+
+  inline CLLoginAccount& operator=(CLLoginAccount&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const CLLoginAccount& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CLLoginAccount* internal_default_instance() {
+    return reinterpret_cast<const CLLoginAccount*>(
+               &_CLLoginAccount_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(CLLoginAccount* other);
+  friend void swap(CLLoginAccount& a, CLLoginAccount& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CLLoginAccount* New() const final {
+    return CreateMaybeMessage<CLLoginAccount>(nullptr);
+  }
+
+  CLLoginAccount* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CLLoginAccount>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const CLLoginAccount& from);
+  void MergeFrom(const CLLoginAccount& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CLLoginAccount* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string username = 1;
+  void clear_username();
+  static const int kUsernameFieldNumber = 1;
+  const ::std::string& username() const;
+  void set_username(const ::std::string& value);
+  #if LANG_CXX11
+  void set_username(::std::string&& value);
+  #endif
+  void set_username(const char* value);
+  void set_username(const char* value, size_t size);
+  ::std::string* mutable_username();
+  ::std::string* release_username();
+  void set_allocated_username(::std::string* username);
+
+  // string password = 2;
+  void clear_password();
+  static const int kPasswordFieldNumber = 2;
+  const ::std::string& password() const;
+  void set_password(const ::std::string& value);
+  #if LANG_CXX11
+  void set_password(::std::string&& value);
+  #endif
+  void set_password(const char* value);
+  void set_password(const char* value, size_t size);
+  ::std::string* mutable_password();
+  ::std::string* release_password();
+  void set_allocated_password(::std::string* password);
+
+  // string deviceid = 3;
+  void clear_deviceid();
+  static const int kDeviceidFieldNumber = 3;
+  const ::std::string& deviceid() const;
+  void set_deviceid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_deviceid(::std::string&& value);
+  #endif
+  void set_deviceid(const char* value);
+  void set_deviceid(const char* value, size_t size);
+  ::std::string* mutable_deviceid();
+  ::std::string* release_deviceid();
+  void set_allocated_deviceid(::std::string* deviceid);
+
+  // string ip = 4;
+  void clear_ip();
+  static const int kIpFieldNumber = 4;
+  const ::std::string& ip() const;
+  void set_ip(const ::std::string& value);
+  #if LANG_CXX11
+  void set_ip(::std::string&& value);
+  #endif
+  void set_ip(const char* value);
+  void set_ip(const char* value, size_t size);
+  ::std::string* mutable_ip();
+  ::std::string* release_ip();
+  void set_allocated_ip(::std::string* ip);
+
+  // int64 client_sessionid = 5;
+  void clear_client_sessionid();
+  static const int kClientSessionidFieldNumber = 5;
+  ::google::protobuf::int64 client_sessionid() const;
+  void set_client_sessionid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:protos.CLLoginAccount)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr username_;
+  ::google::protobuf::internal::ArenaStringPtr password_;
+  ::google::protobuf::internal::ArenaStringPtr deviceid_;
+  ::google::protobuf::internal::ArenaStringPtr ip_;
+  ::google::protobuf::int64 client_sessionid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_login_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LCLoginAccount :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protos.LCLoginAccount) */ {
+ public:
+  LCLoginAccount();
+  virtual ~LCLoginAccount();
+
+  LCLoginAccount(const LCLoginAccount& from);
+
+  inline LCLoginAccount& operator=(const LCLoginAccount& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LCLoginAccount(LCLoginAccount&& from) noexcept
+    : LCLoginAccount() {
+    *this = ::std::move(from);
+  }
+
+  inline LCLoginAccount& operator=(LCLoginAccount&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const LCLoginAccount& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LCLoginAccount* internal_default_instance() {
+    return reinterpret_cast<const LCLoginAccount*>(
+               &_LCLoginAccount_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  void Swap(LCLoginAccount* other);
+  friend void swap(LCLoginAccount& a, LCLoginAccount& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LCLoginAccount* New() const final {
+    return CreateMaybeMessage<LCLoginAccount>(nullptr);
+  }
+
+  LCLoginAccount* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<LCLoginAccount>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const LCLoginAccount& from);
+  void MergeFrom(const LCLoginAccount& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LCLoginAccount* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string errmsg = 2;
+  void clear_errmsg();
+  static const int kErrmsgFieldNumber = 2;
+  const ::std::string& errmsg() const;
+  void set_errmsg(const ::std::string& value);
+  #if LANG_CXX11
+  void set_errmsg(::std::string&& value);
+  #endif
+  void set_errmsg(const char* value);
+  void set_errmsg(const char* value, size_t size);
+  ::std::string* mutable_errmsg();
+  ::std::string* release_errmsg();
+  void set_allocated_errmsg(::std::string* errmsg);
+
+  // string login_key = 5;
+  void clear_login_key();
+  static const int kLoginKeyFieldNumber = 5;
+  const ::std::string& login_key() const;
+  void set_login_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_login_key(::std::string&& value);
+  #endif
+  void set_login_key(const char* value);
+  void set_login_key(const char* value, size_t size);
+  ::std::string* mutable_login_key();
+  ::std::string* release_login_key();
+  void set_allocated_login_key(::std::string* login_key);
+
+  // string user_token = 6;
+  void clear_user_token();
+  static const int kUserTokenFieldNumber = 6;
+  const ::std::string& user_token() const;
+  void set_user_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_token(::std::string&& value);
+  #endif
+  void set_user_token(const char* value);
+  void set_user_token(const char* value, size_t size);
+  ::std::string* mutable_user_token();
+  ::std::string* release_user_token();
+  void set_allocated_user_token(::std::string* user_token);
+
+  // int64 userid = 3;
+  void clear_userid();
+  static const int kUseridFieldNumber = 3;
+  ::google::protobuf::int64 userid() const;
+  void set_userid(::google::protobuf::int64 value);
+
+  // int64 client_sessionid = 4;
+  void clear_client_sessionid();
+  static const int kClientSessionidFieldNumber = 4;
+  ::google::protobuf::int64 client_sessionid() const;
+  void set_client_sessionid(::google::protobuf::int64 value);
+
+  // int32 error = 1;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::google::protobuf::int32 error() const;
+  void set_error(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:protos.LCLoginAccount)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr errmsg_;
+  ::google::protobuf::internal::ArenaStringPtr login_key_;
+  ::google::protobuf::internal::ArenaStringPtr user_token_;
+  ::google::protobuf::int64 userid_;
+  ::google::protobuf::int64 client_sessionid_;
+  ::google::protobuf::int32 error_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_login_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CLServerList :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protos.CLServerList) */ {
  public:
@@ -455,7 +806,7 @@ class CLServerList :
                &_CLServerList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   void Swap(CLServerList* other);
   friend void swap(CLServerList& a, CLServerList& b) {
@@ -560,7 +911,7 @@ class LCServerList_PlayerInfo :
                &_LCServerList_PlayerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   void Swap(LCServerList_PlayerInfo* other);
   friend void swap(LCServerList_PlayerInfo& a, LCServerList_PlayerInfo& b) {
@@ -701,7 +1052,7 @@ class LCServerList_ServerInfo :
                &_LCServerList_ServerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   void Swap(LCServerList_ServerInfo* other);
   friend void swap(LCServerList_ServerInfo& a, LCServerList_ServerInfo& b) {
@@ -860,7 +1211,7 @@ class LCServerList :
                &_LCServerList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   void Swap(LCServerList* other);
   friend void swap(LCServerList& a, LCServerList& b) {
@@ -1327,6 +1678,441 @@ inline void LCLogin::set_allocated_user_token(::std::string* user_token) {
 
 // -------------------------------------------------------------------
 
+// CLLoginAccount
+
+// string username = 1;
+inline void CLLoginAccount::clear_username() {
+  username_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CLLoginAccount::username() const {
+  // @@protoc_insertion_point(field_get:protos.CLLoginAccount.username)
+  return username_.GetNoArena();
+}
+inline void CLLoginAccount::set_username(const ::std::string& value) {
+  
+  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.CLLoginAccount.username)
+}
+#if LANG_CXX11
+inline void CLLoginAccount::set_username(::std::string&& value) {
+  
+  username_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.CLLoginAccount.username)
+}
+#endif
+inline void CLLoginAccount::set_username(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.CLLoginAccount.username)
+}
+inline void CLLoginAccount::set_username(const char* value, size_t size) {
+  
+  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.CLLoginAccount.username)
+}
+inline ::std::string* CLLoginAccount::mutable_username() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.CLLoginAccount.username)
+  return username_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CLLoginAccount::release_username() {
+  // @@protoc_insertion_point(field_release:protos.CLLoginAccount.username)
+  
+  return username_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CLLoginAccount::set_allocated_username(::std::string* username) {
+  if (username != nullptr) {
+    
+  } else {
+    
+  }
+  username_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), username);
+  // @@protoc_insertion_point(field_set_allocated:protos.CLLoginAccount.username)
+}
+
+// string password = 2;
+inline void CLLoginAccount::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CLLoginAccount::password() const {
+  // @@protoc_insertion_point(field_get:protos.CLLoginAccount.password)
+  return password_.GetNoArena();
+}
+inline void CLLoginAccount::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.CLLoginAccount.password)
+}
+#if LANG_CXX11
+inline void CLLoginAccount::set_password(::std::string&& value) {
+  
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.CLLoginAccount.password)
+}
+#endif
+inline void CLLoginAccount::set_password(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.CLLoginAccount.password)
+}
+inline void CLLoginAccount::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.CLLoginAccount.password)
+}
+inline ::std::string* CLLoginAccount::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.CLLoginAccount.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CLLoginAccount::release_password() {
+  // @@protoc_insertion_point(field_release:protos.CLLoginAccount.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CLLoginAccount::set_allocated_password(::std::string* password) {
+  if (password != nullptr) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:protos.CLLoginAccount.password)
+}
+
+// string deviceid = 3;
+inline void CLLoginAccount::clear_deviceid() {
+  deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CLLoginAccount::deviceid() const {
+  // @@protoc_insertion_point(field_get:protos.CLLoginAccount.deviceid)
+  return deviceid_.GetNoArena();
+}
+inline void CLLoginAccount::set_deviceid(const ::std::string& value) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.CLLoginAccount.deviceid)
+}
+#if LANG_CXX11
+inline void CLLoginAccount::set_deviceid(::std::string&& value) {
+  
+  deviceid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.CLLoginAccount.deviceid)
+}
+#endif
+inline void CLLoginAccount::set_deviceid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.CLLoginAccount.deviceid)
+}
+inline void CLLoginAccount::set_deviceid(const char* value, size_t size) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.CLLoginAccount.deviceid)
+}
+inline ::std::string* CLLoginAccount::mutable_deviceid() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.CLLoginAccount.deviceid)
+  return deviceid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CLLoginAccount::release_deviceid() {
+  // @@protoc_insertion_point(field_release:protos.CLLoginAccount.deviceid)
+  
+  return deviceid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CLLoginAccount::set_allocated_deviceid(::std::string* deviceid) {
+  if (deviceid != nullptr) {
+    
+  } else {
+    
+  }
+  deviceid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deviceid);
+  // @@protoc_insertion_point(field_set_allocated:protos.CLLoginAccount.deviceid)
+}
+
+// string ip = 4;
+inline void CLLoginAccount::clear_ip() {
+  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CLLoginAccount::ip() const {
+  // @@protoc_insertion_point(field_get:protos.CLLoginAccount.ip)
+  return ip_.GetNoArena();
+}
+inline void CLLoginAccount::set_ip(const ::std::string& value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.CLLoginAccount.ip)
+}
+#if LANG_CXX11
+inline void CLLoginAccount::set_ip(::std::string&& value) {
+  
+  ip_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.CLLoginAccount.ip)
+}
+#endif
+inline void CLLoginAccount::set_ip(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.CLLoginAccount.ip)
+}
+inline void CLLoginAccount::set_ip(const char* value, size_t size) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.CLLoginAccount.ip)
+}
+inline ::std::string* CLLoginAccount::mutable_ip() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.CLLoginAccount.ip)
+  return ip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CLLoginAccount::release_ip() {
+  // @@protoc_insertion_point(field_release:protos.CLLoginAccount.ip)
+  
+  return ip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CLLoginAccount::set_allocated_ip(::std::string* ip) {
+  if (ip != nullptr) {
+    
+  } else {
+    
+  }
+  ip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ip);
+  // @@protoc_insertion_point(field_set_allocated:protos.CLLoginAccount.ip)
+}
+
+// int64 client_sessionid = 5;
+inline void CLLoginAccount::clear_client_sessionid() {
+  client_sessionid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 CLLoginAccount::client_sessionid() const {
+  // @@protoc_insertion_point(field_get:protos.CLLoginAccount.client_sessionid)
+  return client_sessionid_;
+}
+inline void CLLoginAccount::set_client_sessionid(::google::protobuf::int64 value) {
+  
+  client_sessionid_ = value;
+  // @@protoc_insertion_point(field_set:protos.CLLoginAccount.client_sessionid)
+}
+
+// -------------------------------------------------------------------
+
+// LCLoginAccount
+
+// int32 error = 1;
+inline void LCLoginAccount::clear_error() {
+  error_ = 0;
+}
+inline ::google::protobuf::int32 LCLoginAccount::error() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.error)
+  return error_;
+}
+inline void LCLoginAccount::set_error(::google::protobuf::int32 value) {
+  
+  error_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.error)
+}
+
+// string errmsg = 2;
+inline void LCLoginAccount::clear_errmsg() {
+  errmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLoginAccount::errmsg() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.errmsg)
+  return errmsg_.GetNoArena();
+}
+inline void LCLoginAccount::set_errmsg(const ::std::string& value) {
+  
+  errmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.errmsg)
+}
+#if LANG_CXX11
+inline void LCLoginAccount::set_errmsg(::std::string&& value) {
+  
+  errmsg_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLoginAccount.errmsg)
+}
+#endif
+inline void LCLoginAccount::set_errmsg(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  errmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLoginAccount.errmsg)
+}
+inline void LCLoginAccount::set_errmsg(const char* value, size_t size) {
+  
+  errmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLoginAccount.errmsg)
+}
+inline ::std::string* LCLoginAccount::mutable_errmsg() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLoginAccount.errmsg)
+  return errmsg_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLoginAccount::release_errmsg() {
+  // @@protoc_insertion_point(field_release:protos.LCLoginAccount.errmsg)
+  
+  return errmsg_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLoginAccount::set_allocated_errmsg(::std::string* errmsg) {
+  if (errmsg != nullptr) {
+    
+  } else {
+    
+  }
+  errmsg_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), errmsg);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLoginAccount.errmsg)
+}
+
+// int64 userid = 3;
+inline void LCLoginAccount::clear_userid() {
+  userid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LCLoginAccount::userid() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.userid)
+  return userid_;
+}
+inline void LCLoginAccount::set_userid(::google::protobuf::int64 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.userid)
+}
+
+// int64 client_sessionid = 4;
+inline void LCLoginAccount::clear_client_sessionid() {
+  client_sessionid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LCLoginAccount::client_sessionid() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.client_sessionid)
+  return client_sessionid_;
+}
+inline void LCLoginAccount::set_client_sessionid(::google::protobuf::int64 value) {
+  
+  client_sessionid_ = value;
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.client_sessionid)
+}
+
+// string login_key = 5;
+inline void LCLoginAccount::clear_login_key() {
+  login_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLoginAccount::login_key() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.login_key)
+  return login_key_.GetNoArena();
+}
+inline void LCLoginAccount::set_login_key(const ::std::string& value) {
+  
+  login_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.login_key)
+}
+#if LANG_CXX11
+inline void LCLoginAccount::set_login_key(::std::string&& value) {
+  
+  login_key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLoginAccount.login_key)
+}
+#endif
+inline void LCLoginAccount::set_login_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  login_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLoginAccount.login_key)
+}
+inline void LCLoginAccount::set_login_key(const char* value, size_t size) {
+  
+  login_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLoginAccount.login_key)
+}
+inline ::std::string* LCLoginAccount::mutable_login_key() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLoginAccount.login_key)
+  return login_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLoginAccount::release_login_key() {
+  // @@protoc_insertion_point(field_release:protos.LCLoginAccount.login_key)
+  
+  return login_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLoginAccount::set_allocated_login_key(::std::string* login_key) {
+  if (login_key != nullptr) {
+    
+  } else {
+    
+  }
+  login_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_key);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLoginAccount.login_key)
+}
+
+// string user_token = 6;
+inline void LCLoginAccount::clear_user_token() {
+  user_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LCLoginAccount::user_token() const {
+  // @@protoc_insertion_point(field_get:protos.LCLoginAccount.user_token)
+  return user_token_.GetNoArena();
+}
+inline void LCLoginAccount::set_user_token(const ::std::string& value) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protos.LCLoginAccount.user_token)
+}
+#if LANG_CXX11
+inline void LCLoginAccount::set_user_token(::std::string&& value) {
+  
+  user_token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protos.LCLoginAccount.user_token)
+}
+#endif
+inline void LCLoginAccount::set_user_token(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protos.LCLoginAccount.user_token)
+}
+inline void LCLoginAccount::set_user_token(const char* value, size_t size) {
+  
+  user_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protos.LCLoginAccount.user_token)
+}
+inline ::std::string* LCLoginAccount::mutable_user_token() {
+  
+  // @@protoc_insertion_point(field_mutable:protos.LCLoginAccount.user_token)
+  return user_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LCLoginAccount::release_user_token() {
+  // @@protoc_insertion_point(field_release:protos.LCLoginAccount.user_token)
+  
+  return user_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LCLoginAccount::set_allocated_user_token(::std::string* user_token) {
+  if (user_token != nullptr) {
+    
+  } else {
+    
+  }
+  user_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_token);
+  // @@protoc_insertion_point(field_set_allocated:protos.LCLoginAccount.user_token)
+}
+
+// -------------------------------------------------------------------
+
 // CLServerList
 
 // -------------------------------------------------------------------
@@ -1721,6 +2507,10 @@ LCServerList::server_list() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
