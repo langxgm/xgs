@@ -45,6 +45,8 @@ namespace dbcache
 
 	void t_server_cache::InitDataFromDatabase(const std::string& strDBName)
 	{
+		LOG(INFO) << "server list load start";
+
 		dbcache::t_server_cache::Me()->RemoveAll();
 
 		bsoncxx::builder::stream::document filterBuilder;
@@ -96,8 +98,12 @@ namespace dbcache
 				dbcache::t_server_cache::Me()->AddServer(ServerType::ClientRes, info);
 			}
 
-			LOG(WARNING) << "server info " << bsoncxx::to_json(doc);
+			LOG(INFO) << "server info " << bsoncxx::to_json(doc);
 		}
+
+		LOG(INFO) << "game server size=" << dbcache::t_server_cache::Me()->GetServerNum(ServerType::Game);
+
+		LOG(INFO) << "server list load finish";
 	}
 
 	bool t_server_cache::AddServer(ServerType nType, const ServerInfo& info)

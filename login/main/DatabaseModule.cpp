@@ -4,6 +4,8 @@
 #include "login/config/SystemConfig.h"
 #include "login/pbconfig/login.conf.pb.h"
 
+#include "xbase/TimeUtil.h"
+#include "xbase/TimeChecker.h"
 #include "xshare/work/LogicManager.h"
 #include "xdb/DBHandler.h"
 #include "xdb/mongo/MongoClient.h"
@@ -63,5 +65,17 @@ void DatabaseModule::Exit()
 
 void DatabaseModule::RunOnce()
 {
+	int64_t nNow = TimeUtil::GetCurrentTimeMillis();
 
+	static TimeChecker timer;
+
+	// update server list
+	if (timer.IsStart() == false)
+	{
+		timer.Start(nNow, 300 * 1000);
+	}
+	if (timer.IsTimeout(nNow))
+	{
+		dbcache::t_server_cache::InitDataFromDatabase("homedb");
+	}
 }
