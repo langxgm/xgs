@@ -22,3 +22,21 @@
 	assert(pHandleMsg && #fullname);\
 	if (!pHandleMsg)\
 		return
+
+// 消息转换并检测Player
+#define MSG_PLAYER_CHECK_OF(ns, name) MSG_CHECK_OF(ns::name); \
+	auto pPlayer = PlayerManager::Me()->GetPlayerBySessionID(nSessionID);\
+	if (!pPlayer)\
+	{\
+		VLOG(0) << "Handle"#name"/fail sid=" << nSessionID << " not logged in";\
+		return; /*没登录*/\
+	}
+
+// 消息转换并检测Player
+#define MSG_GC_PLAYER_CHECK_OF(ns, name) MSG_CHECK_OF(ns::name); \
+	auto pPlayer = PlayerManager::Me()->GetPlayer(pMeta->GetGUID());\
+	if (!pPlayer)\
+	{\
+		VLOG(0) << "Handle"#name"/fail guid=" << pMeta->GetGUID() << " not logged in";\
+		return; /*没登录*/\
+	}
