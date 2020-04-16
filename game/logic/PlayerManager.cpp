@@ -102,6 +102,11 @@ PlayerPtr PlayerManager::GetPlayerByLoginKey(const std::string& strLoginKey)
 	return m_pPlayerMapping->GetPlayerByLoginKey(strLoginKey);
 }
 
+std::map<int64_t, PlayerPtr>& PlayerManager::GetPlayers()
+{
+	return m_pPlayerMapping->GetPlayers();
+}
+
 void PlayerManager::ModifyMapping(const PlayerPtr& pPlayer, const std::string& strLoginKey)
 {
 	m_pPlayerMapping->DelPlayer(pPlayer->GetPlayerGUID());
