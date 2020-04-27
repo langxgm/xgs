@@ -231,7 +231,7 @@ void To_Gs_Session::HandleLoginAuthResult(const MessagePtr& pMsg, int64_t nSessi
 	if (pHandleMsg->error() != 0)
 	{
 		LOG(ERROR) << "network: to game server auth result error=" << pHandleMsg->error()
-			<< " errmsg" << pHandleMsg->errmsg();
+			<< " errmsg=" << pHandleMsg->errmsg();
 	}
 	else
 	{

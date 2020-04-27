@@ -97,7 +97,7 @@
 	if (pHandleMsg->error() != 0)\
 	{\
 		LOG(ERROR) << "network: to server auth result error=" << pHandleMsg->error()\
-			<< " errmsg" << pHandleMsg->errmsg();\
+			<< " errmsg=" << pHandleMsg->errmsg();\
 	}\
 	else\
 	{\
