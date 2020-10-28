@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------
 #pragma once
 
-#include "xgame/gameplayer/GamePlayerFactory.h"
+#include "xgame/player/GamePlayerFactory.h"
 
 class Player;
 

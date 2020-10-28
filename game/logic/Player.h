@@ -10,7 +10,7 @@
 
 #include "common/net/NetHeartbeat.h"
 
-#include "xgame/gameplayer/GamePlayer.h"
+#include "xgame/player/GamePlayer.h"
 
 #include <string>
 #include <memory>
